@@ -1,0 +1,25 @@
+{
+  "name": "my-site-taraswww777",
+  "version": "1.0.0",
+  "description": "## Information",
+  "main": "index.js",
+  "scripts": {
+    "docker:run": "docker-compose up -d",
+    "docker:restart": "npm run docker:rm && npm run docker:run",
+    "docker:status": "docker stats",
+    "docker:rm:wordpress": "docker-compose rm wordpress",
+    "docker:rm:phphmyadmin": "docker-compose rm phpmyadmin",
+    "docker:rm:db": "docker-compose rm db"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taraswww777/my-site-taraswww777.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/taraswww777/my-site-taraswww777/issues"
+  },
+  "homepage": "https://github.com/taraswww777/my-site-taraswww777#readme"
+}
