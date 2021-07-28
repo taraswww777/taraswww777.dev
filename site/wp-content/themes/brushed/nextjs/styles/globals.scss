@@ -1,0 +1,13 @@
+@import './constants/colors';
+@import './constants/constants';
+@import '~@fontsource/titillium-web/scss/mixins';
+@import '~foundation-sites/scss/foundation';
+
+@include foundation-normalize;
+
+@include fontFace;
+
+html, body {
+  font-family: $MAIN_FONT_NAME, sans-serif;
+  background: $PRIMARY_DARK;
+}
