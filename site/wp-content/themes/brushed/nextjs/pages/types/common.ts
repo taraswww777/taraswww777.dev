@@ -1,8 +1,5 @@
-import {ReactElement} from 'react';
+import {ReactNode} from 'react';
 
 export type ComponentProps = {
-    children:
-        Array<ReactElement<any, any>> |
-        ReactElement<any, any> |
-        Node | string
+    children?: ReactNode
 };

@@ -3,6 +3,7 @@ import Image from 'next/image'
 import React from 'react';
 import styles from '../styles/Home.module.scss'
 import {SubTitle, Title, TitleContainer} from './components/titles';
+import {Accordion, Toggle} from './components/accordion';
 
 export default function Home() {
     return (
@@ -14,10 +15,46 @@ export default function Home() {
             </Head>
 
             <main className={styles.main}>
-                <TitleContainer>
-                    <Title>Shortcodes</Title>
-                    <SubTitle>Useful and Indispensable.</SubTitle>
-                </TitleContainer>
+                <div className={styles.title}>
+                    <TitleContainer>
+                        <Title>Shortcodes</Title>
+                        <SubTitle>Useful and Indispensable.</SubTitle>
+                    </TitleContainer>
+                </div>
+                <div className={styles.accordion}>
+                    <Accordion
+                        title={'Accordion'}
+                        items={[
+                            {title: 'title 1', content: 'text item 1',},
+                            {title: 'title 2', content: 'text item 2',},
+                            {
+                                title: 'title 3',
+                                content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, expedita!',
+                            },
+                            {
+                                title: 'title 4',
+                                content: 'Top_level_declarations_in_d_ts_files_must_start_with_either_a_declare_or_export_modifier_1046'
+                            },
+                        ]}
+                    />
+                </div>
+                <div className={styles.toggle}>
+                    <Toggle
+                        title={'Toggle'}
+                        items={[
+                            {title: 'title 1', content: 'text item 1',},
+                            {title: 'title 2', content: 'text item 2',},
+                            {
+                                title: 'title 3',
+                                content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, expedita!',
+                            },
+                            {
+                                title: 'title 4',
+                                content: 'Top_level_declarations_in_d_ts_files_must_start_with_either_a_declare_or_export_modifier_1046'
+                            },
+                        ]}
+                    />
+                </div>
             </main>
 
             <footer className={styles.footer}>
