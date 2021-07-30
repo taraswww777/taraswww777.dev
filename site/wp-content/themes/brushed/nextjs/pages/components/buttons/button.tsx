@@ -10,21 +10,21 @@ export enum ButtonTypes {
 }
 
 export const Button = ({
-    type = ButtonTypes.medium,
-    onClick,
-    title = '',
-    children
+  type = ButtonTypes.medium,
+  onClick,
+  title = '',
+  children
 }: ComponentProps & {
     type?: ButtonTypes
     title?: string,
     onClick: MouseEventHandler
 }) => (
-    <button
-        onClick={onClick}
-        title={title}
-        className={[
-            styles.btn,
-            styles[`btn--${type}`]
-        ].join(' ')}
-    >{children || title}</button>
+  <button
+    onClick={onClick}
+    title={title}
+    className={[
+      styles.btn,
+      styles[`btn--${type}`]
+    ].join(' ')}
+  >{children || title}</button>
 );

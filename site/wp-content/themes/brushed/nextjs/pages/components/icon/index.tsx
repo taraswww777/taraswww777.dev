@@ -8,5 +8,5 @@ export type IconProps = ComponentProps & {
 }
 
 export const Icon = ({icon}: IconProps) => (
-    <span className={[styles[icon], styles.icon].join(' ')} />
+  <span className={[styles[icon], styles.icon].join(' ')} />
 );

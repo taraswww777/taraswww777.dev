@@ -9,22 +9,22 @@ export enum ButtonTypes {
 }
 
 export const ButtonLink = ({
-    type = ButtonTypes.medium,
-    href,
-    title = '',
-    children
+  type = ButtonTypes.medium,
+  href,
+  title = '',
+  children
 }: ComponentProps & {
     type?: ButtonTypes
     title?: string,
     href: string
 }) => (
-    <a
-        href={href}
-        title={title}
-        className={[
-            styles.btn,
-            styles.btn__link,
-            styles[`btn--${type}`]
-        ].join(' ')}
-    >{children || title}</a>
+  <a
+    href={href}
+    title={title}
+    className={[
+      styles.btn,
+      styles.btn__link,
+      styles[`btn--${type}`]
+    ].join(' ')}
+  >{children || title}</a>
 );
