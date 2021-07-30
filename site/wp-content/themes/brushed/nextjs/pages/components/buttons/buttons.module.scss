@@ -1,0 +1,62 @@
+@import "~foundation-sites/scss/foundation";
+@import '../../../styles/constants/colors';
+
+@mixin btnMini() {
+  padding: 4px 12px;
+  font-size: 12px;
+}
+
+@mixin btnSmall() {
+  padding: 8px 18px;
+  font-size: 14px;
+}
+
+@mixin btnMedium() {
+  padding: 13px 26px;
+  font-size: 16px;
+}
+
+@mixin btnLarge() {
+  padding: 16px 30px;
+  font-size: 18px;
+}
+
+.btn {
+  @include button-base();
+  @include btnMedium();
+
+  background-color: $PRIMARY_GRAY;
+  color: $COLOR_GRAY_FONTS;
+  text-transform: uppercase;
+  font-weight: 500;
+  border: none;
+  transition: all 0.1s linear;
+  margin: 0;
+
+  & + & {
+    margin-left: 10px;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: $COLOR_MAIN_RED_BG;
+    color: #FFFFFF;
+  }
+
+  &--mimi {
+    @include btnMini;
+  }
+
+  &--small {
+    @include btnSmall;
+  }
+
+  &--medium {
+    @include btnMedium;
+  }
+
+  &--large {
+    @include btnLarge;
+  }
+}

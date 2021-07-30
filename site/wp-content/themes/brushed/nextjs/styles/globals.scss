@@ -12,3 +12,9 @@ html, body {
   background: $PRIMARY_DARK;
   color: $COLOR_LITE_GRAY_FONTS;
 }
+
+li {
+  margin: 0 0 10px 0;
+  padding: 0;
+  line-height: 20px;
+}

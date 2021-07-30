@@ -4,6 +4,7 @@ import React from 'react';
 import styles from '../styles/Home.module.scss'
 import {SubTitle, Title, TitleContainer} from './components/titles';
 import {Accordion, Toggle} from './components/accordion';
+import {Button, ButtonTypes} from './components/buttons/inddex';
 
 export default function Home() {
     return (
@@ -55,6 +56,68 @@ export default function Home() {
                         ]}
                     />
                 </div>
+                <ol>
+                    <li>
+                        <Button
+                            title={'mini'}
+                            type={ButtonTypes.mini}
+                            onClick={() => {
+                                console.log('res:btn:onClick');
+                            }}
+                        /><Button
+                        title={'mini'}
+                        type={ButtonTypes.mini}
+                        onClick={() => {
+                            console.log('res:btn:onClick');
+                        }}
+                    />
+                    </li>
+                    <li>
+                        <Button
+                            title={'small'}
+                            type={ButtonTypes.small}
+                            onClick={() => {
+                                console.log('res:btn:onClick');
+                            }}
+                        /><Button
+                        title={'small'}
+                        type={ButtonTypes.small}
+                        onClick={() => {
+                            console.log('res:btn:onClick');
+                        }}
+                    />
+                    </li>
+                    <li>
+                        <Button
+                            title={'medium'}
+                            type={ButtonTypes.medium}
+                            onClick={() => {
+                                console.log('res:btn:onClick');
+                            }}
+                        /> <Button
+                        title={'medium'}
+                        type={ButtonTypes.medium}
+                        onClick={() => {
+                            console.log('res:btn:onClick');
+                        }}
+                    />
+                    </li>
+                    <li>
+                        <Button
+                            title={'large'}
+                            type={ButtonTypes.large}
+                            onClick={() => {
+                                console.log('res:btn:onClick');
+                            }}
+                        /> <Button
+                        title={'large'}
+                        type={ButtonTypes.large}
+                        onClick={() => {
+                            console.log('res:btn:onClick');
+                        }}
+                    />
+                    </li>
+                </ol>
             </main>
 
             <footer className={styles.footer}>
