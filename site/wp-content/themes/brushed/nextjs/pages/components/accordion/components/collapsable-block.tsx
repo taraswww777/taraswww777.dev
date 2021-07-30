@@ -75,7 +75,7 @@ export class CollapsableBlock extends React.Component<CollapsableBlockProps, Col
                             content
                         } = item;
                         return (
-                            <div className={styles.block__element}>
+                            <div key={hash} className={styles.block__element}>
                                 <CollapsableElement
                                     isOpen={isOpen}
                                     onToggleElement={() => this.onToggleElement(item)}

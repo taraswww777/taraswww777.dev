@@ -59,4 +59,12 @@
   &--large {
     @include btnLarge;
   }
+
+  &__link {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }

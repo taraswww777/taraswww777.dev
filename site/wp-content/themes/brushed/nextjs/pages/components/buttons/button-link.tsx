@@ -1,5 +1,5 @@
 import styles from './buttons.module.scss';
-import {MouseEventHandler} from 'react';
+import {ComponentProps} from '../../types/common';
 
 export enum ButtonTypes {
     mini = 'mimi',
@@ -8,20 +8,23 @@ export enum ButtonTypes {
     large = 'large',
 }
 
-export const Button = ({
+export const ButtonLink = ({
     type = ButtonTypes.medium,
-    onClick,
-    title
-}: {
+    href,
+    title = '',
+    children
+}: ComponentProps & {
     type?: ButtonTypes
-    title: string,
-    onClick: MouseEventHandler
+    title?: string,
+    href: string
 }) => (
-    <button
-        onClick={onClick}
+    <a
+        href={href}
+        title={title}
         className={[
             styles.btn,
+            styles.btn__link,
             styles[`btn--${type}`]
         ].join(' ')}
-    >{title}</button>
+    >{children || title}</a>
 );
