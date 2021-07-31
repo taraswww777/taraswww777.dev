@@ -6,10 +6,10 @@ export interface CollapsableComponent {
 }
 
 export {
-    CollapsableBlock
+  CollapsableBlock
 }
 
 export type {
-    PreparedItem,
-    CollapsableElementSpec
+  PreparedItem,
+  CollapsableElementSpec
 }

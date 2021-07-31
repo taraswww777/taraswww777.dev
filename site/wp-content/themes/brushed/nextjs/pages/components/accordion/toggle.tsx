@@ -3,10 +3,10 @@ import {ComponentProps} from '../../types/common';
 import {IconType} from '../../components/icon/types';
 import {Icon} from '../../components/icon';
 import {
-    CollapsableBlock,
-    PreparedItem,
-    CollapsableComponent,
-    CollapsableElementSpec
+  CollapsableBlock,
+  PreparedItem,
+  CollapsableComponent,
+  CollapsableElementSpec
 } from './components';
 
 
@@ -20,21 +20,21 @@ const IconClose = <Icon icon={IconType.plus} />;
 
 export class Toggle extends React.Component<ToggleProps> implements CollapsableComponent {
     onToggleElement = (el: PreparedItem, items: Array<PreparedItem>): Array<PreparedItem> => {
-        return items;
+      return items;
     }
 
     render() {
-        const {items, title} = this.props;
+      const {items, title} = this.props;
 
-        return (
-            <CollapsableBlock
-                title={title}
-                iconOpen={IconOpen}
-                iconClose={IconClose}
-                items={items}
-                onToggleElement={this.onToggleElement}
-            />
-        );
+      return (
+        <CollapsableBlock
+          title={title}
+          iconOpen={IconOpen}
+          iconClose={IconClose}
+          items={items}
+          onToggleElement={this.onToggleElement}
+        />
+      );
     }
 
 }
