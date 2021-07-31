@@ -4,9 +4,9 @@ import styles from './icon.module.scss';
 import {IconType} from './types';
 
 export type IconProps = ComponentProps & {
-    icon: IconType,
+    iconType: IconType,
 }
 
-export const Icon = ({icon}: IconProps) => (
-  <span className={[styles[icon], styles.icon].join(' ')} />
+export const Icon = ({iconType}: IconProps) => (
+  <span className={[styles[iconType], styles.icon].join(' ')} />
 );

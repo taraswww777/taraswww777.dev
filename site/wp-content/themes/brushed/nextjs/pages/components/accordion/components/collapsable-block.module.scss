@@ -1,15 +1,15 @@
 @import "~foundation-sites/scss/foundation";
+@import '../../../../styles/constants/colors';
 
 .block {
+  $colorContent: $COLOR_WHITE;
+
   @include xy-grid();
-  //display: flex;
-  //flex-wrap: wrap;
-  //width: 100%;
 
 
   &__title {
-    @include xy-cell(12,0,0);
-    color: #FFFFFF;
+    @include xy-cell(12, 0, 0);
+    color: $colorContent;
     font-size: 24px;
     font-weight: 300;
     line-height: 1em;
@@ -18,7 +18,7 @@
   }
 
   &__content {
-    @include xy-cell(12,0,0);
+    @include xy-cell(12, 0, 0);
   }
 
   &__element {

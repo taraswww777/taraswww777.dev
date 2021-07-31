@@ -1,9 +1,17 @@
 @import '../../../../styles/constants/colors';
 
 .element {
+  $bgHeaderDefault: $PRIMARY_GRAY;
+  $colorHeaderDefault: $COLOR_GRAY_FONTS;
+  $bgHeaderIsOpenOrHover: $COLOR_MAIN_RED_BG;
+  $colorHeaderIsOpenOrHover: $COLOR_WHITE;
+
+  $bgContent: $COLOR_DARK_GRAY_BG;
+  $colorContent: $COLOR_WHITE;
+
   &__header {
-    background: $PRIMARY_GRAY;
-    color: $COLOR_GRAY_FONTS;
+    background: $bgHeaderDefault;
+    color: $colorHeaderDefault;
     cursor: pointer;
     padding: 15px;
     font-size: 18px;
@@ -12,14 +20,10 @@
     transition: all 0.1s linear 0s;
     justify-content: space-between;
 
-    &_IsOpen {
-      background: $COLOR_MAIN_RED_BG;
-      color: #fff;
-    }
-
+    &_IsOpen,
     &:hover {
-      background: $COLOR_MAIN_RED_BG;
-      color: #fff;
+      background: $bgHeaderIsOpenOrHover;
+      color: $colorHeaderIsOpenOrHover;
     }
   }
 
@@ -39,8 +43,8 @@
 
   &__content {
     display: none;
-    color: #fff;
-    background: $COLOR_DARK_GRAY_BG;
+    color: $colorContent;
+    background: $bgContent;
     padding: 16px 20px;
     overflow: hidden;
     word-break: break-all;

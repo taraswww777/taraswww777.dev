@@ -14,6 +14,7 @@
   @include xy-grid();
 }
 
+.alerts,
 .title {
   @include xy-cell(12);
 }
