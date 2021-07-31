@@ -25,7 +25,7 @@ export class Accordion extends React.Component<AccordionProps> implements Collap
 
     render() {
       const {items, title} = this.props;
-      const icon = <Icon icon={IconType['arrow-simple-up']} />;
+      const icon = <Icon iconType={IconType['arrow-simple-up']} />;
       return (
         <CollapsableBlock
           title={title}

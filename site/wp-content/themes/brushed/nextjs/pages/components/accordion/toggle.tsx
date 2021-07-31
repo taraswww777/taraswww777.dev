@@ -15,8 +15,8 @@ export type ToggleProps = ComponentProps & {
     title: string,
     items: Array<CollapsableElementSpec>
 }
-const IconOpen = <Icon icon={IconType.minus} />;
-const IconClose = <Icon icon={IconType.plus} />;
+const IconOpen = <Icon iconType={IconType.minus} />;
+const IconClose = <Icon iconType={IconType.plus} />;
 
 export class Toggle extends React.Component<ToggleProps> implements CollapsableComponent {
     onToggleElement = (el: PreparedItem, items: Array<PreparedItem>): Array<PreparedItem> => {

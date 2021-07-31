@@ -22,11 +22,16 @@
 }
 
 .btn {
+  $colorBtn: $COLOR_GRAY_FONTS;
+  $bgBtn: $PRIMARY_GRAY;
+  $bgBtnIsActive: $COLOR_MAIN_RED_BG;
+  $colorBtnIsActive: $COLOR_WHITE;
+
   @include button-base();
   @include btnMedium();
 
-  background-color: $PRIMARY_GRAY;
-  color: $COLOR_GRAY_FONTS;
+  background-color: $bgBtn;
+  color: $colorBtn;
   text-transform: uppercase;
   font-weight: 500;
   border: none;
@@ -40,8 +45,8 @@
   &:hover,
   &:active,
   &:focus {
-    background-color: $COLOR_MAIN_RED_BG;
-    color: #FFFFFF;
+    background-color: $bgBtnIsActive;
+    color: $colorBtnIsActive;
   }
 
   &--mimi {

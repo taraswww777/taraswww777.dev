@@ -5,6 +5,7 @@ import styles from '../styles/Home.module.scss'
 import {SubTitle, Title, TitleContainer} from './components/titles';
 import {Accordion, Toggle} from './components/accordion';
 import {Button, ButtonLink, ButtonTypes} from './components/buttons';
+import {Alert} from './components/alert';
 
 export default function Home() {
   return (
@@ -91,7 +92,8 @@ export default function Home() {
               onClick={() => {
                 console.log('res:btn:onClick');
               }}
-            /><Button
+            />
+            <Button
               title={'small'}
               type={ButtonTypes.small}
               onClick={() => {
@@ -106,7 +108,8 @@ export default function Home() {
               onClick={() => {
                 console.log('res:btn:onClick');
               }}
-            /> <Button
+            />
+            <Button
               title={'medium'}
               type={ButtonTypes.medium}
               onClick={() => {
@@ -121,7 +124,8 @@ export default function Home() {
               onClick={() => {
                 console.log('res:btn:onClick');
               }}
-            /> <Button
+            />
+            <Button
               title={'large'}
               type={ButtonTypes.large}
               onClick={() => {
@@ -130,6 +134,24 @@ export default function Home() {
             />
           </li>
         </ol>
+        <div className={styles.alerts}>
+          <Alert
+            title={'qwe'}
+            content={'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, quisquam.'}
+          />
+          <Alert content={'1Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, quisquam.'} />
+          <Alert content={'2Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, quisquam.'} />
+          <Alert content={'3Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, quisquam.'} />
+          <Alert content={'4Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, quisquam.'} />
+          <Alert content={'5Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, quisquam.'} />
+          <Alert content={'6Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, quisquam.'} />
+          <Alert content={'7Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, quisquam.'} />
+          <Alert content={'8Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, quisquam.'} />
+          <Alert content={'9Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, quisquam.'} />
+          <Alert content={'10Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, quisquam.'} />
+          <Alert content={'11Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, quisquam.'} />
+          <Alert content={'12Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, quisquam.'} />
+        </div>
       </main>
 
       <footer className={styles.footer}>
@@ -138,7 +160,7 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-                    Powered by{' '}
+          Powered by{' '}
           <span className={styles.logo}>
             <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>

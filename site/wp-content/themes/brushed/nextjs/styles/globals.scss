@@ -4,13 +4,15 @@
 @import '~foundation-sites/scss/foundation';
 
 @include foundation-normalize;
-
 @include fontFace;
+
+$bgBody: $PRIMARY_DARK;
+$colorBody: $COLOR_LITE_GRAY_FONTS;
 
 html, body {
   font-family: $MAIN_FONT_NAME, sans-serif;
-  background: $PRIMARY_DARK;
-  color: $COLOR_LITE_GRAY_FONTS;
+  background: $bgBody;
+  color: $colorBody;
 }
 
 li {
