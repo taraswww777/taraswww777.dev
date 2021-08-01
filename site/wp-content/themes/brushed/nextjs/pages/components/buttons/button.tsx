@@ -3,28 +3,42 @@ import {MouseEventHandler} from 'react';
 import {ComponentProps} from '../../types/common';
 
 export enum ButtonTypes {
-    mini = 'mimi',
-    small = 'small',
-    medium = 'medium',
-    large = 'large',
+  none = 'none',
+  danger = 'danger',
+  warning = 'warning',
+  success = 'success',
+  info = 'info',
+}
+
+export enum ButtonSizes {
+  mini = 'mimi',
+  small = 'small',
+  medium = 'medium',
+  large = 'large',
 }
 
 export const Button = ({
-  type = ButtonTypes.medium,
+  size = ButtonSizes.medium,
+  type = ButtonTypes.danger,
   onClick,
   title = '',
+  isActive,
   children
 }: ComponentProps & {
-    type?: ButtonTypes
-    title?: string,
-    onClick: MouseEventHandler
+  size?: ButtonSizes
+  type?: ButtonTypes
+  title?: string,
+  isActive?: boolean,
+  onClick: MouseEventHandler
 }) => (
   <button
     onClick={onClick}
     title={title}
     className={[
       styles.btn,
-      styles[`btn--${type}`]
+      isActive && styles[`btn--active`],
+      styles[`btn--size_${size}`],
+      styles[`btn--type_${type}`]
     ].join(' ')}
   >{children || title}</button>
 );
