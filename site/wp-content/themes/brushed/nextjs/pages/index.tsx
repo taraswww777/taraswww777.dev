@@ -8,6 +8,7 @@ import {Button, ButtonLink, ButtonSizes} from './components/buttons';
 import {Alert} from './components/alert';
 import {Tabs} from './components/tabs';
 import {SocialLink, SocialLinkViews} from './components/social-link';
+import {Blockquote} from './components/blockquote';
 
 export default function Home() {
   return (
@@ -161,6 +162,17 @@ export default function Home() {
         <div className={styles.socialLinks}>
           <SocialLink typeView={SocialLinkViews.brick} link={'123'} />
           <SocialLink typeView={SocialLinkViews.simple} link={'qwe'} />
+        </div>
+        <div className={styles.blockquote}>
+          <Blockquote
+            author={'Lorem ipsum.'}
+            title={'Lorem ipsum dolor.'}
+            content={`
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet animi autem culpa distinctio doloremque
+eligendi esse ex, excepturi exercitationem, fugiat inventore ipsum iusto laudantium non officia possimus
+reprehenderit sapiente voluptates.
+            `}
+          />
         </div>
       </main>
 
