@@ -1,8 +1,8 @@
-import {Button, ButtonTypes} from './button';
+import {Button, ButtonSizes} from './button';
 import {ButtonLink} from './button-link';
 
 export {
   Button,
   ButtonLink,
-  ButtonTypes
+  ButtonSizes
 };

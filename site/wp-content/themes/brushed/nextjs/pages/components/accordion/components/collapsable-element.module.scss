@@ -3,10 +3,10 @@
 .element {
   $bgHeaderDefault: $PRIMARY_GRAY;
   $colorHeaderDefault: $COLOR_GRAY_FONTS;
-  $bgHeaderIsOpenOrHover: $COLOR_MAIN_RED_BG;
+  $bgHeaderIsOpenOrHover: $COLOR_MAIN_RED;
   $colorHeaderIsOpenOrHover: $COLOR_WHITE;
 
-  $bgContent: $COLOR_DARK_GRAY_BG;
+  $bgContent: $COLOR_DARK_GRAY;
   $colorContent: $COLOR_WHITE;
 
   &__header {

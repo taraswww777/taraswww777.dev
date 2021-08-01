@@ -14,9 +14,12 @@
   @include xy-grid();
 }
 
+.tabs,
 .alerts,
 .title {
   @include xy-cell(12);
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .toggle,

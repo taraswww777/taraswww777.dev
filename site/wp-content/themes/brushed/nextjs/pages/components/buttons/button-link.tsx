@@ -1,20 +1,15 @@
 import styles from './buttons.module.scss';
 import {ComponentProps} from '../../types/common';
+import { ButtonSizes } from './button';
 
-export enum ButtonTypes {
-    mini = 'mimi',
-    small = 'small',
-    medium = 'medium',
-    large = 'large',
-}
 
 export const ButtonLink = ({
-  type = ButtonTypes.medium,
+  size = ButtonSizes.medium,
   href,
   title = '',
   children
 }: ComponentProps & {
-    type?: ButtonTypes
+    size?: ButtonSizes
     title?: string,
     href: string
 }) => (
@@ -24,7 +19,7 @@ export const ButtonLink = ({
     className={[
       styles.btn,
       styles.btn__link,
-      styles[`btn--${type}`]
+      styles[`btn--size_${size}`]
     ].join(' ')}
   >{children || title}</a>
 );

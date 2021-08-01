@@ -9,6 +9,10 @@
 $bgBody: $PRIMARY_DARK;
 $colorBody: $COLOR_LITE_GRAY_FONTS;
 
+* {
+  box-sizing: border-box;
+}
+
 html, body {
   font-family: $MAIN_FONT_NAME, sans-serif;
   background: $bgBody;
@@ -20,3 +24,4 @@ li {
   padding: 0;
   line-height: 20px;
 }
+

@@ -4,8 +4,9 @@ import React from 'react';
 import styles from '../styles/Home.module.scss'
 import {SubTitle, Title, TitleContainer} from './components/titles';
 import {Accordion, Toggle} from './components/accordion';
-import {Button, ButtonLink, ButtonTypes} from './components/buttons';
+import {Button, ButtonLink, ButtonSizes} from './components/buttons';
 import {Alert} from './components/alert';
+import {Tabs} from './components/tabs';
 
 export default function Home() {
   return (
@@ -61,14 +62,14 @@ export default function Home() {
           <li>
             <Button
               title={'mini'}
-              type={ButtonTypes.mini}
+              size={ButtonSizes.mini}
               onClick={() => {
                 console.log('res:btn:onClick');
               }}
             >123</Button>
             <Button
               title={'mini'}
-              type={ButtonTypes.mini}
+              size={ButtonSizes.mini}
               onClick={() => {
                 console.log('res:btn:onClick');
               }}
@@ -78,7 +79,7 @@ export default function Home() {
             <ButtonLink
               href={'#'}
               title={'mini'}
-              type={ButtonTypes.mini}
+              size={ButtonSizes.mini}
             >123 link</ButtonLink>
             <ButtonLink
               href={'#'}
@@ -88,14 +89,14 @@ export default function Home() {
           <li>
             <Button
               title={'small'}
-              type={ButtonTypes.small}
+              size={ButtonSizes.small}
               onClick={() => {
                 console.log('res:btn:onClick');
               }}
             />
             <Button
               title={'small'}
-              type={ButtonTypes.small}
+              size={ButtonSizes.small}
               onClick={() => {
                 console.log('res:btn:onClick');
               }}
@@ -104,14 +105,14 @@ export default function Home() {
           <li>
             <Button
               title={'medium'}
-              type={ButtonTypes.medium}
+              size={ButtonSizes.medium}
               onClick={() => {
                 console.log('res:btn:onClick');
               }}
             />
             <Button
               title={'medium'}
-              type={ButtonTypes.medium}
+              size={ButtonSizes.medium}
               onClick={() => {
                 console.log('res:btn:onClick');
               }}
@@ -120,14 +121,14 @@ export default function Home() {
           <li>
             <Button
               title={'large'}
-              type={ButtonTypes.large}
+              size={ButtonSizes.large}
               onClick={() => {
                 console.log('res:btn:onClick');
               }}
             />
             <Button
               title={'large'}
-              type={ButtonTypes.large}
+              size={ButtonSizes.large}
               onClick={() => {
                 console.log('res:btn:onClick');
               }}
@@ -140,17 +141,19 @@ export default function Home() {
             content={'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, quisquam.'}
           />
           <Alert content={'1Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, quisquam.'} />
-          <Alert content={'2Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, quisquam.'} />
-          <Alert content={'3Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, quisquam.'} />
-          <Alert content={'4Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, quisquam.'} />
-          <Alert content={'5Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, quisquam.'} />
-          <Alert content={'6Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, quisquam.'} />
-          <Alert content={'7Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, quisquam.'} />
-          <Alert content={'8Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, quisquam.'} />
-          <Alert content={'9Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, quisquam.'} />
-          <Alert content={'10Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, quisquam.'} />
-          <Alert content={'11Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, quisquam.'} />
-          <Alert content={'12Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, quisquam.'} />
+        </div>
+        <div className={styles.tabs}>
+          <Tabs
+            tabs={[
+              {
+                title: '1',
+                code: '1',
+                content: '1Lorem ipsum dolor sit.1Lorem ipsum dolor sit.1Lorem ipsum dolor sit.1Lorem ipsum dolor sit.1Lorem ipsum dolor sit.1Lorem ipsum dolor sit.1Lorem ipsum dolor sit.1Lorem ipsum dolor sit.'
+              },
+              {title: '2', code: '2', content: '2Lorem ipsum dolor sit.'},
+              {title: '3', code: '3', content: '3Lorem ipsum dolor sit.'},
+            ]}
+          />
         </div>
       </main>
 
