@@ -1,7 +1,6 @@
 import React from 'react';
-import {ComponentProps} from '../../types/common';
-import {IconType} from '../../components/icon/types';
-import {Icon} from '../../components/icon';
+import {IconLib, ComponentProps} from '../../types';
+import {Icon} from '../icon';
 import {
   CollapsableBlock,
   PreparedItem,
@@ -10,31 +9,29 @@ import {
 } from './components';
 
 
-
 export type ToggleProps = ComponentProps & {
-    title: string,
-    items: Array<CollapsableElementSpec>
+  title: string,
+  items: Array<CollapsableElementSpec>
 }
-const IconOpen = <Icon iconType={IconType.minus} />;
-const IconClose = <Icon iconType={IconType.plus} />;
+const IconOpen = <Icon icon={IconLib.minus} />;
+const IconClose = <Icon icon={IconLib.plus} />;
 
 export class Toggle extends React.Component<ToggleProps> implements CollapsableComponent {
-    onToggleElement = (el: PreparedItem, items: Array<PreparedItem>): Array<PreparedItem> => {
-      return items;
-    }
+  onToggleElement = (el: PreparedItem, items: Array<PreparedItem>): Array<PreparedItem> => {
+    return items;
+  }
 
-    render() {
-      const {items, title} = this.props;
+  render() {
+    const {items, title} = this.props;
 
-      return (
-        <CollapsableBlock
-          title={title}
-          iconOpen={IconOpen}
-          iconClose={IconClose}
-          items={items}
-          onToggleElement={this.onToggleElement}
-        />
-      );
-    }
-
+    return (
+      <CollapsableBlock
+        title={title}
+        iconOpen={IconOpen}
+        iconClose={IconClose}
+        items={items}
+        onToggleElement={this.onToggleElement}
+      />
+    );
+  }
 }

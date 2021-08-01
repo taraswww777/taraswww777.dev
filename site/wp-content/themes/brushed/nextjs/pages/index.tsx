@@ -7,6 +7,7 @@ import {Accordion, Toggle} from './components/accordion';
 import {Button, ButtonLink, ButtonSizes} from './components/buttons';
 import {Alert} from './components/alert';
 import {Tabs} from './components/tabs';
+import {SocialLink, SocialLinkViews} from './components/social-link';
 
 export default function Home() {
   return (
@@ -58,83 +59,85 @@ export default function Home() {
             ]}
           />
         </div>
-        <ol>
-          <li>
-            <Button
-              title={'mini'}
-              size={ButtonSizes.mini}
-              onClick={() => {
-                console.log('res:btn:onClick');
-              }}
-            >123</Button>
-            <Button
-              title={'mini'}
-              size={ButtonSizes.mini}
-              onClick={() => {
-                console.log('res:btn:onClick');
-              }}
-            />
-          </li>
-          <li>
-            <ButtonLink
-              href={'#'}
-              title={'mini'}
-              size={ButtonSizes.mini}
-            >123 link</ButtonLink>
-            <ButtonLink
-              href={'#'}
-              title={'mini link'}
-            />
-          </li>
-          <li>
-            <Button
-              title={'small'}
-              size={ButtonSizes.small}
-              onClick={() => {
-                console.log('res:btn:onClick');
-              }}
-            />
-            <Button
-              title={'small'}
-              size={ButtonSizes.small}
-              onClick={() => {
-                console.log('res:btn:onClick');
-              }}
-            />
-          </li>
-          <li>
-            <Button
-              title={'medium'}
-              size={ButtonSizes.medium}
-              onClick={() => {
-                console.log('res:btn:onClick');
-              }}
-            />
-            <Button
-              title={'medium'}
-              size={ButtonSizes.medium}
-              onClick={() => {
-                console.log('res:btn:onClick');
-              }}
-            />
-          </li>
-          <li>
-            <Button
-              title={'large'}
-              size={ButtonSizes.large}
-              onClick={() => {
-                console.log('res:btn:onClick');
-              }}
-            />
-            <Button
-              title={'large'}
-              size={ButtonSizes.large}
-              onClick={() => {
-                console.log('res:btn:onClick');
-              }}
-            />
-          </li>
-        </ol>
+        <div className={styles.buttons}>
+          <ol>
+            <li>
+              <Button
+                title={'mini'}
+                size={ButtonSizes.mini}
+                onClick={() => {
+                  console.log('res:btn:onClick');
+                }}
+              >123</Button>
+              <Button
+                title={'mini'}
+                size={ButtonSizes.mini}
+                onClick={() => {
+                  console.log('res:btn:onClick');
+                }}
+              />
+            </li>
+            <li>
+              <ButtonLink
+                href={'#'}
+                title={'mini'}
+                size={ButtonSizes.mini}
+              >123 link</ButtonLink>
+              <ButtonLink
+                href={'#'}
+                title={'mini link'}
+              />
+            </li>
+            <li>
+              <Button
+                title={'small'}
+                size={ButtonSizes.small}
+                onClick={() => {
+                  console.log('res:btn:onClick');
+                }}
+              />
+              <Button
+                title={'small'}
+                size={ButtonSizes.small}
+                onClick={() => {
+                  console.log('res:btn:onClick');
+                }}
+              />
+            </li>
+            <li>
+              <Button
+                title={'medium'}
+                size={ButtonSizes.medium}
+                onClick={() => {
+                  console.log('res:btn:onClick');
+                }}
+              />
+              <Button
+                title={'medium'}
+                size={ButtonSizes.medium}
+                onClick={() => {
+                  console.log('res:btn:onClick');
+                }}
+              />
+            </li>
+            <li>
+              <Button
+                title={'large'}
+                size={ButtonSizes.large}
+                onClick={() => {
+                  console.log('res:btn:onClick');
+                }}
+              />
+              <Button
+                title={'large'}
+                size={ButtonSizes.large}
+                onClick={() => {
+                  console.log('res:btn:onClick');
+                }}
+              />
+            </li>
+          </ol>
+        </div>
         <div className={styles.alerts}>
           <Alert
             title={'qwe'}
@@ -154,6 +157,10 @@ export default function Home() {
               {title: '3', code: '3', content: '3Lorem ipsum dolor sit.'},
             ]}
           />
+        </div>
+        <div className={styles.socialLinks}>
+          <SocialLink typeView={SocialLinkViews.brick} link={'123'} />
+          <SocialLink typeView={SocialLinkViews.simple} link={'qwe'} />
         </div>
       </main>
 
