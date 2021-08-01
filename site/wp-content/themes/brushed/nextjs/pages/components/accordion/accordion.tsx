@@ -1,7 +1,6 @@
 import React from 'react';
-import {ComponentProps} from '../../types/common';
-import {IconType} from '../../components/icon/types';
-import {Icon} from '../../components/icon';
+import {IconLib, ComponentProps} from '../../types';
+import {Icon} from '../icon';
 import {
   CollapsableBlock,
   PreparedItem,
@@ -11,30 +10,30 @@ import {
 
 
 export type AccordionProps = ComponentProps & {
-    title: string,
-    items: Array<CollapsableElementSpec>
+  title: string,
+  items: Array<CollapsableElementSpec>
 }
 
 export class Accordion extends React.Component<AccordionProps> implements CollapsableComponent {
-    onToggleElement = (el: PreparedItem, items: Array<PreparedItem>): Array<PreparedItem> => (
-      items.map(item => ({
-        ...item,
-        isOpen: item.hash === el.hash ? item.isOpen : false
-      }))
-    )
+  onToggleElement = (el: PreparedItem, items: Array<PreparedItem>): Array<PreparedItem> => (
+    items.map(item => ({
+      ...item,
+      isOpen: item.hash === el.hash ? item.isOpen : false
+    }))
+  )
 
-    render() {
-      const {items, title} = this.props;
-      const icon = <Icon iconType={IconType['arrow-simple-up']} />;
-      return (
-        <CollapsableBlock
-          title={title}
-          iconOpen={icon}
-          iconClose={icon}
-          items={items}
-          onToggleElement={this.onToggleElement}
-        />
-      );
-    }
+  render() {
+    const {items, title} = this.props;
+    const icon = <Icon icon={IconLib['arrow-simple-up']} />;
+    return (
+      <CollapsableBlock
+        title={title}
+        iconOpen={icon}
+        iconClose={icon}
+        items={items}
+        onToggleElement={this.onToggleElement}
+      />
+    );
+  }
 
 }
