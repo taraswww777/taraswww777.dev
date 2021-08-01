@@ -9,6 +9,7 @@ import {Alert} from './components/alert';
 import {Tabs} from './components/tabs';
 import {SocialLink, SocialLinkViews} from './components/social-link';
 import {Blockquote} from './components/blockquote';
+import {Tooltip} from './components/tooltip';
 
 export default function Home() {
   return (
@@ -166,6 +167,16 @@ export default function Home() {
         <div className={styles.blockquote}>
           <Blockquote
             author={'Lorem ipsum.'}
+            title={'Lorem ipsum dolor.'}
+            content={`
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet animi autem culpa distinctio doloremque
+eligendi esse ex, excepturi exercitationem, fugiat inventore ipsum iusto laudantium non officia possimus
+reprehenderit sapiente voluptates.
+            `}
+          />
+        </div>
+        <div className={styles.tooltip}>
+          <Tooltip
             title={'Lorem ipsum dolor.'}
             content={`
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet animi autem culpa distinctio doloremque
