@@ -46,16 +46,14 @@ $btnTypes: (
 );
 
 @mixin btnTypeGenerator($type, $bgColor, $colorIsActive) {
-  &--type {
-    &_none {
-      &.btn {
-        &--active,
-        &:hover,
-        &:active,
-        &:focus {
-          background-color: $bgColor;
-          color: $colorIsActive;
-        }
+  &--type_#{$type} {
+    &.btn {
+      &--active,
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: $bgColor;
+        color: $colorIsActive;
       }
     }
   }

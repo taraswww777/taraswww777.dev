@@ -1,0 +1,48 @@
+@import "~foundation-sites/scss/foundation";
+@import '../../../styles/constants/colors';
+@import '../../../styles/constants/constants';
+
+.informationBlock {
+  &__title {
+    color: #FFFFFF;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1em;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+  }
+
+  &__content {
+    @include xy-grid();
+    padding: 15px 20px;
+    border-left: 2px solid $COLOR_MAIN_RED;
+    margin: 0;
+  }
+
+  &__subTitle {
+    @include xy-cell(12);
+    font-size: 24px;
+    line-height: 2rem;
+    text-transform: uppercase;
+    //margin: 0 0 20px 0;
+    margin-bottom: 20px;
+    color: #FFFFFF;
+    font-weight: 300;
+  }
+
+  &__text {
+    &, p {
+      margin-bottom: 0;
+      font-size: 16px;
+      line-height: 2rem;
+    }
+  }
+
+  &__left {
+    @include xy-cell(10);
+  }
+
+  &__right {
+    @include xy-cell(2);
+  }
+}

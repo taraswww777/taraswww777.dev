@@ -4,12 +4,19 @@ import React from 'react';
 import styles from '../styles/Home.module.scss'
 import {SubTitle, Title, TitleContainer} from './components/titles';
 import {Accordion, Toggle} from './components/accordion';
-import {Button, ButtonLink, ButtonSizes} from './components/buttons';
+import {
+  Button,
+  ButtonLink,
+  ButtonSizes,
+  ButtonTypes
+} from './components/buttons';
 import {Alert} from './components/alert';
 import {Tabs} from './components/tabs';
 import {SocialLink, SocialLinkViews} from './components/social-link';
 import {Blockquote} from './components/blockquote';
 import {Tooltip} from './components/tooltip';
+import {InformationBlock} from './components/information-block';
+import {MarkedText} from './components/text';
 
 export default function Home() {
   return (
@@ -108,8 +115,9 @@ export default function Home() {
             </li>
             <li>
               <Button
-                title={'medium'}
+                title={'medium info'}
                 size={ButtonSizes.medium}
+                type={ButtonTypes.info}
                 onClick={() => {
                   console.log('res:btn:onClick');
                 }}
@@ -179,6 +187,21 @@ reprehenderit sapiente voluptates.
           <Tooltip
             title={'Lorem ipsum dolor.'}
             content={`
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet animi autem culpa distinctio doloremque
+eligendi esse ex, excepturi exercitationem, fugiat inventore ipsum iusto laudantium non officia possimus
+reprehenderit sapiente voluptates.
+            `}
+          />
+        </div>
+        <div className={styles.informationBlock}>
+          <InformationBlock
+            title={'Lorem ipsum dolor.'}
+            subTitle={<><MarkedText>subTitle</MarkedText> Lorem ipsum dolor.</>}
+            btnLabel={'btnLabel'}
+            btnOnClick={() => {
+              console.log('res:a');
+            }}
+            text={`
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet animi autem culpa distinctio doloremque
 eligendi esse ex, excepturi exercitationem, fugiat inventore ipsum iusto laudantium non officia possimus
 reprehenderit sapiente voluptates.
