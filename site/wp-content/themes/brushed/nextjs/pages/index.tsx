@@ -1,22 +1,21 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import React from 'react';
 import styles from '../styles/Home.module.scss'
-import {SubTitle, Title, TitleContainer} from './components/titles';
-import {Accordion, Toggle} from './components/accordion';
+import {SubTitle, Title, TitleContainer} from 'components/titles';
+import {Accordion, Toggle} from 'components/accordion';
 import {
   Button,
   ButtonLink,
   ButtonSizes,
   ButtonTypes
-} from './components/buttons';
-import {Alert} from './components/alert';
-import {Tabs} from './components/tabs';
-import {SocialLink, SocialLinkViews} from './components/social-link';
-import {Blockquote} from './components/blockquote';
-import {Tooltip} from './components/tooltip';
-import {InformationBlock} from './components/information-block';
-import {MarkedText} from './components/text';
+} from 'components/buttons';
+import {Alert} from 'components/alert';
+import {Tabs} from 'components/tabs';
+import {SocialLink, SocialLinkViews} from 'components/social-link';
+import {Blockquote} from 'components/blockquote';
+import {Tooltip} from 'components/tooltip';
+import {InformationBlock} from 'components/information-block';
+import {MarkedText} from 'components/text';
 
 export default function Home() {
   return (
@@ -211,16 +210,7 @@ reprehenderit sapiente voluptates.
       </main>
 
       <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
+        taraswww777
       </footer>
     </div>
   )
