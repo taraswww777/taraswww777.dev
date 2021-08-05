@@ -1,0 +1,80 @@
+@import 'styles/constants/colors';
+@import 'styles/constants/constants';
+
+.alert {
+  $offsetRight: 35px;
+  $offsetTop: 15px;
+
+  position: relative;
+  display: block;
+  padding: $offsetTop $offsetRight 15px 15px;
+  transition: opacity 0.5s linear;
+  color: #FFFFFF;
+  overflow: hidden;
+
+  & + & {
+    margin-top: 20px;
+  }
+
+  &--closed {
+    opacity: 0;
+    transition: all 0.25s linear;
+    margin: 0;
+    padding: 0;
+    height: 0;
+
+    & + &,
+    &.alert + .alert {
+      margin-top: 0 !important;
+    }
+
+  }
+
+  &--none {
+    background-color: #3C3F45;
+  }
+
+  &--danger {
+    background-color: #E56C69;
+  }
+
+  &--warning {
+    background-color: #DBA571;
+  }
+
+  &--success {
+    background-color: #1F7F5C;
+  }
+
+  &--info {
+    background-color: #5A9AA8;
+  }
+
+
+  &__close {
+    position: absolute;
+    top: $offsetTop;
+    right: $offsetRight;
+    color: #FFFFFF;
+    opacity: .2;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+  }
+
+  &__title {
+    font-size: 20px;
+  }
+
+  &__content {
+    line-height: 1.5em;
+    font-weight: 300;
+    font-size: 16px;
+  }
+
+}

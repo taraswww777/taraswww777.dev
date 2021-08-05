@@ -1,0 +1,84 @@
+@use "sass:map";
+@import 'styles/constants/colors';
+
+// TODO: maybe need mixins move to root
+$btnSizes: (
+  mimi: (p: 4px 12px, fz: 12px),
+  small: (p: 8px 18px, fz: 14px),
+  medium: (p: 13px 26px, fz: 16px),
+  large: (p: 16px 30px, fz: 18px),
+);
+$btnSizeDefault: 'medium';
+
+@mixin btnSizeGenerator($sizeName, $padding, $fontSize) {
+  &--size_#{$sizeName} {
+    padding: $padding;
+    font-size: $fontSize;
+  }
+}
+
+@mixin btnSizeInit() {
+  @each $size, $attrs in $btnSizes {
+    @include btnSizeGenerator($size, map.get($attrs, 'p'), map.get($attrs, 'fz'));
+  }
+}
+
+@mixin btnSizeDefault() {
+  $attrs: map.get($btnSizes, $btnSizeDefault);
+  padding: map.get($attrs, 'p');
+  font-size: map.get($attrs, 'fz');
+}
+
+// ---
+// TYPES
+$colorBtn: $COLOR_GRAY_FONTS;
+$bgBtn: $PRIMARY_GRAY;
+$bgBtnIsActive: $COLOR_MAIN_RED;
+$colorBtnIsActive: $COLOR_WHITE;
+$btnTypeDefault: 'danger';
+
+$btnTypes: (
+  none:(bgColor: $COLOR_NONE, colorIsActive: $colorBtnIsActive),
+  danger:(bgColor: $COLOR_DANGER, colorIsActive: $colorBtnIsActive),
+  warning:(bgColor: $COLOR_WARNING, colorIsActive: $colorBtnIsActive),
+  success:(bgColor: $COLOR_SUCCESS, colorIsActive: $colorBtnIsActive),
+  info:(bgColor: $COLOR_INFO, colorIsActive: $colorBtnIsActive),
+);
+
+@mixin btnTypeGenerator($type, $bgColor, $colorIsActive) {
+  &--type_#{$type} {
+    &.btn {
+      &--active,
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: $bgColor;
+        color: $colorIsActive;
+      }
+    }
+  }
+}
+
+@mixin btnTypeInit() {
+  @each $type, $attrs in $btnTypes {
+    @include btnTypeGenerator(
+        $type,
+      $bgColor: map.get($attrs, 'bgColor'),
+      $colorIsActive: map.get($attrs, 'colorIsActive')
+    );
+  }
+}
+
+
+@mixin btnSizeDefault() {
+  $attrs: map.get($btnTypes, $btnTypeDefault);
+
+  &--active,
+  &--selected,
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: map.get($attrs, 'bgColor');
+    color: map.get($attrs, 'colorIsActive');
+  }
+}

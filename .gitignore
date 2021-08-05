@@ -1,1 +1,6 @@
 .idea
+.env
+!.idea/workspace.xml
+!.idea/vcs.xml
+db
+!db/wordpress
