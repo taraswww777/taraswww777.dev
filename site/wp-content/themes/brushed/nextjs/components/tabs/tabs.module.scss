@@ -1,0 +1,39 @@
+@import "~foundation-sites/scss/foundation";
+@import 'styles/constants/colors';
+@import 'styles/constants/constants';
+
+.tabs {
+  @include xy-grid();
+
+  & + & {
+    margin-top: 20px;
+  }
+
+  &__categories {
+    @include xy-cell(12, $gutters: 0);
+  }
+
+  &__category {
+    margin: 0 0 0 5px;
+    display: inline-block;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    button {
+      font-weight: bold;
+    }
+  }
+
+  &__content {
+    @include xy-cell(
+        12,
+      $gutters: 40px,
+      $gutter-type: 'padding',
+      $gutter-position: ('top', 'bottom', 'left', 'right')
+    );
+    overflow: hidden;
+    background: $COLOR_DARK_GRAY;
+  }
+}
