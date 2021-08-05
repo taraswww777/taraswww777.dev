@@ -1,0 +1,32 @@
+@import "~foundation-sites/scss/foundation";
+@import '../../../styles/constants/colors';
+@import './mixins.module';
+
+.btn {
+  @include button-base();
+  @include btnSizeDefault();
+  @include btnSizeDefault;
+
+  background-color: $bgBtn;
+  color: $colorBtn;
+  text-transform: uppercase;
+  font-weight: 500;
+  border: none;
+  transition: all 0.1s linear;
+  margin: 0;
+
+  & + & {
+    margin-left: 10px;
+  }
+
+  @include btnSizeInit;
+  @include btnTypeInit;
+
+  &__link {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

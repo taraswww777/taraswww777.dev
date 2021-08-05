@@ -1,0 +1,56 @@
+@import '../../../../styles/constants/colors';
+
+.element {
+  $bgHeaderDefault: $PRIMARY_GRAY;
+  $colorHeaderDefault: $COLOR_GRAY_FONTS;
+  $bgHeaderIsOpenOrHover: $COLOR_MAIN_RED;
+  $colorHeaderIsOpenOrHover: $COLOR_WHITE;
+
+  $bgContent: $COLOR_DARK_GRAY;
+  $colorContent: $COLOR_WHITE;
+
+  &__header {
+    background: $bgHeaderDefault;
+    color: $colorHeaderDefault;
+    cursor: pointer;
+    padding: 15px;
+    font-size: 18px;
+    display: flex;
+    font-weight: 600;
+    transition: all 0.1s linear 0s;
+    justify-content: space-between;
+
+    &_IsOpen,
+    &:hover {
+      background: $bgHeaderIsOpenOrHover;
+      color: $colorHeaderIsOpenOrHover;
+    }
+  }
+
+  &__title {
+    text-transform: uppercase;
+  }
+
+  &__toggle {
+    transition: all 0.1s linear 0s;
+    transform: rotate(0deg);
+
+    &_IsOpen {
+      transition: all 0.1s linear 0s;
+      transform: rotate(180deg);
+    }
+  }
+
+  &__content {
+    display: none;
+    color: $colorContent;
+    background: $bgContent;
+    padding: 16px 20px;
+    overflow: hidden;
+    word-break: break-all;
+
+    &_IsOpen {
+      display: block;
+    }
+  }
+}
