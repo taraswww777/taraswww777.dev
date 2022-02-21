@@ -9,7 +9,8 @@ type InformationBlockProps = {
   subTitle?: ReactNode;
   btnLabel?: string;
   btnOnClick?: MouseEventHandler;
-  text: ReactNode;
+  text?: ReactNode;
+  children?: ReactNode
 }
 
 export const InformationBlock = ({
@@ -17,6 +18,7 @@ export const InformationBlock = ({
   subTitle,
   btnLabel,
   btnOnClick,
+  children,
   text
 }: InformationBlockProps) => (
   <div className={styles.informationBlock}>
@@ -35,7 +37,7 @@ export const InformationBlock = ({
         </>
         :
         <>
-          <div className={styles.informationBlock__text}>{text}</div>
+          <div className={styles.informationBlock__text}>{text || children}</div>
         </>
       }
     </div>

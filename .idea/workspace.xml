@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9599c988-6e95-4bff-b950-b849526ce37e" name="Default Changelist" comment="add .env">
+    <list default="true" id="9599c988-6e95-4bff-b950-b849526ce37e" name="Default Changelist" comment="make draft cv">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nextjs/components/information-block/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/nextjs/components/information-block/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nextjs/next-env.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/nextjs/next-env.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nextjs/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/nextjs/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nextjs/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/nextjs/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/icon/types.tsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +166,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="npm.dev">
+  <component name="RunManager" selected="npm.export">
     <configuration name="dev" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/nextjs/package.json" />
       <command value="run" />
@@ -218,7 +216,7 @@
       <workItem from="1628106585518" duration="3706000" />
       <workItem from="1628152261484" duration="2007000" />
       <workItem from="1628154304154" duration="966000" />
-      <workItem from="1645376878369" duration="6251000" />
+      <workItem from="1645376878369" duration="16247000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1627173709538</created>
@@ -332,7 +330,28 @@
       <option name="project" value="LOCAL" />
       <updated>1628152650033</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="20.02.2022">
+      <created>1645387738441</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1645387738441</updated>
+    </task>
+    <task id="LOCAL-00018" summary="make draft cv">
+      <created>1645431197522</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1645431197522</updated>
+    </task>
+    <task id="LOCAL-00019" summary="make draft cv">
+      <created>1645431325973</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1645431325973</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -364,7 +383,9 @@
     <MESSAGE value="static build&#10;&#10;Issue: 29" />
     <MESSAGE value="add yandex id" />
     <MESSAGE value="add .env" />
-    <option name="LAST_COMMIT_MESSAGE" value="add .env" />
+    <MESSAGE value="20.02.2022" />
+    <MESSAGE value="make draft cv" />
+    <option name="LAST_COMMIT_MESSAGE" value="make draft cv" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

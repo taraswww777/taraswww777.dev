@@ -38,8 +38,15 @@
   height: 100px;
   border-top: 1px solid #eaeaea;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  text-align: center;
+}
+
+.footer > div {
+  width: 100%;
+  display: block;
 }
 
 .footer a {
