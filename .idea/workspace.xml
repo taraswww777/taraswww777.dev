@@ -4,10 +4,48 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9599c988-6e95-4bff-b950-b849526ce37e" name="Default Changelist" comment="make draft cv">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="9599c988-6e95-4bff-b950-b849526ce37e" name="Default Changelist" comment="add .env">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/icon/types.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/apps/home-page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/nextjs/apps/home-page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/accordion/accordion.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/accordion/components/collapsable-block.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/accordion/components/collapsable-block.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/accordion/components/collapsable-element.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/accordion/components/collapsable-element.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/accordion/components/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/accordion/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/accordion/toggle.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/alert/alerts.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/alert/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/blockquote/blockquote.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/blockquote/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/buttons/_mixins.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/buttons/button-link.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/buttons/button.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/buttons/buttons.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/buttons/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/icon/fonts/Icons.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/icon/fonts/Icons.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/icon/fonts/Icons.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/icon/fonts/Icons.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/icon/icon.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/icon/icon.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/icon/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/information-block/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/information-block/information-block.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/social-link/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/social-link/social-link.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/tabs/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/tabs/tabs.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/text/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/text/text.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/titles/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/titles/title.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/tooltip/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/tooltip/tooltip.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/types/common.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/types/icons.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/types/index.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +70,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="dev" />
+        <entry key="$PROJECT_DIR$" value="001e5d8d174f3f2c0e4d094aad1b2b4306242a3a" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -67,7 +105,7 @@
                 <list>
                   <RecentBranch>
                     <option name="branchName" value="develop" />
-                    <option name="lastUsedInstant" value="1643462221" />
+                    <option name="lastUsedInstant" value="1645433804" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="dev" />
@@ -166,7 +204,27 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="npm.export">
+  <component name="RunManager" selected="npm.build">
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/nextjs/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="buildh" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/nextjs/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="buildh" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="dev" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/nextjs/package.json" />
       <command value="run" />
@@ -187,6 +245,34 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="lint-fix" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/nextjs/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="lint-fix" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/nextjs/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.build" />
+        <item itemvalue="npm.start" />
+        <item itemvalue="npm.lint-fix" />
+        <item itemvalue="npm.buildh" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -362,7 +448,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="SHOW_DETAILS_IN_CHANGES" value="false" />
+            </State>
           </value>
         </entry>
       </map>

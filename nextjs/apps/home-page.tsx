@@ -1,3 +1,4 @@
+import React from 'react';
 import styles from 'styles/Home.module.scss';
 import Head from 'next/head';
 import {SubTitle, Title, TitleContainer} from 'components/titles';
@@ -10,7 +11,6 @@ import {Blockquote} from 'components/blockquote';
 import {Tooltip} from 'components/tooltip';
 import {InformationBlock} from 'components/information-block';
 import {MarkedText} from 'components/text';
-import React from 'react';
 
 export const AppHomePage = () => {
   return (
