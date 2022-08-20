@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9599c988-6e95-4bff-b950-b849526ce37e" name="Default Changelist" comment="add .env">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/apps/home-page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/nextjs/apps/home-page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/accordion/accordion.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/accordion/components/collapsable-block.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/accordion/components/collapsable-block.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/accordion/components/collapsable-element.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/accordion/components/collapsable-element.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/accordion/components/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/accordion/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/accordion/toggle.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/alert/alerts.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/alert/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/blockquote/blockquote.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/blockquote/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/buttons/_mixins.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/buttons/button-link.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/buttons/button.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/buttons/buttons.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/buttons/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/icon/fonts/Icons.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/icon/fonts/Icons.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/icon/fonts/Icons.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/icon/fonts/Icons.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/icon/icon.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/icon/icon.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/icon/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/information-block/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/information-block/information-block.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/social-link/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/social-link/social-link.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/tabs/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/tabs/tabs.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/text/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/text/text.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/titles/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/titles/title.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/tooltip/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/components/tooltip/tooltip.module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/types/common.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/types/icons.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nextjs/pages/types/index.ts" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="001e5d8d174f3f2c0e4d094aad1b2b4306242a3a" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitRewordedCommitMessages">
+    <option name="commitMessagesMapping">
+      <RewordedCommitMessageMapping>
+        <option name="originalMessage" value="Instaled WP&#10;Issue: 1" />
+        <option name="rewordedMessage" value="Installed WP&#10;&#10;Issue: 1" />
+      </RewordedCommitMessageMapping>
+    </option>
+    <option name="currentCommit" value="1" />
+    <option name="onto" value="fa9350d48342c9a8dfed6bc9be368f499d5fa9c2" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="develop" />
+                    <option name="lastUsedInstant" value="1645433804" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="dev" />
+                    <option name="lastUsedInstant" value="1643462028" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="feature/31-remove-wp" />
+                    <option name="lastUsedInstant" value="1643462027" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
+  </component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="archive\/.*" />
+      </list>
+    </option>
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="recentNewPullRequestHead">
+      <RepoCoordinatesHolder>
+        <option name="owner" value="taraswww777" />
+        <option name="repository" value="my-site-taraswww777" />
+      </RepoCoordinatesHolder>
+    </option>
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="bfec3029-0e50-46a0-a331-b372c3d50d2f" />
+        <option name="url" value="git@github.com:taraswww777/my-site-taraswww777.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="1vmhSZFuPc1Lt3eNMSUHg95tScI" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="add_unversioned_files" value="$PROJECT_DIR$/.idea/workspace.xml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/nextjs/styles" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="ts.external.directory.path" value="C:\Users\taras\LWP\my\my-site-taraswww777\nextjs\node_modules\typescript\lib" />
+  </component>
+  <component name="ReaderModeSettings">
+    <option name="showLigatures" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\taras\LWP\my\my-site-taraswww777\nextjs\styles" />
+      <recent name="C:\Users\taras\LWP\my\my-site-taraswww777\nextjs\apps" />
+      <recent name="C:\Users\taras\LWP\my\my-site-taraswww777\nextjs\pages" />
+      <recent name="D:\ws\my\my-site-taraswww777\site" />
+      <recent name="D:\ws\my\my-site-taraswww777\site\wp-content\themes\brushed" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\taras\LWP\my\my-site-taraswww777\nextjs\apps\components\slides" />
+      <recent name="D:\ws\my\my-site-taraswww777" />
+      <recent name="D:\ws\my\my-site-taraswww777\site\wp-content\themes\brushed" />
+      <recent name="D:\ws\my\my-site-taraswww777\site" />
+      <recent name="D:\ws\my\my-site-taraswww777\.docker-dump\mysql" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="docker-deploy" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="npm.build">
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/nextjs/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="buildh" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/nextjs/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="buildh" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="dev" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/nextjs/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="export" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/nextjs/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="export" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="lint-fix" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/nextjs/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="lint-fix" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/nextjs/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.build" />
+        <item itemvalue="npm.start" />
+        <item itemvalue="npm.lint-fix" />
+        <item itemvalue="npm.buildh" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9599c988-6e95-4bff-b950-b849526ce37e" name="Default Changelist" comment="" />
+      <created>1627173177934</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1627173177934</updated>
+      <workItem from="1627173181779" duration="588000" />
+      <workItem from="1627173796604" duration="494000" />
+      <workItem from="1627174311627" duration="834000" />
+      <workItem from="1627322629783" duration="750000" />
+      <workItem from="1627368804452" duration="5023000" />
+      <workItem from="1627386038219" duration="7688000" />
+      <workItem from="1627453673622" duration="2063000" />
+      <workItem from="1627455850086" duration="2445000" />
+      <workItem from="1627464863581" duration="615000" />
+      <workItem from="1627475455968" duration="1302000" />
+      <workItem from="1627668485090" duration="1236000" />
+      <workItem from="1627671117305" duration="628000" />
+      <workItem from="1628023621408" duration="1386000" />
+      <workItem from="1628026122325" duration="1551000" />
+      <workItem from="1628027779370" duration="78000" />
+      <workItem from="1628080276597" duration="1075000" />
+      <workItem from="1628081546241" duration="2257000" />
+      <workItem from="1628106585518" duration="3706000" />
+      <workItem from="1628152261484" duration="2007000" />
+      <workItem from="1628154304154" duration="966000" />
+      <workItem from="1645376878369" duration="16247000" />
+    </task>
+    <task id="LOCAL-00001" summary="initial commit">
+      <created>1627173709538</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1627173709538</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Configure docker&#10;Issue: 1">
+      <created>1627387043052</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1627387043052</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Configure docker&#10;Issue: 1">
+      <created>1627387817937</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1627387817937</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Configure docker&#10;Issue: 1">
+      <created>1627390651502</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1627390651502</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Configure docker&#10;Issue: 1">
+      <created>1627391044492</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1627391044492</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Configure docker&#10;Issue: 1">
+      <created>1627401409098</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1627401409098</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Instaled WP&#10;Issue: 1">
+      <created>1627401473120</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1627401473120</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Instaled WP&#10;Issue: 1">
+      <created>1627404943955</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1627404943955</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Instaled WP&#10;Issue: 1">
+      <created>1627405165369</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1627405165369</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Create theme Brushed&#10;Issue: 3">
+      <created>1627476070772</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1627476070772</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fix .gitignore&#10;&#10;Issue: 11">
+      <created>1627669049741</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1627669049741</updated>
+    </task>
+    <task id="LOCAL-00012" summary="static build&#10;&#10;Issue: 29">
+      <created>1628106652380</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1628106652380</updated>
+    </task>
+    <task id="LOCAL-00013" summary="static build&#10;&#10;Issue: 29">
+      <created>1628106809466</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1628106809466</updated>
+    </task>
+    <task id="LOCAL-00014" summary="static build&#10;&#10;Issue: 29">
+      <created>1628107055546</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1628107055546</updated>
+    </task>
+    <task id="LOCAL-00015" summary="add yandex id">
+      <created>1628152331803</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1628152331803</updated>
+    </task>
+    <task id="LOCAL-00016" summary="add .env">
+      <created>1628152650033</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1628152650033</updated>
+    </task>
+    <task id="LOCAL-00017" summary="20.02.2022">
+      <created>1645387738441</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1645387738441</updated>
+    </task>
+    <task id="LOCAL-00018" summary="make draft cv">
+      <created>1645431197522</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1645431197522</updated>
+    </task>
+    <task id="LOCAL-00019" summary="make draft cv">
+      <created>1645431325973</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1645431325973</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="SHOW_DETAILS_IN_CHANGES" value="false" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="initial commit" />
+    <MESSAGE value="Configure docker&#10;Issue: 1" />
+    <MESSAGE value="Instaled WP&#10;Issue: 1" />
+    <MESSAGE value="Create theme Brushed&#10;Issue: 3" />
+    <MESSAGE value="fix .gitignore&#10;&#10;Issue: 11" />
+    <MESSAGE value="Installed WP&#10;Issue: 1" />
+    <MESSAGE value="Make title blocks&#10;Issue: 3" />
+    <MESSAGE value="Make icons&#10;Issue: 3" />
+    <MESSAGE value="Make accordion list and toggle list&#10;Issue: 3" />
+    <MESSAGE value="static build&#10;&#10;Issue: 29" />
+    <MESSAGE value="add yandex id" />
+    <MESSAGE value="add .env" />
+    <MESSAGE value="20.02.2022" />
+    <MESSAGE value="make draft cv" />
+    <option name="LAST_COMMIT_MESSAGE" value="make draft cv" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

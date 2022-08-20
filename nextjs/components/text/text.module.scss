@@ -1,0 +1,18 @@
+@use "sass:map";
+@import 'styles/constants/colors';
+
+$textTypes: (
+  none:(color: $COLOR_NONE),
+  danger:(color: $COLOR_DANGER),
+  warning:(color: $COLOR_WARNING),
+  success:(color: $COLOR_SUCCESS),
+  info:(color: $COLOR_INFO),
+);
+
+.markedText {
+  @each $type, $attrs in $textTypes {
+    &--type_#{$type} {
+      color: map.get($attrs, 'color')
+    }
+  }
+}
