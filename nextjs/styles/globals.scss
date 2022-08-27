@@ -1,0 +1,32 @@
+@import './constants/colors';
+@import './constants/constants';
+@import '~@fontsource/titillium-web/scss/mixins';
+@import '~foundation-sites/scss/foundation';
+
+@include foundation-normalize;
+@include fontFace;
+
+$bgBody: $PRIMARY_DARK;
+$colorBody: $COLOR_LITE_GRAY_FONTS;
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: $MAIN_FONT_NAME, sans-serif;
+  background: $bgBody;
+  color: $colorBody;
+}
+
+li {
+  margin: 0 0 10px 0;
+  padding: 0;
+  line-height: 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 20px 0;
+  color: #FFFFFF;
+  font-weight: 300;
+}

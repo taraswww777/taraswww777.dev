@@ -1,0 +1,27 @@
+@import "~foundation-sites/scss/foundation";
+@import 'styles/constants/colors';
+
+.block {
+  $colorContent: $COLOR_WHITE;
+
+  @include xy-grid();
+
+
+  &__title {
+    @include xy-cell(12, 0, 0);
+    color: $colorContent;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 1em;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+  }
+
+  &__content {
+    @include xy-cell(12, 0, 0);
+  }
+
+  &__element {
+    margin-bottom: 5px;
+  }
+}
