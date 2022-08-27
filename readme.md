@@ -2,4 +2,4 @@
 
 ## Information
 
-Site url: [taraswww777.ru](http://taraswww777.ru)
+Site url: [taraswww777.dev](https://taraswww777.dev)
