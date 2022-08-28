@@ -8,13 +8,15 @@ import { HeaderComponent } from './components/header/header.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AboutMeComponent } from './components/about-me/about-me.component';
+import { WorkExperienceComponent } from './components/work-experience/work-experience.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ContactsComponent,
-    AboutMeComponent
+    AboutMeComponent,
+    WorkExperienceComponent
   ],
   imports: [
     BrowserModule,
