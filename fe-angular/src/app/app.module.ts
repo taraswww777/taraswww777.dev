@@ -19,7 +19,7 @@ import { WorkExperienceComponent } from './components/work-experience/work-exper
     WorkExperienceComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     NgbModule,
     FontAwesomeModule
