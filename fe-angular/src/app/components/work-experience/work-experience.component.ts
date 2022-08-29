@@ -6,6 +6,7 @@ interface WorkExperience {
   dateEnd: string,
   companyName: string,
   companySite?: string,
+  companySiteName?: string,
   workPosition: string,
   teamName?: string,
   technologiesTags: string[],
@@ -21,7 +22,9 @@ export class WorkExperienceComponent implements OnInit {
   workExperience: WorkExperience[] = [];
 
   constructor() {
-    this.workExperience = dataWorkExperience;
+    this.workExperience = dataWorkExperience.sort((a, b) => (
+      new Date(b.dateBegin).getTime() - new Date(a.dateBegin).getTime()
+    ));
   }
 
   ngOnInit(): void {

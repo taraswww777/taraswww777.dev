@@ -3,7 +3,8 @@
     "dateBegin": "10-01-2012",
     "dateEnd": "02-01-2013",
     "companyName": "Дальневосточный государственный университет",
-    "companySite": "dalgau.ru",
+    "companySite": "https://dalgau.ru",
+    "companySiteName": "dalgau.ru",
     "workPosition": "Младший программист",
     "teamName": "Факультет заочного и дополнительного образования (ФЗДПО)",
     "technologiesTags": ["PHP", "HTML", "CSS", "MySQL", "Moodle", "Javascript"],
@@ -13,7 +14,8 @@
     "dateBegin": "10-01-2015",
     "dateEnd": "08-01-2017",
     "companyName": "ООО Центр сопровождения сайтов",
-    "companySite": "dv-css.ru",
+    "companySite": "https://dv-css.ru",
+    "companySiteName": "dv-css.ru",
     "teamName": "Отдел разработки",
     "workPosition": "Web программист, Старший Web программист",
     "technologiesTags": [
@@ -37,6 +39,9 @@
     "dateBegin": "03-01-2018",
     "dateEnd": "06-01-2018",
     "companyName": "Текарт, Маркетинговая группа",
+    "companySite": "https://techart.ru",
+    "companySiteName": "techart.ru",
+    "teamName": "Отдел разработки",
     "workPosition": "Fullstack web программист",
     "technologiesTags": [
       "PHP7.2", "HTML5", "CSS3", "MySQL", "Symfony","1C Bitrix", "GIT", "BEM",
@@ -48,6 +53,8 @@
     "dateBegin": "06-01-2018",
     "dateEnd": "09-01-2018",
     "companyName": "Сайт-Мастер",
+    "companySite": "https://site-master.su",
+    "companySiteName": "site-master.su",
     "workPosition": "Fullstack web программист",
     "technologiesTags": [
       "PHP7.2", "HTML5", "CSS3", "MySQL","1C Bitrix","Opencart","Joomla", "Drupal", "MODX",
@@ -59,6 +66,8 @@
     "dateBegin": "10-01-2018",
     "dateEnd": "01-01-2020",
     "companyName": "EPAM Systems Inc. (Россия)",
+    "companySite": "https://www.epam.com/",
+    "companySiteName": "epam.com",
     "workPosition": "FE middle программист",
     "teamName": "ОСАГО Росгосстрах",
     "technologiesTags": [
@@ -70,6 +79,8 @@
     "dateBegin": "01-01-2020",
     "dateEnd": "12-01-2021",
     "companyName": "EPAM Systems Inc. (Россия)",
+    "companySite": "https://www.epam.com/",
+    "companySiteName": "epam.com",
     "workPosition": "FE middle программист",
     "teamName": "ВТБ. Валютрый контроль",
     "technologiesTags": [
@@ -82,6 +93,8 @@
     "dateBegin": "12-01-2021",
     "dateEnd": "03-01-2022",
     "companyName": "EPAM Systems Inc. (Россия)",
+    "companySite": "https://www.epam.com/",
+    "companySiteName": "epam.com",
     "workPosition": "FE middle программист, лид",
     "teamName": "ВТБ. Валютрый контроль. ОМНИ.",
     "technologiesTags": [
@@ -94,6 +107,8 @@
     "dateBegin": "03-01-2022",
     "dateEnd": "09-01-2022",
     "companyName": "ГК Иннотех",
+    "companySite": "https://inno.tech/",
+    "companySiteName": "inno.tech",
     "workPosition": "FE middle программист, лид",
     "teamName": "ВТБ. Валютрый контроль. ОМНИ.",
     "technologiesTags": [
