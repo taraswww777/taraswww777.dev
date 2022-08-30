@@ -12,7 +12,13 @@
     "dev:ssr": "ng run my-site:serve-ssr",
     "serve:ssr": "node dist/my-site/server/main.js",
     "build:ssr": "ng build && ng run my-site:server",
-    "prerender": "ng run my-site:prerender"
+    "prerender": "ng run my-site:prerender",
+    "docker:rebuild": "npm run docker:rmi && npm run docker:build",
+    "docker:rmi": "docker rmi taraswww777/taraswww777-fe .",
+    "docker:build": "docker build -t taraswww777/taraswww777-fe .",
+    "docker:run": "docker run -d -p 80:4000 --name taraswww777-fe --rm taraswww777/taraswww777-fe",
+    "docker:stop": "docker stop taraswww777-fe",
+    "docker:push": "docker push taraswww777/taraswww777-fe:latest"
   },
   "private": false,
   "dependencies": {
