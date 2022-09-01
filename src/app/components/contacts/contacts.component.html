@@ -1,0 +1,16 @@
+<div>
+  <strong>Contacts:</strong>
+  <ul>
+    <li *ngFor="let contact of contacts" class="mt-2">
+      <a
+        [href]="contact.href"
+        [id]="contact.code"
+        [title]="contact.text"
+        target="_blank"
+      >
+        <fa-icon [icon]="contact.icon"></fa-icon>
+        {{contact.text}}
+      </a>
+    </li>
+  </ul>
+</div>

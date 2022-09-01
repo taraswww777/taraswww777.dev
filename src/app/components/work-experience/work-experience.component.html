@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-12"><h2>Опыт работы</h2></div>
+  <div
+    class="card col-md-4 col-sm-6 col-12 mb-4"
+    *ngFor="let item of workExperience"
+  >
+    <div class="card-body">
+      <h5 class="card-title">
+        {{item.companyName}}
+        <a *ngIf="item.companySite" target="_blank" [href]="item.companySite">{{item.companySiteName || item.companySite}}</a>
+      </h5>
+      <p *ngIf="item.workPosition" class="card-subtitle">{{item.workPosition}}</p>
+      <p *ngIf="item.teamName" class="card-subtitle">{{item.teamName}}</p>
+      <div class="card-text">{{item.description}}</div>
+
+    </div>
+    <div class="card-footer">
+      <div *ngIf="item.technologiesTags.length > 0">
+        <span
+          class="badge bg-secondary me-1"
+          *ngFor="let tag of item.technologiesTags"
+        >
+          {{tag}}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
