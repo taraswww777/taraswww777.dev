@@ -9,6 +9,7 @@ import { ContactsComponent } from './components/contacts/contacts.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AboutMeComponent } from './components/about-me/about-me.component';
 import { WorkExperienceComponent } from './components/work-experience/work-experience.component';
+import { WorkIntervalComponent } from './components/work-interval/work-interval.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { WorkExperienceComponent } from './components/work-experience/work-exper
     HeaderComponent,
     ContactsComponent,
     AboutMeComponent,
-    WorkExperienceComponent
+    WorkExperienceComponent,
+    WorkIntervalComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
