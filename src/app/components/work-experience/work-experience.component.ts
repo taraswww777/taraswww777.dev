@@ -10,13 +10,20 @@ import {WorkExperienceDto} from 'src/types/dto';
 })
 export class WorkExperienceComponent implements OnInit {
   workExperience: WorkExperienceDto[] = [];
+  tags: string[] = [];
 
   constructor() {
   }
 
   ngOnInit(): void {
-    loadWorkExperience().then((workExperience)=>{
-      this.workExperience = workExperience
-    })
+    loadWorkExperience().then((workExperience) => {
+      this.workExperience = workExperience;
+
+      workExperience.map(({technologiesTags}) => {
+        this.tags = [...this.tags, ...technologiesTags];
+      });
+
+      console.log('res:[WorkExperienceComponent]:this.tags:', this.tags);
+    });
   }
 }
