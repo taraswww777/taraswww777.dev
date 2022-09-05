@@ -12,9 +12,6 @@ export class WorkExperienceComponent implements OnInit {
   workExperience: WorkExperienceDto[] = [];
   tags: string[] = [];
 
-  constructor() {
-  }
-
   ngOnInit(): void {
     loadWorkExperience().then((workExperience) => {
       this.workExperience = workExperience;
@@ -22,8 +19,6 @@ export class WorkExperienceComponent implements OnInit {
       workExperience.map(({technologiesTags}) => {
         this.tags = [...this.tags, ...technologiesTags];
       });
-
-      console.log('res:[WorkExperienceComponent]:this.tags:', this.tags);
     });
   }
 }

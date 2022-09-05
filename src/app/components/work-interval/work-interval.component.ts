@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import moment from 'moment';
 
 @Component({
@@ -8,11 +8,11 @@ import moment from 'moment';
   styleUrls: ['./work-interval.component.scss']
 })
 export class WorkIntervalComponent implements OnInit {
-  dateBegin: string = '';
-  dateEnd: string = '';
+  @Input() dateBegin: string = '';
+  @Input() dateEnd: string = '';
 
-  y?: number = 0;
-  m?: number = 0;
+  public y?: number = 0;
+  public m?: number = 0;
 
   ngOnInit() {
     const b = moment(this.dateBegin);

@@ -1,126 +1,24 @@
 import {DOCUMENT} from '@angular/common';
-import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
+import {Component, Inject, Input, OnChanges, OnDestroy, OnInit} from '@angular/core';
 import {CloudData, CloudOptions} from 'angular-tag-cloud-module';
 import Color from 'color';
 import {toNumber} from 'lodash';
 
-const TAGS: string[] = [
-  'Javascript',
-  'React',
-  'Typescript',
-  'node',
-  'HTML5',
-  'CSS3',
-  'MsSQL',
-  'webpack',
-  'jest',
-  'ModuleFederation',
-  'Bitbucket',
-  'TeamCity',
-  'Confluence',
-  'express',
-  'Javascript',
-  'React',
-  'Typescript',
-  'node',
-  'HTML5',
-  'CSS3',
-  'MsSQL',
-  'webpack',
-  'jest',
-  'ModuleFederation',
-  'Bitbucket',
-  'TeamCity',
-  'Confluence',
-  'express',
-  'Docker',
-  'Nginx',
-  'Javascript',
-  'React',
-  'Typescript',
-  'scss',
-  'flow',
-  'HTML5',
-  'CSS3',
-  'MsSQL',
-  'webpack',
-  'jest',
-  'ModuleFederation',
-  'Bitbucket',
-  'TeamCity',
-  'Confluence',
-  'jenkins',
-  'GitLab',
-  'kubernetes',
-  'Javascript',
-  'knockoutjs',
-  'flow',
-  'HTML5',
-  'less',
-  'scss',
-  'jira',
-  'GitLab',
-  'TeamCity',
-  'PHP7.2',
-  'HTML5',
-  'CSS3',
-  'MySQL',
-  '1C Bitrix',
-  'Opencart',
-  'Joomla',
-  'Drupal',
-  'MODX',
-  'Laravel5',
-  'Javascript',
-  'PHP7.2',
-  'HTML5',
-  'CSS3',
-  'MySQL',
-  'Symfony',
-  '1C Bitrix',
-  'GIT',
-  'BEM',
-  'Laravel5',
-  'tao3',
-  'bitrix.tao',
-  'Javascript',
-  'gulp',
-  'webpack',
-  'PHP7.2',
-  'HTML5',
-  'CSS3',
-  'MySQL',
-  'PgSQL',
-  'Symfony',
-  'Yii2',
-  'Laravel5',
-  'Centos',
-  'Javascript',
-  'PHP5.6',
-  'HTML5',
-  'CSS3',
-  'MySQL',
-  'Wordpress',
-  '1C Bitrix',
-  'Opencart',
-  'XML',
-  'GIT'
-];
 const BASE_FONTSIZE_TAG = 14;
 const BASE_COLOR = Color('#ff0000');
 const DEFAULT_WINDOW_SIZE = 320;
 
 @Component({
   selector: 'app-cloud-tags',
-  inputs: ['tags'],
   templateUrl: './cloud-tags.component.html',
   styleUrls: ['./cloud-tags.component.scss']
 })
-export class CloudTagsComponent implements OnInit, OnDestroy {
-  data: CloudData[] = [];
+export class CloudTagsComponent implements OnChanges, OnDestroy {
+  @Input() cloudTags: any[] = [];
 
-  tags: string[] = [];
-  options: CloudOptions = {
+  public cloudData: CloudData[] = [];
+
+  public options: CloudOptions = {
     width: DEFAULT_WINDOW_SIZE,
     height: 400,
     overflow: true,
@@ -135,7 +33,7 @@ export class CloudTagsComponent implements OnInit, OnDestroy {
   ) {
     addEventListener('resize', this.onWindowResize.bind(this));
 
-    // this.updateWidthCloud(toNumber(this.documentRef.body.clientHeight) - 100 || DEFAULT_WINDOW_SIZE);
+    this.updateWidthCloud(toNumber(this.documentRef.body.clientHeight) - 100 || DEFAULT_WINDOW_SIZE);
   }
 
   ngOnDestroy() {
@@ -147,10 +45,11 @@ export class CloudTagsComponent implements OnInit, OnDestroy {
     this.updateWidthCloud(toNumber(event?.currentTarget?.innerWidth) - 100 || DEFAULT_WINDOW_SIZE)
   }
 
-  ngOnInit(): void {
+  ngOnChanges(): void {
     this.metaTags = {};
+    const cloudData: CloudData[] = [];
 
-    TAGS.forEach((tag) => {
+    this.cloudTags.forEach((tag) => {
       const weight = BASE_FONTSIZE_TAG + (this.metaTags[tag]?.weight || 1);
       this.metaTags[tag] = {
         text: tag,
@@ -160,8 +59,10 @@ export class CloudTagsComponent implements OnInit, OnDestroy {
     });
 
     Object.keys(this.metaTags).forEach(key => {
-      this.data.push(this.metaTags[key]);
+      cloudData.push(this.metaTags[key]);
     });
+
+    this.cloudData = cloudData;
   }
 
   updateWidthCloud(width: number = DEFAULT_WINDOW_SIZE) {

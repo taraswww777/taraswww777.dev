@@ -39,8 +39,6 @@
     </div>
   </div>
   <div class="col-12 overflow-hidden">
-    {{tags.join(', ')}}
-
-    <app-cloud-tags *ngIf="tags" [tags]="tags"></app-cloud-tags>
+    <app-cloud-tags *ngIf="tags" [cloudTags]="tags"></app-cloud-tags>
   </div>
 </div>
