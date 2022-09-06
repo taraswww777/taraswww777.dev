@@ -1,5 +1,5 @@
 import {DOCUMENT} from '@angular/common';
-import {Component, Inject, Input, OnChanges, OnDestroy, OnInit} from '@angular/core';
+import {Component, ElementRef, Inject, Input, OnChanges, OnDestroy} from '@angular/core';
 import {CloudData, CloudOptions} from 'angular-tag-cloud-module';
 import Color from 'color';
 import {toNumber} from 'lodash';
@@ -29,23 +29,22 @@ export class CloudTagsComponent implements OnChanges, OnDestroy {
 
 
   constructor(
+    private elementRef: ElementRef,
     @Inject(DOCUMENT) private readonly documentRef: Document
   ) {
     addEventListener('resize', this.onWindowResize.bind(this));
-
-    this.updateWidthCloud(toNumber(this.documentRef.body.clientHeight) - 100 || DEFAULT_WINDOW_SIZE);
   }
 
   ngOnDestroy() {
     removeEventListener('resize', this.onWindowResize);
   }
 
-  onWindowResize(event: Event) {
-    // @ts-ignore
-    this.updateWidthCloud(toNumber(event?.currentTarget?.innerWidth) - 100 || DEFAULT_WINDOW_SIZE)
+  onWindowResize() {
+    this.updateWidthCloud(toNumber(this.elementRef.nativeElement.offsetWidth) || DEFAULT_WINDOW_SIZE)
   }
 
   ngOnChanges(): void {
+    this.updateWidthCloud(toNumber(this.elementRef.nativeElement.offsetWidth) || DEFAULT_WINDOW_SIZE);
     this.metaTags = {};
     const cloudData: CloudData[] = [];
 
