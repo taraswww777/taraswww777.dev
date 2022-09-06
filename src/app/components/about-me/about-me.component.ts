@@ -7,8 +7,8 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./about-me.component.scss']
 })
 export class AboutMeComponent implements OnInit {
-
-  age: number = 0;
+  public photoTitle = 'Это я';
+  public age: number = 0;
 
   constructor() {
     const date = new Date();

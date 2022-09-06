@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {isEmpty} from 'lodash';
 import {loadWorkExperience} from 'src/resources/work-experience';
 import {WorkExperienceDto} from 'src/types/dto';
 
@@ -9,16 +10,22 @@ import {WorkExperienceDto} from 'src/types/dto';
   styleUrls: ['./work-experience.component.scss']
 })
 export class WorkExperienceComponent implements OnInit {
-  workExperience: WorkExperienceDto[] = [];
-  tags: string[] = [];
+  public workExperience: WorkExperienceDto[] = [];
+  public tags: string[] = [];
+
+  public get isShowCloudTags(): boolean {
+    return !isEmpty(this.tags) && !this.isMobile();
+  }
+
+  isMobile(): boolean {
+    return window.screen.width < 768;
+  }
 
   ngOnInit(): void {
-    loadWorkExperience().then((workExperience) => {
-      this.workExperience = workExperience;
+    this.workExperience = loadWorkExperience();
 
-      workExperience.map(({technologiesTags}) => {
-        this.tags = [...this.tags, ...technologiesTags];
-      });
+    this.workExperience.forEach(({technologiesTags}) => {
+      this.tags = [...this.tags, ...technologiesTags];
     });
   }
 }

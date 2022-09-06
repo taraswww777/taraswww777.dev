@@ -1,13 +1,15 @@
 <div class="row">
-  <div class="col-md-4 col-sm-12">
-    <img class="img-fluid" src="/assets/my-photo.jpg" alt="it's I'm">
-  </div>
+  <picture class="col-md-4 col-sm-12">
+    <img src="/assets/my-photo-small.jpg" class="img-fluid" width="348" height="521" [alt]="photoTitle">
+    <source srcset="/assets/my-photo-small.jpg" media="(min-width: 1200px)">
+    <source srcset="/assets/my-photo-big.jpg"  media="(max-width: 1200px)">
+  </picture>
   <div class="col-md-8 col-sm-12">
     <div class="mt-3">
       <h2>Всем, привет!</h2>
       <p>Меня зовут Тарас.</p>
       <p>
-        Если вы опали на этот сайт осмысленно,
+        Если вы попали на этот сайт осмысленно,
         то наверняка вас интересуют факты обо мне,
         я это знал и заранее их описал ниже.
       </p>
