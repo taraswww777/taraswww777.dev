@@ -3,9 +3,11 @@
   "version": "1.0.1",
   "description": "Site Taras Kovalev (taraswww777). U can see taraswww777.dev",
   "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "version:patch": "npm version patch",
@@ -46,6 +48,9 @@
     "express": "^4.15.2",
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
+    "next": "13.0.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
