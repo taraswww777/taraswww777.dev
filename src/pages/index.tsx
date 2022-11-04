@@ -2,16 +2,17 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import {HeaderComponent} from "../components/header/header.component";
+import {AboutMeComponent} from "../components/about-me/about-me.component";
 
 export default function Home() {
   return (
     <div className="container">
       <div className="row">
         <header className="col-12">
-          <HeaderComponent />
+          <HeaderComponent/>
         </header>
         <main className="col-12">
-          {/*<app-about-me></app-about-me>*/}
+          <AboutMeComponent/>
           <div className="mt-3">
             {/*<app-work-experience></app-work-experience>*/}
           </div>
