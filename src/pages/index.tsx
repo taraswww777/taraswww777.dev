@@ -1,9 +1,7 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
 import {HeaderComponent} from "../components/header/header.component";
 import {AboutMeComponent} from "../components/about-me/about-me.component";
 import {ContactsComponent} from "../components/contacts/contacts.component";
+import {WorkExperienceComponent} from "../components/work-experience/work-experience.component";
 
 export default function Home() {
   return (
@@ -15,7 +13,7 @@ export default function Home() {
         <main className="col-12">
           <AboutMeComponent/>
           <div className="mt-3">
-            {/*<app-work-experience></app-work-experience>*/}
+            <WorkExperienceComponent/>
           </div>
         </main>
         <footer className="col-12 mt-4">
