@@ -2,6 +2,7 @@ import {isEmpty} from 'lodash';
 import {loadWorkExperience} from 'src/resources/work-experience';
 import {WorkExperienceDto} from 'src/types/dto';
 import {useEffect, useState} from "react";
+import {workIntervalComponent} from "../../utils";
 
 
 export const WorkExperienceComponent = () => {
@@ -33,7 +34,7 @@ export const WorkExperienceComponent = () => {
             </h5>
             <p>
               <span className="badge bg-dark">
-                {/*<app-work-interval [dateBegin]="item.dateBegin" [dateEnd]="item.dateEnd"></app-work-interval>*/}
+                {workIntervalComponent({...item})}
               </span>
             </p>
 
