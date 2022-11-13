@@ -1,0 +1,16 @@
+import {Html, Head, Main, NextScript} from 'next/document'
+import {YaMetric} from "../components/metrics/ya";
+
+export default function Document() {
+  return (
+    <Html>
+      <Head/>
+      <body>
+      <Main/>
+      <NextScript/>
+
+      <YaMetric/>
+      </body>
+    </Html>
+  )
+}
