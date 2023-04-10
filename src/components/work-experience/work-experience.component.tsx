@@ -61,9 +61,6 @@ export const WorkExperienceComponent = () => {
           </div>
         </div>
       ))}
-      {/*<div className="col-12 overflow-hidden">*/}
-      {/*  <app-cloud-tags *ngIf="isShowCloudTags" [cloudTags]="tags"></app-cloud-tags>*/}
-      {/*</div>*/}
     </div>
   );
 }
