@@ -12,7 +12,6 @@
     "test": "npm run test",
     "deploy": "npm run build && npm run export && npm run sitemap",
     "version:patch": "npm version patch",
-    "prerender": "ng run my-site:prerender",
     "docker:rebuild": "npm run docker:rmi && npm run docker:build",
     "docker:rmi": "docker rmi taraswww777/taraswww777-fe .",
     "docker:build": "docker build -t taraswww777/taraswww777-fe .",
@@ -22,8 +21,6 @@
   },
   "private": false,
   "dependencies": {
-    "@ng-bootstrap/ng-bootstrap": "^13.0.0",
-    "@nguniversal/express-engine": "^14.1.0",
     "@popperjs/core": "^2.10.2",
     "bootstrap": "^5.2.0",
     "color": "^4.2.3",
@@ -40,7 +37,6 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@nguniversal/builders": "^14.1.0",
     "@types/color": "^3.0.3",
     "@types/express": "^4.17.0",
     "@types/jasmine": "~4.0.0",
