@@ -1,6 +1,8 @@
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {dataContacts} from "../../__data";
 import {FaIcon} from "../fa-icon";
+import {List, NavLink} from '@mantine/core';
+import Link from 'next/link';
 
 interface Contact {
   href: string,
@@ -17,22 +19,23 @@ export const ContactsComponent = () => {
   }, []);
 
   return (
-    <div>
-      <strong>Контакты:</strong>
-      <ul className="list list-unstyled">
-        {contacts.map(({href, code, text, icon}) => (
-          <li className="mt-2 list-item">
-            <a
-              href={href}
-              id={code}
-              title={text}
-              target="_blank"
-            >
-              <FaIcon iconName={icon}/>&nbsp;{text}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <List listStyleType={'none'} style={{display: 'flex', flexWrap: 'wrap', gap: '1rem 1rem'}}>
+      {contacts.map(({href, code, text, icon}) => (
+        <List.Item className="mt-2 list-item">
+          <NavLink
+            color={'blue'}
+            variant={'subtle'}
+            active
+            icon={<FaIcon iconName={icon} />}
+            component={Link}
+            href={href}
+            id={code}
+            title={text}
+            target="_blank"
+            label={text}
+          />
+        </List.Item>
+      ))}
+    </List>
   );
 }
