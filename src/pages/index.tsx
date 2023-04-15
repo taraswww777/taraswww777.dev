@@ -8,10 +8,10 @@ export default function Home() {
   return (
     <Container>
       <Grid>
-        <Grid.Col xs={12} p={0}>
+        <Grid.Col xs={12} p={0} mt='1.5rem'>
           <HeaderComponent />
         </Grid.Col>
-        <Grid.Col xs={12} p={0}>
+        <Grid.Col xs={12} p={0}  mt='1.5rem'>
           <AboutMeComponent />
         </Grid.Col>
         <Grid.Col xs={12} mt='1.5rem'>
