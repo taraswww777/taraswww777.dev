@@ -4,6 +4,8 @@
 .vscode
 .env
 !.idea/vcs.xml
+!.idea/taraswww777.dev.iml
+!.idea/modules.xml
 .next
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
