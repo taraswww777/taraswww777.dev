@@ -1,7 +1,7 @@
 import {HeaderComponent} from "../components/header/header.component";
 import {AboutMeComponent} from "../components/about-me/about-me.component";
 import {ContactsComponent} from "../components/contacts/contacts.component";
-import {WorkExperienceComponent} from "../components/work-experience/work-experience.component";
+import {WorkExperience} from "../components/WorkExperience";
 import {Grid, Container} from '@mantine/core';
 
 export default function Home() {
@@ -15,7 +15,7 @@ export default function Home() {
           <AboutMeComponent />
         </Grid.Col>
         <Grid.Col xs={12} mt='1.5rem'>
-          <WorkExperienceComponent />
+          <WorkExperience />
         </Grid.Col>
         <Grid.Col xs={12} p={0} mt='1.5rem'>
           <>
