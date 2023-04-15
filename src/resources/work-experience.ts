@@ -1,5 +1,5 @@
-import dataWorkExperience from './__data/work-experience.json';
 import {WorkExperienceDto} from 'src/types/dto';
+import {dataWorkExperience} from "../__data";
 
 
 export const loadWorkExperience = (): WorkExperienceDto[] => (
