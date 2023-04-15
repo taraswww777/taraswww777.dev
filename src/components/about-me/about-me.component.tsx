@@ -1,4 +1,6 @@
-// import Image from 'next/image';
+import Image from 'next/image';
+import {imageLoader} from 'src/utils/imageLoader';
+import ImgSmall from '../../public/assets/my-photo-small.jpg'
 
 export const AboutMeComponent = () => {
   const date = new Date();
@@ -9,11 +11,16 @@ export const AboutMeComponent = () => {
 
   return (
     <div className="row">
-      {/*<picture className="col-md-4 col-sm-12">*/}
-      {/*  <Image src="/assets/my-photo-small.jpg" className="img-fluid" width="348" height="521" alt="Это я"/>*/}
-      {/*  <source srcSet="/assets/my-photo-small.jpg" media="(min-width: 1200px)"/>*/}
-      {/*  <source srcSet="/assets/my-photo-big.jpg" media="(max-width: 1200px)"/>*/}
-      {/*</picture>*/}
+      <picture className="col-md-4 col-sm-12">
+        <Image
+          src={ImgSmall}
+          className="img-fluid"
+          width="348"
+          height="521"
+          alt="Это я"
+          loader={imageLoader}
+        />
+      </picture>
       <div className="col-md-8 col-sm-12">
         <div className="mt-3">
           <h2>Всем, привет!</h2>
