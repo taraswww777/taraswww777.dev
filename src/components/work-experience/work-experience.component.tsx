@@ -21,13 +21,16 @@ export const WorkExperienceComponent = () => {
     workExperience.forEach(({technologiesTags}) => {
       setTags([...tags, ...technologiesTags]);
     });
-  });
+  },[]);
 
   return (
     <div className="row">
       <div className="col-12"><h2>Опыт работы</h2></div>
       {workExperience.map((item) => (
-        <div className="card col-md-6 col-sm-12 col-lg-4 col-xxl-3 col-12 mb-2">
+        <div
+          key={`${item.dateBegin}-${item.dateEnd}`}
+          className="card col-md-6 col-sm-12 col-lg-4 col-xxl-3 col-12 mb-2"
+        >
           <div className="card-body">
             <h5 className="card-title">
               {item.companyName}
@@ -54,7 +57,7 @@ export const WorkExperienceComponent = () => {
             {(item.technologiesTags.length > 0) ? (
               <div>
                 {item.technologiesTags.map((tag) => (
-                  <span className="badge bg-secondary me-1">{tag}</span>
+                  <span key={tag} className="badge bg-secondary me-1">{tag}</span>
                 ))}
               </div>
             ) : null}
