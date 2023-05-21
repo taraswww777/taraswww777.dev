@@ -14,6 +14,7 @@ export const AboutMeComponent = () => {
       <picture className="col-md-4 col-sm-12">
         <Image
           src={ImgSmall}
+          property={'blur'}
           loading="lazy"
           className="img-fluid"
           width="348"
