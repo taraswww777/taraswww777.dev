@@ -5,13 +5,11 @@ export default function Document() {
   return (
     <Html>
       <Head>
-        <title>taraswww777.dev</title>
         <script src="https://kit.fontawesome.com/45f9b38c9b.js" crossOrigin="anonymous"></script>
       </Head>
       <body>
       <Main/>
       <NextScript/>
-
       <YaMetric/>
       </body>
     </Html>
