@@ -3,6 +3,7 @@ export const YaMetric = () => {
   return (
     <>
       <script
+        async
         type="text/javascript"
         dangerouslySetInnerHTML={{
           __html: `

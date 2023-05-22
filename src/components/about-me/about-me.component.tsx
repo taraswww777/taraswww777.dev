@@ -14,6 +14,8 @@ export const AboutMeComponent = () => {
       <picture className="col-md-4 col-sm-12">
         <Image
           src={ImgSmall}
+          property={'blur'}
+          loading="lazy"
           className="img-fluid"
           width="348"
           height="521"
@@ -35,7 +37,7 @@ export const AboutMeComponent = () => {
         <ul>
           <li>Родился 1 марта 1994г ({age}лет)</li>
           <li>
-            В 2015 получил степень бакалавра "Бизнес-информатики" в
+            В 2015 получил степень бакалавра "Бизнес-информатики" в &nbsp;
             <a href="https://www.amursu.ru/" target="_blank">АмГУ</a>
           </li>
           <li>В 2013 начал совмещать работу программистом и учёбу в университете</li>

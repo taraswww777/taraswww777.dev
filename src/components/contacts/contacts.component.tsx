@@ -17,22 +17,20 @@ export const ContactsComponent = () => {
   }, []);
 
   return (
-    <div>
-      <strong>Контакты:</strong>
-      <ul className="list list-unstyled">
-        {contacts.map(({href, code, text, icon}) => (
-          <li className="mt-2 list-item">
-            <a
-              href={href}
-              id={code}
-              title={text}
-              target="_blank"
-            >
-              <FaIcon iconName={icon}/>&nbsp;{text}
-            </a>
-          </li>
-        ))}
-      </ul>
+    <div className="row">
+      {contacts.map(({href, code, text, icon}) => (
+        <div key={code} className="col-xl col-md-4 col-sm-12">
+          <a
+            href={href}
+            id={code}
+            title={text}
+            target="_blank"
+            className="btn btn-link btn-light"
+          >
+            <FaIcon iconName={icon} />&nbsp;{text}
+          </a>
+        </div>
+      ))}
     </div>
   );
 }

@@ -8,19 +8,21 @@ export default function Home() {
     <div className="container">
       <div className="row">
         <header className="col-12">
-          <HeaderComponent/>
+          <HeaderComponent />
         </header>
         <main className="col-12">
-          <AboutMeComponent/>
+          <AboutMeComponent />
           <div className="mt-3">
-            <WorkExperienceComponent/>
+            <WorkExperienceComponent />
           </div>
         </main>
-        <footer className="col-12 mt-4">
-          <ContactsComponent/>
+        <footer
+          className="col-12 pt-2"
+        >
+          <ContactsComponent />
           <a
-            className="btn btn-dark d-block text-uppercase mt-4"
-            href="https://ryazan.hh.ru/resume/4c039332ff03d40aad0039ed1f364961696744"
+            className="btn btn-dark d-block text-uppercase mt-2"
+            href="https://spb.hh.ru/resume/4c039332ff03d40aad0039ed1f364961696744"
             target="_blank"
           >
             Резюме на Hh.ru

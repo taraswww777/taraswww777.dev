@@ -10,7 +10,6 @@ export default function Document() {
       <body>
       <Main/>
       <NextScript/>
-
       <YaMetric/>
       </body>
     </Html>
