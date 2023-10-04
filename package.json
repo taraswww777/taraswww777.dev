@@ -53,5 +53,8 @@
   "bugs": {
     "url": "https://github.com/taraswww777/taraswww777.dev-fe/issues"
   },
-  "homepage": "https://github.com/taraswww777/taraswww777.dev-fe#readme"
+  "homepage": "https://github.com/taraswww777/taraswww777.dev-fe#readme",
+  "dependencies": {
+    "sharp": "^0.32.6"
+  }
 }
