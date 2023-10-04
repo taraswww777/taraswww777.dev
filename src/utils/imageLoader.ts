@@ -1,4 +1,4 @@
-import {ImageProps} from "next/dist/client/image";
+import {ImageProps} from "next/image";
 
 export const imageLoader: ImageProps['loader'] = ({
   src, width, quality = 75
