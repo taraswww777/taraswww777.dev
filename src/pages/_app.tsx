@@ -2,6 +2,7 @@ import type {AppProps} from 'next/app'
 import Head from 'next/head'
 import {SITE_NAME} from 'src/constants/common';
 import 'src/styles/globals.scss'
+import 'src/public'
 
 export default function App({Component, pageProps}: AppProps) {
   return (
