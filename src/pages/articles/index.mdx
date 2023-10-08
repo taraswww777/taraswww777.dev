@@ -1,0 +1,13 @@
+import {HeadTitle} from 'src/components/mdx/HeadTitle';
+import {PageTemplates} from 'src/components/PageTemplates';
+import Link from 'next/link';
+
+<HeadTitle title={'index'} />
+
+<PageTemplates header={<h1>Статьи</h1>}>
+  <ul className="list-group mb-3">
+    <li className='list-group-item'><Link className="btn btn-link d-block" href={'/articles/2023-fcconf-day-0'}>2023-fcconf-day-0</Link></li>
+    <li className='list-group-item'><Link className="btn btn-link d-block" href={'/articles/2023-fcconf-day-1'}>2023-fcconf-day-1</Link></li>
+    <li className='list-group-item'><Link className="btn btn-link d-block" href={'/articles/2023-fcconf-day-2'}>2023-fcconf-day-2</Link></li>
+  </ul>
+</PageTemplates>

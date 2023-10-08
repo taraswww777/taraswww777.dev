@@ -1,16 +1,23 @@
-import {FC, PropsWithChildren} from 'react';
-import {HeaderComponent} from '../header/header.component';
+import {FC, PropsWithChildren, ReactNode} from 'react';
+import {HeaderComponent as DefaultHeaderComponent} from '../header/header.component';
 import {ContactsComponent} from '../contacts/contacts.component';
 import {Menu} from './components/Menu';
 
-export const PageTemplates: FC<PropsWithChildren> = ({children}) => {
+interface PageTemplatesProps {
+  header?: ReactNode
+}
+
+export const PageTemplates: FC<PropsWithChildren<PageTemplatesProps>> = ({
+  header,
+  children
+}) => {
   return (
     <div className="container">
       <div className="row">
-        <header className="col-11">
-          <HeaderComponent />
+        <header className="col-11 my-3">
+          {header || <DefaultHeaderComponent />}
         </header>
-        <div className="col-1">
+        <div className="col-1 my-3">
           <Menu />
         </div>
         <main className="col-12">
