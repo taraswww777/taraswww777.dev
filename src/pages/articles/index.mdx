@@ -1,13 +1,16 @@
 import {HeadTitle} from 'src/components/mdx/HeadTitle';
 import {PageTemplates} from 'src/components/PageTemplates';
-import Link from 'next/link';
+import {titleWithSiteName} from '../../utils/titleWithSiteName';
+import {VerticalNav} from '../../components/vertical-nav';
 
-<HeadTitle title={'index'} />
+<HeadTitle title={titleWithSiteName('Статьи')} />
 
 <PageTemplates header={<h1>Статьи</h1>}>
-  <ul className="list-group mb-3">
-    <li className='list-group-item'><Link className="btn btn-link d-block" href={'/articles/2023-fcconf-day-0'}>2023-fcconf-day-0</Link></li>
-    <li className='list-group-item'><Link className="btn btn-link d-block" href={'/articles/2023-fcconf-day-1'}>2023-fcconf-day-1</Link></li>
-    <li className='list-group-item'><Link className="btn btn-link d-block" href={'/articles/2023-fcconf-day-2'}>2023-fcconf-day-2</Link></li>
-  </ul>
+  <VerticalNav
+    items={{
+      '/articles/2023-frontend-conf-day-0': 'FrontendConf 2023 день 0',
+      //  '/articles/2023-frontend-conf-day-1': 'FrontendConf 2023 день 1',
+      //  '/articles/2023-frontend-conf-day-2': 'FrontendConf 2023 день 2',
+    }}
+  />
 </PageTemplates>
