@@ -19,3 +19,9 @@ The application will automatically reload if you change any of the source files.
 ## Issues
 
 We can send any issues, about my site, in [issue page][URL_TW7_ISSUES]
+
+## Docs
+
+- [nextjs](https://nextjs.org/docs)
+- [mdxjs](https://mdxjs.com/docs/getting-started)
+- [getbootstrap](https://getbootstrap.com/docs/5.1/components/accordion/)

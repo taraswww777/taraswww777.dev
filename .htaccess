@@ -18,6 +18,35 @@
 #php_flag display_errors on
 #php_flag html_errors on
 #php_flag  log_errors on
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  Options -Multiviews -Indexes +FollowSymLinks
+  RewriteEngine On
+  RewriteBase /
+  DirectorySlash Off
+
+  # remove trailing slash
+  RewriteRule ^(.*)\/(\?.*)?$ $1$2 [R=301,L]
+</IfModule>
+<IfModule mod_rewrite.c>
+# Перенаправление на разводящую страницу группы страниц
+  RewriteEngine on
+  RewriteBase /
+
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.*)$ %{REQUEST_FILENAME}.html
+</IfModule>
+
+<IfModule mod_rewrite.c>
+# Перенаправление на конкретную страницу
+  RewriteEngine on
+  RewriteBase /
+
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}\.html -f
+  RewriteRule ^(.*)$ $1.html
+</IfModule>
 
 <ifModule mod_expires.c>
 
@@ -38,3 +67,7 @@
  #кэшировать xml файлы на десять минут
  ExpiresByType application/xhtml+xml "access plus 1 years"
 </ifModule>
+RewriteCond %{HTTP_HOST} ^taraswww777\.dev\.u1384230\.cp\.regruhosting\.ru$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.taraswww777\.dev\.u1384230\.cp\.regruhosting\.ru$
+#RewriteRule ^/?$ "https\:\/\/taraswww777\.dev\/" [R=301,L]
+
