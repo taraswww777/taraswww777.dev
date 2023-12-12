@@ -7,22 +7,22 @@ interface WorkExperienceProps {
 }
 
 export const WorkExperienceCard: FC<WorkExperienceProps> = ({item}) => (
-  <div
+  <section
     key={`${item.dateBegin}-${item.dateEnd}`}
-    className="card col-md-6 col-sm-12 col-lg-4 col-xxl-3 col-12 mb-2"
+    className="card col-md-6 col-sm-12 col-lg-4 col-xxl-3 col-12 mb-2 print-page-break"
   >
     <div className="card-body">
       <h5 className="card-title">
         {item.companyName}
       </h5>
-      <p>
+      <p className="card-subtitle pt-2">
         <span className="badge bg-dark">
           <WorkInterval dateBegin={item.dateBegin} dateEnd={item.dateEnd} />
         </span>
       </p>
 
-      {item.workPosition && (<p className="card-subtitle"><b>{item.workPosition}</b></p>)}
-      {item.teamName && (<p className="card-subtitle"><i>{item.teamName}</i></p>)}
+      {item.workPosition && (<p className="card-subtitle pt-2"><b>{item.workPosition}</b></p>)}
+      {item.teamName && (<p className="card-subtitle pt-2"><i>{item.teamName}</i></p>)}
       <div className="card-text pt-3">{item.description}</div>
       <p className="pt-2">
         {item.companySite && (
@@ -42,5 +42,5 @@ export const WorkExperienceCard: FC<WorkExperienceProps> = ({item}) => (
         </div>
       ) : null}
     </div>
-  </div>
+  </section>
 );

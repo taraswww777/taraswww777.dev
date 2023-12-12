@@ -2,9 +2,11 @@ import {WorkExperienceDto} from 'src/types/dto';
 import {sortWorkExperience} from 'src/utils/sortWorkExperience';
 import dataWorkExperience from './work-experience.json';
 import {ResultSchool_2023_02} from './ResultSchool_2023_02';
+import {InnoTech_TRFR_2023_05} from './InnoTech_TRFR_2023_05';
 
 
 export const workExperienceList: WorkExperienceDto[] = sortWorkExperience([
   ...dataWorkExperience,
+  InnoTech_TRFR_2023_05,
   ResultSchool_2023_02
 ]);
