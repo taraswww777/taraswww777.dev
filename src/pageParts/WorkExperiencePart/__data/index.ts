@@ -3,6 +3,8 @@ import {sortWorkExperience} from 'src/utils/sortWorkExperience';
 import dataWorkExperience from './work-experience.json';
 import {ResultSchool_2023_02} from './ResultSchool_2023_02';
 import {InnoTech_TRFR_2023_05} from './InnoTech_TRFR_2023_05';
+import {genTechnologiesTags} from 'src/utils/genTechnologiesTags';
+import {Tag} from 'react-tagcloud';
 
 
 export const workExperienceList: WorkExperienceDto[] = sortWorkExperience([
@@ -10,3 +12,6 @@ export const workExperienceList: WorkExperienceDto[] = sortWorkExperience([
   InnoTech_TRFR_2023_05,
   ResultSchool_2023_02
 ]);
+
+
+export const TECHNOLOGIES_TAGS: Tag[] = genTechnologiesTags(workExperienceList);

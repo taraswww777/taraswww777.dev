@@ -9,7 +9,7 @@ interface WorkExperienceProps {
 export const WorkExperienceCard: FC<WorkExperienceProps> = ({item}) => (
   <section
     key={`${item.dateBegin}-${item.dateEnd}`}
-    className="card col-md-6 col-sm-12 col-lg-4 col-xxl-3 col-12 mb-2 print-page-break"
+    className="card col-md-6 col-sm-12 col-lg-6 col-xxl-4 col-12 mb-2 print-page-break"
   >
     <div className="card-body">
       <h5 className="card-title">
