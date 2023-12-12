@@ -17,7 +17,7 @@ export const PageTemplates: FC<PropsWithChildren<PageTemplatesProps>> = ({
         <header className="col-11 my-3">
           {header || <DefaultHeaderComponent />}
         </header>
-        <div className="col-1 my-3">
+        <div className="col-1 my-3 d-print-none">
           <Menu />
         </div>
         <main className="col-12">
@@ -28,11 +28,11 @@ export const PageTemplates: FC<PropsWithChildren<PageTemplatesProps>> = ({
         >
           <ContactsComponent />
           <a
-            className="btn btn-dark d-block text-uppercase mt-2"
+            className="btn btn-dark d-block text-uppercase mt-2 d-print-none"
             href="https://spb.hh.ru/resume/4c039332ff03d40aad0039ed1f364961696744"
             target="_blank"
           >
-            Резюме на Hh.ru
+            Резюме на hh.ru
           </a>
         </footer>
       </div>

@@ -1,5 +1,5 @@
 import {AboutMeComponent} from "../components/about-me/about-me.component";
-import {WorkExperienceComponent} from "../components/work-experience/work-experience.component";
+import {WorkExperiencePart} from "../pageParts/WorkExperiencePart/WorkExperiencePart";
 import {PageTemplates} from '../components/PageTemplates';
 
 
@@ -8,7 +8,7 @@ export default function Home() {
     <PageTemplates>
       <AboutMeComponent />
       <div className="mt-3">
-        <WorkExperienceComponent />
+        <WorkExperiencePart />
       </div>
     </PageTemplates>
   )

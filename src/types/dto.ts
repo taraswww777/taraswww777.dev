@@ -1,3 +1,5 @@
+import {ReactNode} from 'react';
+
 export interface ContactDto {
   href: string,
   code: string,
@@ -5,14 +7,17 @@ export interface ContactDto {
   icon: string
 }
 
-export interface WorkExperienceDto {
-  dateBegin: string,
-  dateEnd?: string,
+export interface WorkCompanyDto {
   companyName: string,
   companySite?: string,
   companySiteName?: string,
+}
+
+export interface WorkExperienceDto extends WorkCompanyDto {
+  dateBegin: string,
+  dateEnd?: string,
   workPosition: string,
   teamName?: string,
   technologiesTags: string[],
-  description: string
+  description: ReactNode
 }
