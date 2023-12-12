@@ -1,3 +1,5 @@
+import {ReactNode} from 'react';
+
 export interface ContactDto {
   href: string,
   code: string,
@@ -14,5 +16,5 @@ export interface WorkExperienceDto {
   workPosition: string,
   teamName?: string,
   technologiesTags: string[],
-  description: string
+  description: ReactNode
 }
