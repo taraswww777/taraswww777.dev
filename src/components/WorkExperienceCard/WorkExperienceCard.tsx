@@ -23,8 +23,8 @@ export const WorkExperienceCard: FC<WorkExperienceProps> = ({item}) => (
 
       {item.workPosition && (<p className="card-subtitle"><b>{item.workPosition}</b></p>)}
       {item.teamName && (<p className="card-subtitle"><i>{item.teamName}</i></p>)}
-      <div className="card-text">{item.description}</div>
-      <p>
+      <div className="card-text pt-3">{item.description}</div>
+      <p className="pt-2">
         {item.companySite && (
           <a target="_blank" href={item.companySite}>
             {item.companySiteName || item.companySite}

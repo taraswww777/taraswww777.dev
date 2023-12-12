@@ -111,22 +111,9 @@
     "workPosition": "FE middle программист, лид",
     "teamName": "ВТБ. Валютрый контроль. ОМНИ.",
     "technologiesTags": [
-      "Javascript", "React", "Typescript", "node", "HTML5", "CSS3", "MsSQL", "webpack","jest",
+      "Javascript", "React", "Typescript", "node", "HTML5", "CSS3", "PostgreeSQL", "webpack","jest",
       "ModuleFederation", "Bitbucket", "TeamCity", "Confluence", "express"
     ],
     "description": "Сменился только работодатель, заказчик и проект остались прежними. Разработка личного кабинета валютного контролёра в интеграции с ОМНИ канальным приложением. Разработка MVP в короткие сроки и составление документации по новому решению, для дальнейшего обучения команды. Проведение встреч со стейкхолдерами, для оперативного выяснения и корректировки требований. Организация процессов разработки. Проведение код ревью. Согласования работ с другими командами. Собеседование новых членов команды. Оценка поступающих задач."
-  },
-  {
-    "dateBegin": "2023-02-01T01:00:00.000Z",
-    "companyName": "ИП Минин В. И. (Result School)",
-    "companySite": "https://result.school/",
-    "companySiteName": "result.school",
-    "workPosition": "Куратор - преподаватель",
-    "teamName": "Кураторы мидлов",
-    "technologiesTags": [
-      "Javascript", "React", "Typescript", "node", "HTML5", "CSS3", "webpack","jest",
-      "Notion", "GIT", "Docker", "RTKQuery"
-    ],
-    "description": "Сопровождение групп учеников в процессе обучения, Урегулирование конфликтов между учениками и школой, Объяснение сложных тем для учеников, Проведение мастер классов, Составление учебных материалов, Проверка домашних работ."
   }
 ]
