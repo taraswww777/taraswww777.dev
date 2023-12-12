@@ -41,8 +41,8 @@ export const WorkExperienceComponent = () => {
               </span>
             </p>
 
-            {item.workPosition && (<p className="card-subtitle">{item.workPosition}</p>)}
-            {item.teamName && (<p className="card-subtitle">{item.teamName}</p>)}
+            {item.workPosition && (<p className="card-subtitle"><b>{item.workPosition}</b></p>)}
+            {item.teamName && (<p className="card-subtitle"><i>{item.teamName}</i></p>)}
             <div className="card-text">{item.description}</div>
             <p>
               {item.companySite && (

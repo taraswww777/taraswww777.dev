@@ -7,7 +7,7 @@ export interface ContactDto {
 
 export interface WorkExperienceDto {
   dateBegin: string,
-  dateEnd: string,
+  dateEnd?: string,
   companyName: string,
   companySite?: string,
   companySiteName?: string,
