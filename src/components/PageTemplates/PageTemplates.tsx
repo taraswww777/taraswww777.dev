@@ -1,6 +1,6 @@
 import {FC, PropsWithChildren, ReactNode} from 'react';
 import {HeaderComponent as DefaultHeaderComponent} from '../header/header.component';
-import {ContactsComponent} from '../contacts/contacts.component';
+import {MyContacts} from '../MyContacts';
 import {Menu} from './components/Menu';
 
 interface PageTemplatesProps {
@@ -26,7 +26,7 @@ export const PageTemplates: FC<PropsWithChildren<PageTemplatesProps>> = ({
         <footer
           className="col-12 pt-2"
         >
-          <ContactsComponent />
+          <MyContacts />
           <a
             className="btn btn-dark d-block text-uppercase mt-2 d-print-none"
             href="https://spb.hh.ru/resume/4c039332ff03d40aad0039ed1f364961696744"

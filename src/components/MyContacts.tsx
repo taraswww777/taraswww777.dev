@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
-import {dataContacts} from "../../__data";
-import {FaIcon} from "../fa-icon";
+import {dataContacts} from "../__data";
+import {FaIcon} from "./fa-icon";
 
 interface Contact {
   href: string,
@@ -9,7 +9,7 @@ interface Contact {
   icon: string
 }
 
-export const ContactsComponent = () => {
+export const MyContacts = () => {
   const [contacts, setContacts] = useState<Contact[]>([]);
 
   useEffect(() => {
