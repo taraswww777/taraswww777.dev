@@ -1,14 +1,10 @@
-import {HeadTitle} from 'src/components/mdx/HeadTitle';
-import {PageTemplates} from 'src/components/PageTemplates';
-import {titleWithSiteName} from 'src/utils/titleWithSiteName';
+import {ArticleTemplate} from 'src/components/mdx';
 
 
-<HeadTitle title={titleWithSiteName('TS. Какая польза от записи `const a = [1, 2] as const`')} />
-
-<PageTemplates header={<h1>TS. Какая польза от записи `const a = [1, 2] as const`</h1>}>
-
-  <time pubdate datetime="2023-11-03" className="badge bg-secondary mb-4 mb-4">3 ноября 2023</time>
-
+<ArticleTemplate
+  pubdate={'2023-11-03'}
+  title={'TS. Какая польза от записи `const a = [1, 2] as const`'}
+>
   Сегодня в PR от коллеги столкнулся с подобной записью `const args = [8, 5] as const;` и меня удивило наличие `as const`.
 
   Что же это за конструкция и в чём её польза?
@@ -36,7 +32,7 @@ import {titleWithSiteName} from 'src/utils/titleWithSiteName';
 
   И в такой JS код:
 
-  <code lang={'javascript'} >
+  <code lang={'javascript'}>
     <pre>
     "use strict";
     const args2 = [8, 5];
@@ -74,7 +70,7 @@ import {titleWithSiteName} from 'src/utils/titleWithSiteName';
   1. Позволяет сделать `readonly` константу
   2. Устраняет ошибку при передаче массыва в функцию при помощи спред оператора
 
-  <hr/>
+  <hr />
 
   Больше примеров <a target="_blank" href="https://bobbyhadz.com/blog/typescript-spread-argument-must-either-have-tuple-type">тут</a>
-</PageTemplates>
+</ArticleTemplate>
