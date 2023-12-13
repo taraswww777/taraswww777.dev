@@ -1,4 +1,4 @@
-import { FaIcon } from 'src/components/fa-icon';
+import {FaIcon} from 'src/components/fa-icon';
 import {WorkExperienceDto} from 'src/types/dto';
 import {COMPANIES} from './constants/compaties';
 
@@ -9,7 +9,7 @@ export const InnoTech_TRFR_2023_05: WorkExperienceDto = {
   teamName: "ВТБ. Служба Тарифы и аналитические данные",
   technologiesTags: [
     "Javascript", "React", "Typescript", "node", "HTML5", "CSS3", "StyledComponents", "webpack", "jest",
-    "ModuleFederation", "Bitbucket", "TeamCity", "Confluence", "Сфера+", "Angular"
+    "ModuleFederation", "Bitbucket", "TeamCity", "Confluence", "Сфера+", "Angular", "styled-components"
   ],
   description: (
     <>
