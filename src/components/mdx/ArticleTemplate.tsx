@@ -29,7 +29,13 @@ export const ArticleTemplate: FC<PropsWithChildren<ArticleTemplateProps>> = ({
     <PageTemplates header={<h1>{title}</h1>}>
       <HeadTitle title={titleWithSiteName(title)} />
       <article>
-        <time pubdate datetime={pubdate} className="badge bg-secondary mb-4">{formatDate(pubdate)}</time>
+        <time
+          data-pubdate={'pubdate'}
+          data-datetime={pubdate}
+          className="badge bg-secondary mb-4"
+        >
+          {formatDate(pubdate)}
+        </time>
 
         <div>
           {children}
