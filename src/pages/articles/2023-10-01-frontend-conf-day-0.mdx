@@ -1,13 +1,9 @@
-import {HeadTitle} from 'src/components/mdx/HeadTitle';
-import {PageTemplates} from 'src/components/PageTemplates';
-import {titleWithSiteName} from '../../utils/titleWithSiteName';
+import {ArticleTemplate} from 'src/components/mdx';
 
-<HeadTitle title={titleWithSiteName('FrontendConf2023. День 0')} />
-
-<PageTemplates header={<h1>FrontendConf2023. День 0. 01 октября 2023</h1>}>
-
-  <time pubdate datetime="2023-10-01" className="badge bg-secondary mb-4">1 октября 2023</time>
-
+<ArticleTemplate
+  pubdate={'2023-10-01'}
+  title={'FrontendConf2023. День 0. 01 октября 2023'}
+>
   День 0, он же день финальной подготовки.
 
   В этот день происходит финальная часть подготовки мероприятия.
@@ -132,4 +128,4 @@ import {titleWithSiteName} from '../../utils/titleWithSiteName';
   - С подачи Дарии Корчугановой, сделал усилие и наконец то сделал на своём раздел со статьями. Спасибо Дарье за сие :)
 
   В переди ещё 2 интересных дня ...
-</PageTemplates>
+</ArticleTemplate>

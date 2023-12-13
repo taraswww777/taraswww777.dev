@@ -15,20 +15,20 @@ export const InnoTech_TRFR_2023_05: WorkExperienceDto = {
     <>
       <p>Основной задачей на проекте был переезд с Angular на React.</p>
       <p>
-        В рамках работы над проектом были детерминированны архитектурные слабые места, во фронтовом приложении, и составлен план работ,
+        В рамках работы над проектом были детерминированы архитектурные слабые места, во фронтовом приложении, и составлен план работ,
         для устранения / нивелирования слабых мест.
       </p>
       <p>
         За время работ удалось устранить:
       </p>
       <ul className="m-0 p-0">
-        <li>разcинхрон версий в <code>package.json</code> <FaIcon iconName={'fa-solid fa-right-long'} /> сделали единый <code>package.json</code></li>
-        <li>разcинхрон правил <code>.eslintrc</code> <FaIcon iconName={'fa-solid fa-right-long'} /> сделали единый <code>.eslintrc</code></li>
+        <li>расcинхрон версий в <code>package.json</code> <FaIcon iconName={'fa-solid fa-right-long'} /> сделали единый <code>package.json</code></li>
+        <li>расcинхрон правил <code>.eslintrc</code> <FaIcon iconName={'fa-solid fa-right-long'} /> сделали единый <code>.eslintrc</code></li>
         <li>много вариаций <code>webpack-config.js</code> <FaIcon iconName={'fa-solid fa-right-long'} /> пока вынесены общие, одинаковые части</li>
       </ul>
       <p>
         Так же в период отсутствия FE лида, довелось его замещать.
-        В том числе проводить содеседования FE разработчиков.
+        В том числе проводить собеседования FE разработчиков.
       </p>
     </>
   )

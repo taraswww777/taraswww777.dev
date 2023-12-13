@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import {imageLoader} from 'src/utils/imageLoader';
-import ImgSmall from '../../public/assets/my-photo-small.jpg'
+import ImgSmall from '../public/assets/my-photo-small.jpg'
 
-export const AboutMeComponent = () => {
+export const AboutMe = () => {
   const date = new Date();
   const birthday = new Date('01.03.1994');
 
@@ -44,6 +44,7 @@ export const AboutMeComponent = () => {
           <li>Начиная с сентября 2015 на постоянной основе начал работать программистом на коммерческой основе</li>
           <li>С 2019 начал заниматься менторством по програмированию</li>
           <li>В настоящее время работаю FE разработчиком и ментором</li>
+          <li>Спецализируюсь на сложных задачах с неизвестным решением</li>
           <li>Опыт работы и частичное портфолио расположено ниже.</li>
         </ul>
       </div>
