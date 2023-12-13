@@ -1,6 +1,7 @@
 import {WorkExperienceDto} from 'src/types/dto';
 import {FC} from "react";
 import {WorkInterval} from "./WorkInterval";
+import {EMPTY_SPACE} from 'src/constants/common';
 
 interface WorkExperienceProps {
   item: WorkExperienceDto
@@ -14,6 +15,14 @@ export const WorkExperienceCard: FC<WorkExperienceProps> = ({item}) => (
     <div className="card-body">
       <h5 className="card-title">
         {item.companyName}
+        {item.companySite && (
+          <>
+            {EMPTY_SPACE}
+            <a target="_blank" title={item.companyName} className="text-black" href={item.companySite}>
+              <i className="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </>
+        )}
       </h5>
       <p className="card-subtitle pt-2">
         <span className="badge bg-dark">
@@ -24,13 +33,6 @@ export const WorkExperienceCard: FC<WorkExperienceProps> = ({item}) => (
       {item.workPosition && (<p className="card-subtitle pt-2"><b>{item.workPosition}</b></p>)}
       {item.teamName && (<p className="card-subtitle pt-2"><i>{item.teamName}</i></p>)}
       <div className="card-text pt-3">{item.description}</div>
-      <p className="pt-2">
-        {item.companySite && (
-          <a target="_blank" href={item.companySite}>
-            {item.companySiteName || item.companySite}
-          </a>
-        )}
-      </p>
     </div>
 
     <div className="card-footer">
