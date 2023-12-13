@@ -1,33 +1,23 @@
-import {HeadTitle} from './HeadTitle';
+import {HeadTitleProps, MetaHead} from './MetaHead';
 import {PageTemplates} from 'src/components/PageTemplates';
 import {titleWithSiteName} from 'src/utils/titleWithSiteName';
 import {FC, PropsWithChildren} from 'react';
-import {LOCALES} from 'src/constants/common';
+import {formatDate} from 'src/utils/formatDate';
 
 
-interface ArticleTemplateProps {
-  title: string;
+interface ArticleTemplateProps extends HeadTitleProps {
   pubdate: string;
-}
-
-function formatDate(dateString: string) {
-  const options: Intl.DateTimeFormatOptions = {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric'
-  };
-  const date = new Date(dateString);
-  return date.toLocaleDateString(LOCALES.ruRU, options);
 }
 
 export const ArticleTemplate: FC<PropsWithChildren<ArticleTemplateProps>> = ({
   title,
   children,
-  pubdate
+  pubdate,
+  ...props
 }) => {
   return (
     <PageTemplates header={<h1>{title}</h1>}>
-      <HeadTitle title={titleWithSiteName(title)} />
+      <MetaHead title={titleWithSiteName(title)} {...props} />
       <article>
         <time
           data-pubdate={'pubdate'}
