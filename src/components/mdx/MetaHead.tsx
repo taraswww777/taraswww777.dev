@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import {SITE_NAME} from 'src/constants/common';
+import ogDdefaultImage from 'src/public/assets/og-default-image.png'
 
 export interface HeadTitleProps {
   title: string,
@@ -12,7 +13,7 @@ export interface HeadTitleProps {
 export const MetaHead = ({
   title,
   description,
-  ogImageUrl,
+  ogImageUrl = ogDdefaultImage.src,
   ogCanonicalUrl,
   ogType = 'website'
 }: HeadTitleProps) => {

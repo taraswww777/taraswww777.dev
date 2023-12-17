@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import {imageLoader} from 'src/utils/imageLoader';
-import ImgSmall from '../public/assets/my-photo-small.jpg'
+import myPhotoSmallImg from '../public/assets/my-photo-small.jpg'
 
 export const AboutMe = () => {
   const date = new Date();
@@ -13,7 +13,7 @@ export const AboutMe = () => {
     <div className="row">
       <picture className="col-md-4 col-sm-12">
         <Image
-          src={ImgSmall}
+          src={myPhotoSmallImg}
           property={'blur'}
           loading="lazy"
           className="img-fluid"
