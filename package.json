@@ -5,12 +5,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "export": "next export",
     "start": "next start",
     "lint": "next lint",
     "sitemap": "node scripts/sitemap-generator.js",
     "test": "npm run test",
-    "deploy": "npm run build && npm run export && npm run sitemap",
+    "deploy": "npm run build && npm run sitemap",
     "version:patch": "npm version patch",
     "docker:rebuild": "npm run docker:rmi && npm run docker:build",
     "docker:rmi": "docker rmi taraswww777/taraswww777-fe .",
