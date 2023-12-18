@@ -1,0 +1,31 @@
+import {ArticleTemplate, Answer, Question} from 'src/components/mdx';
+import {LINKS} from 'src/constants/links';
+
+  <ArticleTemplate
+    pubdate={'2023-12-18'}
+    ogCanonicalUrl={LINKS.articles.resultGitTask.link}
+    title={LINKS.articles.resultGitTask.title}
+  >
+    У нас на курсе есть урок по GIT, мы специально сделали практическое задание весьма сложным.
+
+    И уже у которого ученика возникают различные вопросы по заданию.
+    На фоне этого решил ответить на часто задаваемые.
+
+    <Question title={"Почему так сложно?"}>
+
+    </Question>
+
+    <Answer title={'Короткий ответ'} className='mt-3'>
+    </Answer>
+
+    <hr />
+
+    <Question title={"Почему так сложно?"} className='mt-3'>
+
+    </Question>
+
+    <Answer title={'Короткий ответ'} className='mt-3'>
+    </Answer>
+
+
+  </ArticleTemplate>
