@@ -12,6 +12,19 @@ export default function Home() {
       <MetaHead
         title={titleWithSiteName('Обо мне')}
         ogCanonicalUrl={LINKS.home.link}
+        keywords={[
+          'Ковалёв Тарас Викторович',
+          'taraswww777',
+          'О taraswww777',
+          'О Ковалёв Тарас Викторович',
+          'О Ковалёве Тарасе Викторовиче',
+          'Факты о taraswww777',
+          'Факты о Ковалёв Тарас Викторович',
+          'Факты о Ковалёве Тарасе Викторовиче',
+          'Ментор по программированию',
+          'FE developer Ковалёв Тарас Викторович',
+          'FE developer taraswww777',
+        ]}
       />
       <AboutMe />
       <div className="mt-3">

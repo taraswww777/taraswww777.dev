@@ -6,6 +6,7 @@ import {titleWithSiteName} from 'src/utils/titleWithSiteName';
 export interface HeadTitleProps {
   title: string,
   description?: string;
+  keywords?: string[];
   ogImageUrl?: string;
   ogCanonicalUrl?: string;
   ogType?: string;
@@ -15,6 +16,7 @@ export const MetaHead = ({
   title,
   description,
   ogImageUrl = ogDdefaultImage.src,
+  keywords,
   ogCanonicalUrl,
   ogType = 'website'
 }: HeadTitleProps) => {
@@ -22,6 +24,7 @@ export const MetaHead = ({
     <Head>
       <title>{titleWithSiteName(title)}</title>
       <meta name={'description'} content={description || title} />
+      {keywords && <meta name={'keywords'} content={keywords.join(', ')} />}
 
       <meta property="og:site_name" content={SITE_NAME} />
       <meta property="og:title" content={title} />
