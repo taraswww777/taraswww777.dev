@@ -1,18 +1,15 @@
 import {MetaHead} from 'src/components/mdx/MetaHead';
 import {PageTemplates} from 'src/components/PageTemplates';
-import {titleWithSiteName} from '../../utils/titleWithSiteName';
-import {VerticalNav} from '../../components/vertical-nav';
+import {titleWithSiteName} from 'src/utils/titleWithSiteName';
+import {VerticalNav} from 'src/components/vertical-nav';
+import {LINKS} from 'src/constants/links';
+import {linksToVerticalNavItems} from 'src/utils/linksToVerticalNavItems';
 
-<MetaHead title={titleWithSiteName('Статьи')} />
+<MetaHead
+  title={titleWithSiteName(LINKS.articlesIndex.title)}
+  ogCanonicalUrl={LINKS.articlesIndex.link}
+/>
 
 <PageTemplates header={<h1>Статьи</h1>}>
-  <VerticalNav
-    items={{
-      '/articles/2023-12-13-decomposition-of-components-in-ui': 'Декомпозиция компонентов в UI',
-      '/articles/2023-11-03-ts-as-const': 'TS. Какая польза от as const',
-      '/articles/2023-10-01-frontend-conf-day-0': 'FrontendConf 2023 день 0',
-      //  '/articles/2023-frontend-conf-day-1': 'FrontendConf 2023 день 1',
-      //  '/articles/2023-frontend-conf-day-2': 'FrontendConf 2023 день 2',
-    }}
-  />
+  <VerticalNav items={linksToVerticalNavItems(LINKS.articles)} />
 </PageTemplates>

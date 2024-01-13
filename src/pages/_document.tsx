@@ -1,6 +1,7 @@
 import {Html, Head, Main, NextScript} from 'next/document'
 import {YaMetric} from "src/components/metrics/ya";
 import {SITE_NAME} from 'src/constants/common';
+import {isLocalhost} from '../utils/isLocalhost';
 
 export default function Document() {
   return (
@@ -14,9 +15,9 @@ export default function Document() {
         <script src="https://kit.fontawesome.com/45f9b38c9b.js" crossOrigin="anonymous"></script>
       </Head>
       <body>
-      <Main/>
-      <NextScript/>
-      <YaMetric/>
+      <Main />
+      <NextScript />
+      {!isLocalhost() && <YaMetric />}
       </body>
     </Html>
   )

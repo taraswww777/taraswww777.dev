@@ -1,8 +1,10 @@
 import Link from 'next/link';
+import {linkWithTime} from 'src/utils/linkWithTime';
 
-interface VerticalNavProps {
+export interface VerticalNavProps {
   items: Record<string, string>
 }
+
 
 export const VerticalNav = ({items}: VerticalNavProps) => {
   return (
@@ -11,7 +13,7 @@ export const VerticalNav = ({items}: VerticalNavProps) => {
         <li className='nav-item mt-3'>
           <Link
             className="nav-link btn btn-light"
-            href={url}>
+            href={linkWithTime(url)}>
             {items[url]}
           </Link>
         </li>
