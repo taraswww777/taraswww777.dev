@@ -9,7 +9,7 @@ export const YaMetricInformer = () => {
   }, []);
 
 
-  return isShow ? null : (
+  return isShow ? (
     <a href={`https://metrika.yandex.ru/stat/?id=90245180&amp;from=informer`} target="_blank" rel="nofollow">
       <img
         src={`https://informer.yandex.ru/informer/90245180/2_0_EFEFEFFF_EFEFEFFF_0_pageviews`}
@@ -22,5 +22,5 @@ export const YaMetricInformer = () => {
         title="Яндекс.Метрика: данные за сегодня (просмотры)"
       />
     </a>
-  );
+  ) : null;
 }
