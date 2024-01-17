@@ -1,4 +1,4 @@
-import {FaIcon} from 'src/components/fa-icon';
+import {FaIcon} from 'src/components/FaIcon';
 import {WorkExperienceDto} from 'src/types/dto';
 import {COMPANIES} from './constants/compaties';
 

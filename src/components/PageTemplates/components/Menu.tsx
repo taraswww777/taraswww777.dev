@@ -1,6 +1,6 @@
 import {getPageUrl, PAGE_NAMES} from 'src/constants/pages';
 import {useToggle} from 'src/hooks/useToggle';
-import {FaIcon} from 'src/components/fa-icon';
+import {FaIcon} from 'src/components/FaIcon';
 import {useRouter} from 'next/router';
 import {memo, useCallback} from 'react';
 import Link from 'next/link';
