@@ -1,7 +1,6 @@
 import {Html, Head, Main, NextScript} from 'next/document'
-import {YaMetric} from "src/components/metrics/ya";
+import {YaMetricCounter} from "src/components/metrics/YaMetricCounter";
 import {SITE_NAME} from 'src/constants/common';
-import {isLocalhost} from '../utils/isLocalhost';
 
 export default function Document() {
   return (
@@ -17,7 +16,7 @@ export default function Document() {
       <body>
       <Main />
       <NextScript />
-      {!isLocalhost() && <YaMetric />}
+      <YaMetricCounter />
       </body>
     </Html>
   )
