@@ -2,6 +2,7 @@ import {FC, PropsWithChildren, ReactNode} from 'react';
 import {HeaderComponent as DefaultHeaderComponent} from '../header/header.component';
 import {MyContacts} from '../MyContacts';
 import {Menu} from './components/Menu';
+import {YaMetricInformer} from '../metrics/YaMetricInformer';
 
 interface PageTemplatesProps {
   header?: ReactNode
@@ -24,7 +25,7 @@ export const PageTemplates: FC<PropsWithChildren<PageTemplatesProps>> = ({
           {children}
         </main>
         <footer
-          className="col-12 pt-2"
+          className="col-12 pt-2 text-center"
         >
           <MyContacts />
           <a
@@ -34,6 +35,7 @@ export const PageTemplates: FC<PropsWithChildren<PageTemplatesProps>> = ({
           >
             Резюме на hh.ru
           </a>
+          <YaMetricInformer />
         </footer>
       </div>
     </div>

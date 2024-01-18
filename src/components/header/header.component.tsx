@@ -1,4 +1,4 @@
-import {FaIcon} from "../fa-icon";
+import {FaIcon} from "../FaIcon";
 
 export const HeaderComponent = () => {
   return (

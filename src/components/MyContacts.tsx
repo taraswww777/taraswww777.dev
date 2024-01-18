@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {dataContacts} from "../__data";
-import {FaIcon} from "./fa-icon";
+import {FaIcon} from "./FaIcon";
 
 interface Contact {
   href: string,

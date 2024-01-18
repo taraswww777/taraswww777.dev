@@ -27,7 +27,7 @@ export const MyTagCloud: FC<MyTagCloudProps> = ({
     renderer={(tag, size, color) => {
       return tag.count >= minCountTags ? (
         <span
-          key={tag.value}
+          key={tag.value + tag.count}
           style={{
             color,
             fontSize: size,
@@ -40,7 +40,7 @@ export const MyTagCloud: FC<MyTagCloudProps> = ({
         >
           {tag.value}
         </span>
-      ) : <span></span>
+      ) : <span key={tag.value + tag.count}></span>
     }}
   />
 );
