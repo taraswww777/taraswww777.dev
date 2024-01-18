@@ -1,0 +1,78 @@
+import {ArticleTemplate, Answer, Question} from 'src/components/mdx';
+import {LINKS} from '../../constants/links';
+
+<ArticleTemplate
+  pubdate={'2024-01-18'}
+  ogCanonicalUrl={LINKS.articles.tsValueNeedType.link}
+  title={'Typescript. Нужно ли явно указывать тип переменной?'}
+  description='Сегодня мой ученик задал вот такой хороший вопрос: "Для подключения шрифтов в web приложении их всегда нужно тащить в проект?"'
+>
+  Сегодня мой ученик задал вот такой хороший вопрос:
+
+  <Question>
+    Здравствуйте.
+    Если при объявлении переменной или ещё при каком, то действии TypeScript сам (автоматически) определяет тип данных (при наведении видно какой
+    тип),
+    нужно ли после этого самому дополнительно ещё раз указывать тип?
+
+    ```ts
+    let a: number = 16;
+    ```
+    В каких случаях надо, а в каких нет?
+  </Question>
+
+  <Answer className='mt-3'>
+    В случае когда мы имеем дело с простыми типами и работаем с `const`, то можно смело писать так:
+
+    ```ts
+    const a = 16;
+    const b = 'hi';
+    const c = true;
+    ```
+
+    Но когда в `const` мы хотим положить ссылочный тип, например то лучше делать так:
+
+    ```ts
+    import {ConfigureStoreOptions} from '@reduxjs/toolkit';
+
+    const configStore:ConfigureStoreOptions = {
+      // ...
+    };
+    ```
+
+    В этом случаем мы ещё и получим подсказки от нашего редактора.
+
+    ---
+
+    В случае когда мы работаем c `let`, то тут дело обстоит иначе и нам надо обезопасить себя, вот так:
+
+    ```ts
+    let a:number = 16;
+    let b:string = 'hi';
+    let c:boolean = true;
+
+    a = 1; // всё хорошо
+    a = '1'; // ОШИБКА!!!
+    ```
+
+    При таком написании мы ошибки будем отлавливать ещё на этапе компиляции.
+
+    ---
+
+    Так же мы можем присвоить значение волучив его в качестве результата какойто функции.
+
+    ```ts
+    const foo = ():number => (1);
+
+    const second = (n:number):number => (n * n);
+
+    const a:number = foo();
+
+    console.log(second(a));
+    ```
+
+    Обычно код выглядит как-то так и писать `const a:number` уже избыточно, т.к. проверка произойдёт при вызове функции `second`.
+
+
+  </Answer>
+</ArticleTemplate>
