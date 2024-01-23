@@ -1,0 +1,108 @@
+import {ArticleTemplate, Answer, Question} from 'src/components/mdx';
+import {LINKS} from '../../constants/links';
+
+<ArticleTemplate
+  pubdate={'2024-01-18'}
+  ogCanonicalUrl={LINKS.articles.reactGantDiagram.link}
+  title={'React. Как построить диаграму Ганта?'}
+  description='Сегодня мой ученик спросил как я бы построил диаграму Ганта?"'
+>
+  Сегодня мой ученик задал вот такой хороший вопрос:
+
+  <Question>
+    Тарас, а ты как-то говорил, что хотел написать компонент Диаграммы Ганта, ты сделал что-нибудь?
+
+    А ты бы с помощью какой библиотеки её рисовал?
+  </Question>
+
+  Изза отсутствия потребности в такой диаграме в моём багаже отсутствует опыт работы с построением диаграм Ганта с использованием React.
+
+  Но за 5 минут я нашёл 2 хороших ответа
+
+  <Answer className='mt-3'>
+    Для создания диаграммы Ганта на React можно использовать библиотеку react-gantt. Для начала необходимо установить библиотеку с помощью менеджера
+    пакетов npm:
+
+    `npm install react-gantt`
+
+
+    После этого можно создать компонент, в котором будет использоваться библиотека. В компоненте необходимо импортировать библиотеку и её модуль
+    Gantt:
+
+    ```tsx
+
+    import React from 'react';
+    import Gantt from 'react-gantt';
+
+    export default class MyComponent extends React.Component {
+
+    constructor(props) {
+    super(props);
+    this.state = {
+      data: [
+        {
+          id: 1,
+          name: 'Task 1',
+          start: new Date(2019, 1, 1),
+          end: new Date(2019, 1, 30),
+        },
+        {
+          id: 2,
+          name: 'Task 2',
+          start: new Date(2019, 1, 10),
+          end: new Date(2019, 1, 20),
+        },
+      ],
+    };
+  }
+
+    render() {
+    return (
+    <div style={{height: '50vh', width: '100%'}}>
+    <Gantt
+      data={this.state.data}
+      onTaskClick={this.handleTaskClick}
+      height={'100%'}
+      width={'100%'}
+      enableContextMenu={true}
+      contextMenuOptions={contextMenuOptions}
+    />
+  </div>
+  );
+  }
+  }
+
+  ```
+
+  В данном примере используется простой массив объектов для представления данных задачи. Каждый объект содержит id, имя и даты начала и окончания
+  задачи.
+
+  Также в компоненте определён обработчик события handleTaskClick, который будет вызываться при клике на задачу:
+
+  handleTaskClick(task) {
+  console.log(`Task ${task.name} clicked`);
+}
+
+
+  Для отображения контекстного меню можно использовать следующий объект:
+
+  const contextMenuOptions = {
+  items: [
+{
+  name: 'Delete',
+  action: () => {
+  // Ваш код для удаления задачи
+},
+},
+  ],
+};
+
+
+  В данном примере контекстное меню содержит только одну кнопку "Delete", которая вызывает функцию удаления задачи.
+
+  Наконец, в методе render компонента вызывается функция render из библиотеки react-gantt, которая отображает диаграмму Ганта на основе переданных
+  данных.
+
+  Для работы диаграммы Ганта необходимо установить библиотеку react-gantt и добавить в компонент соответствующий код.
+</Answer>
+</ArticleTemplate>
