@@ -1,19 +1,19 @@
 import Link from 'next/link';
-import {linkWithTime} from 'src/utils/linkWithTime';
+import { linkWithTime } from 'src/utils/linkWithTime';
 
 export interface VerticalNavProps {
   items: Record<string, string>
 }
 
 
-export const VerticalNav = ({items}: VerticalNavProps) => {
+export const VerticalNav = ({ items }: VerticalNavProps) => {
   return (
     <ol className="nav flex-column">
       {Object.keys(items).map((url) => (
-        <li className='nav-item mt-3'>
+        <li className='nav-item mt-3' key={url}>
           <Link
             className="nav-link btn btn-light"
-            href={linkWithTime(url)}>
+            href={url || linkWithTime(url)}>
             {items[url]}
           </Link>
         </li>

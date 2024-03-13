@@ -1,31 +1,34 @@
-import {ArticleTemplate, Answer, Question} from 'src/components/mdx';
-import {LINKS} from '../../constants/links';
+import { MdxTemplate, Answer, Question } from 'src/components/mdx';
+import { LINKS } from '../../constants/links';
+import MdxLayout from '../../app/MdxLayout';
 
-<ArticleTemplate
-  pubdate={'2024-01-13'}
-  ogCanonicalUrl={LINKS.articles.decompositionOfComponentsInUi.link}
-  title={'Подключение шрифтов в WEB приложении'}
-  description='Сегодня мой ученик задал вот такой хороший вопрос: "Для подключения шрифтов в web приложении их всегда нужно тащить в проект?"'
->
-  Сегодня мой ученик задал вот такой хороший вопрос:
+<MdxLayout>
+  <MdxTemplate
+    pubdate={'2024-01-13'}
+    ogCanonicalUrl={LINKS.articles.decompositionOfComponentsInUi.link}
+    title={'Подключение шрифтов в WEB приложении'}
+    description='Сегодня мой ученик задал вот такой хороший вопрос: "Для подключения шрифтов в web приложении их всегда нужно тащить в проект?"'
+  >
+    Сегодня мой ученик задал вот такой хороший вопрос:
 
-  <Question>
-    Для подключения шрифтов в web приложении их всегда нужно тащить в проект?
-  </Question>
+    <Question>
+      Для подключения шрифтов в web приложении их всегда нужно тащить в проект?
+    </Question>
 
-  <Answer className='mt-3'>
-    - Когда идёт речь о подключении таких публичных шрифтов как Roboto, то их можно подключать из CDN
+    <Answer className='mt-3'>
+      - Когда идёт речь о подключении таких публичных шрифтов как Roboto, то их можно подключать из CDN
 
-    <a href="https://fonts.googleapis.com/css?family=Roboto" target="_blank">
-      https://fonts.googleapis.com/css?family=Roboto
-    </a>
+      <a href="https://fonts.googleapis.com/css?family=Roboto" target="_blank">
+        https://fonts.googleapis.com/css?family=Roboto
+      </a>
 
-    Подробнее <a href="https://developers.google.com/fonts/docs/getting_started?hl=ru" target="_blank">тут</a>
+      Подробнее <a href="https://developers.google.com/fonts/docs/getting_started?hl=ru" target="_blank">тут</a>
 
-    - Если же у вас какой-то кастомный шрифт или платный, то его скорее всего тоже можно подключить через CDN,
-    если поставщик шрифта его предоставляет.
+      - Если же у вас какой-то кастомный шрифт или платный, то его скорее всего тоже можно подключить через CDN,
+      если поставщик шрифта его предоставляет.
 
-    - В случае когда ваше приложение используется в закрытой среде,
-    то вы обречены затаскивать в проект все используемые шрифты.
-  </Answer>
-</ArticleTemplate>
+      - В случае когда ваше приложение используется в закрытой среде,
+      то вы обречены затаскивать в проект все используемые шрифты.
+    </Answer>
+  </MdxTemplate>
+</MdxLayout>

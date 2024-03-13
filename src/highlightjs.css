@@ -1,0 +1,54 @@
+/* https://highlightjs.readthedocs.io/en/latest/theme-guide.html */
+
+:root {
+  --code-default: #A9B7C6;
+  --code-attr: #FFC66D;
+  --code-function: #FFC66D;
+  --code-keyword: #CC7832;
+  --code-types: #CC7832;
+  --code-string: #6A8759;
+  --code-comment: #629755;
+  --code-commentBlock: #808080;
+  --code-number: #6897BB;
+}
+
+code.hljs {
+  color: var(--code-default);
+}
+
+.hljs-title {
+  color: var(--code-default);
+}
+
+.hljs-title.function_ {
+  color: var(--code-function);
+}
+
+.hljs-function > .hljs-params {
+  color: var(--code-types);
+}
+
+.hljs-attr {
+  color: var(--code-attr);
+}
+
+.hljs-literal, .hljs-keyword {
+  color: var(--code-keyword);
+}
+
+.hljs-built_in {
+  color: var(--code-types);
+}
+
+.hljs-number {
+  color: var(--code-number);
+}
+
+.hljs-string {
+  color: var(--code-string);
+}
+
+.hljs-comment {
+  color: var(--code-comment);
+}
+

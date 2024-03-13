@@ -25,7 +25,7 @@ export const YaMetricCounter = () => {
       />
       <noscript>
         <div>
-          <img src={`https://mc.yandex.ru/watch/90245180`} style={{position: 'absolute', left: '-9999px'}} alt="" />
+          <img src={`https://mc.yandex.ru/watch/90245180`} style={{ position: 'absolute', left: '-9999px' }} alt="" />
         </div>
       </noscript>
     </>

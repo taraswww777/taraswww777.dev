@@ -1,5 +1,7 @@
-import {useEffect, useState} from 'react';
-import {isLocalhost} from '../../utils/isLocalhost';
+'use client'
+
+import { useEffect, useState } from 'react';
+import { isLocalhost } from '../../utils/isLocalhost';
 
 export const YaMetricInformer = () => {
   const [isShow, setIsShow] = useState(false)

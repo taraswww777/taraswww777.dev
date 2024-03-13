@@ -1,7 +1,6 @@
 import Head from 'next/head';
-import {SITE_NAME} from 'src/constants/common';
-import ogDdefaultImage from 'src/public/assets/og-default-image.png'
-import {titleWithSiteName} from 'src/utils/titleWithSiteName';
+import { SITE_NAME } from 'src/constants/common';
+import { titleWithSiteName } from 'src/utils/titleWithSiteName';
 
 export interface HeadTitleProps {
   title: string,
@@ -15,7 +14,7 @@ export interface HeadTitleProps {
 export const MetaHead = ({
   title,
   description,
-  ogImageUrl = ogDdefaultImage.src,
+  ogImageUrl = '/assets/og-default-image.png',
   keywords,
   ogCanonicalUrl,
   ogType = 'website'
@@ -37,7 +36,10 @@ export const MetaHead = ({
           <link rel="canonical" href={ogCanonicalUrl} />
         </>
       )}
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" />
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 
+      <script type="text/javascript">hljs.highlightAll();</script>
     </Head>
   );
 };

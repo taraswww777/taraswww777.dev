@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/** Titillium Web[RUS by Daymarius] https://ffont.ru/font/titillium-webrus-by-daymarius */
+/*@font-face {*/
+/*  font-family: 'TitilliumWeb';*/
+/*  font-style: normal;*/
+/*  src: url('/fonts/TitilliumWeb/titillium_webrus_by_daymarius.eot'); !* IE 9 Compatibility Mode *!*/
+/*  src: url('/fonts/TitilliumWeb/titillium_webrus_by_daymarius.eot?#iefix') format('embedded-opentype'), !* IE < 9 *!*/
+/*  url('/fonts/TitilliumWeb/titillium_webrus_by_daymarius.woff2') format('woff2'), !* Super Modern Browsers *!*/
+/*  url('/fonts/TitilliumWeb/titillium_webrus_by_daymarius.woff') format('woff'), !* Firefox >= 3.6, any other modern browser *!*/
+/*  url('/fonts/TitilliumWeb/titillium_webrus_by_daymarius.ttf') format('truetype'), !* Safari, Android, iOS *!*/
+/*  url('/fonts/TitilliumWeb/titillium_webrus_by_daymarius.svg#titillium_webrus_by_daymarius') format('svg'); !* Chrome < 4, Legacy iOS *!*/
+/*}*/
+
+:root {
+  /** Simple colors */
+  --black: #000000;
+  --white: #ffffff;
+  --lightBg: #2F3238;
+  --gray: #7F8289;
+  --darkBg: #26292E;
+  --red: #DE5E60;
+  --darkRed: #b94a48;
+  --orange: #DBA571;
+  --darkOrange: #c09853;
+  --blue: #5A9AA8;
+  --darkBlue: #3a87ad;
+  --green: #1F7F5C;
+  --darkGreen: #468847;
+
+  /** Business colors */
+  --colorTextPrimary: var(--white);
+  --bgBodySecondary: var(--darkBg);
+  --colorTextRed: var(--red);
+  --disableLink: var(--gray);
+  --activeLink: var(--red);
+  --activeLinkHover: var(--darkRed);
+  /*  Типы / Статусы */
+  --secondary: var(--gray);
+  --success: var(--green);
+  --warning: var(--orange);
+  --info: var(--blue);
+  --danger: var(--red);
+
+  --p-1: 0.25rem;
+  --p-2: 0.5rem;
+  --p-3: 0.75rem;
+  --m-3: 0.75rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --colorTextPrimary: #ffffff;
+    --bgBodySecondary: #26292E;
+  }
+}
+
+*, :after, :before {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  color: rgb(var(--colorTextPrimary));
+  background: rgb(var(--bgBodySecondary));
+  font-family: 'Titillium Web', sans-serif;
+  line-height: 1.2;
+
+  /*font-size: 16px;*/
+  /*@media ${BREAKPOINT.mobileL} {*/
+  /*  font-size: 18px;*/
+  /*}*/
+  /*@media ${BREAKPOINT.laptop} {*/
+  font-size: 24px;
+  /*}*/
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+a {
+  color: var(--activeLink);
+
+  [aria-disabled] {
+    color: var(--disableLink);
+  }
+
+  &:hover {
+    color: var(--activeLinkHover);
+  }
+}
+
+
+.mdxContent {
+  p, hr, pre {
+    margin-bottom: var(--m-3);
+  }
+
+  p > code {
+    background: var(--bgBodySecondary);
+    padding: var(--p-1) var(--p-2);
+    display: inline;
+  }
+
+  pre > code {
+    width: 100%;
+    font-family: "Fira Code", monospace;
+    background: var(--bgBodySecondary);
+    display: inline-block;
+    padding: var(--p-3);
+    margin-bottom: var(--m-3);
+  }
+}

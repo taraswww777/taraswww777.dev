@@ -1,23 +1,12 @@
-import {FC, PropsWithChildren, ReactNode} from 'react';
+import { FC, PropsWithChildren } from 'react';
+import { Card, CARD_TYPE, CardProps } from '../../ui/Card';
 
-interface AnswerProps {
-  title?: ReactNode,
-  className?: HTMLDivElement['className']
-}
 
-export const Answer: FC<PropsWithChildren<AnswerProps>> = ({
-  children,
+export const Answer: FC<PropsWithChildren<CardProps>> = ({
   title = 'Ответ',
-  className
+  ...props
 }) => {
   return (
-    <div className={`card ${className}`}>
-      <div className="card-header bg-success text-light">
-        <strong className="card-title">{title}</strong>
-      </div>
-      <div className="card-body">
-        {children}
-      </div>
-    </div>
+    <Card {...props} title={title} type={CARD_TYPE.success} />
   )
 }
