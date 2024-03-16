@@ -9,7 +9,7 @@ export const ResultSchool_2023_02: WorkExperienceDto = {
   "teamName": "Кураторы мидлов",
   "technologiesTags": [
     "Javascript", "React", "Typescript", "node", "HTML5", "CSS3", "webpack", "jest",
-    "Notion", "GIT", "Docker", "RTKQuery", "Vite"
+    "Notion", "GIT", "Docker", "RTKQuery", "Vite", 'Tailwindcss'
   ],
   description: (
     <>

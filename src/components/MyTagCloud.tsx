@@ -1,5 +1,7 @@
-import {TagCloud, TagCloudProps} from 'react-tagcloud';
-import {FC} from 'react';
+"use client"
+
+import { TagCloud, TagCloudProps } from 'react-tagcloud';
+import { FC } from 'react';
 
 
 interface MyTagCloudProps {

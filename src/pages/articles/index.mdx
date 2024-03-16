@@ -1,15 +1,24 @@
-import {MetaHead} from 'src/components/mdx/MetaHead';
-import {PageTemplates} from 'src/components/PageTemplates';
-import {titleWithSiteName} from 'src/utils/titleWithSiteName';
-import {VerticalNav} from 'src/components/vertical-nav';
-import {LINKS} from 'src/constants/links';
-import {linksToVerticalNavItems} from 'src/utils/linksToVerticalNavItems';
+import { MetaHead } from 'src/components/mdx/MetaHead';
+import { PageTemplate } from 'src/components/PageTemplate';
+import { VerticalNav } from 'src/components/vertical-nav';
+import { LINKS } from 'src/constants/links';
+import "src/globals.css";
+import { linksToVerticalNavItems } from 'src/utils/linksToVerticalNavItems';
+import { ContentContainer } from '../../ui/ContentContainer';
+import MdxLayout from '../../app/MdxLayout';
+
 
 <MetaHead
-  title={titleWithSiteName(LINKS.articlesIndex.title)}
+  title={LINKS.articlesIndex.title}
   ogCanonicalUrl={LINKS.articlesIndex.link}
 />
-
-<PageTemplates header={<h1>Статьи</h1>}>
-  <VerticalNav items={linksToVerticalNavItems(LINKS.articles)} />
-</PageTemplates>
+<MdxLayout>
+  <PageTemplate>
+    <ContentContainer>
+      <div className="w-full">
+        <h1 className="text-center">Статьи</h1>
+        <VerticalNav items={linksToVerticalNavItems(LINKS.articles)} />
+      </div>
+    </ContentContainer>
+  </PageTemplate>
+</MdxLayout>

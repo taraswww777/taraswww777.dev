@@ -1,4 +1,5 @@
-import {formatDate, getDiffDate} from "../../utils";
+import { getDiffDate } from '../../utils/getDiffDate';
+import { formatDate } from '../../utils/formatDate';
 
 interface WorkIntervalProps {
   dateBegin: string;
