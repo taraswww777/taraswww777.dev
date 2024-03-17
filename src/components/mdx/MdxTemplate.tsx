@@ -14,10 +14,18 @@ export const MdxTemplate: FC<PropsWithChildren<ArticleTemplateProps>> = ({
   title,
   children,
   pubdate,
+  metaTitle,
+  description,
+  keywords
 }) => {
   return (
     <PageTemplate>
-      <MetaHead title={title} />
+      <MetaHead
+        metaTitle={metaTitle}
+        description={description}
+        keywords={keywords}
+        title={title}
+      />
       <ContentContainer>
         <div className={'mdxContent'}>
           <h1 className="text-center">{title}</h1>

@@ -11,7 +11,10 @@ export const WorkExperiencePart = () => {
         {workExperienceList.map((item) => (
           <div
             key={`${item.dateBegin}-${item.dateEnd}`}
-            className="mb-2 basis-[calc(50%-0.5*1rem)] shrink-0 overflow-auto print:break-before-page"
+            className="mb-2
+            w-full
+            lg:basis-[calc(50%-0.5*1rem)] lg:w-auto
+            shrink-0 overflow-auto print:break-before-page"
           >
             <WorkExperienceCard key={`${item.dateBegin}-${item.dateEnd}`} item={item} />
           </div>

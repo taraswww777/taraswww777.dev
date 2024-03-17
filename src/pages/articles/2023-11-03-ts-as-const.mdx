@@ -1,11 +1,12 @@
-import { MdxTemplate } from 'src/components/mdx';
+import { MdxTemplate, BlockQuote } from '../../components/mdx';
 import { LINKS } from '../../constants/links';
 import MdxLayout from '../../app/MdxLayout';
 
 <MdxLayout>
   <MdxTemplate
     pubdate={'2023-11-03'}
-    title={'TS. Какая польза от записи `const a = [1, 2] as const`'}
+    metaTitle={'TS. Какая польза от записи `const a = [1, 2] as const`?'}
+    title={<>TS. Какая польза от записи <code>const a = [1, 2] as const</code>?</>}
     ogCanonicalUrl={LINKS.articles.tsAsConst.link}
     description={'Ответ на вопрос: Что такое конструкция `const args = [8, 5] as const;`. Зачем она нужна?'}
   >
@@ -45,7 +46,7 @@ import MdxLayout from '../../app/MdxLayout';
     В чём лаключается разница?
 
     - `args2` - можно изменять, т.е.выполнить команду push и ей подобные.
-    - `args` - изменение заблокированно
+    - `args` - изменение заблокировано
 
     Есть тут ещё как минимум одна польза,
     её видно при попытке выполнить такой код `Math.atan2(...args)`
@@ -53,20 +54,26 @@ import MdxLayout from '../../app/MdxLayout';
 
     Во втором случае мы получим ошибку от компилятора:
 
-    `A spread argument must either have a tuple type or be passed to a rest parameter.`
+    <BlockQuote>
+      A spread argument must either have a tuple type or be passed to a rest parameter.
+    </BlockQuote>
 
     Что дословно переводится так:
 
-    `Аргумент распространения должен иметь тип кортежа или передаваться в параметр rest.`
+    <BlockQuote>
+      Аргумент распространения должен иметь тип кортежа или передаваться в параметр rest.
+    </BlockQuote>
 
-    Понимается это как
-    <strong>Количество передавемых аргуменов отличается от ожидаемого количества аргументов.</strong>
-    весьма странное замечание, но `as const` приходит к нам на помощь.
+    Понимается это так:
+
+    <BlockQuote>Количество передаваемых аргументов отличается от ожидаемого количества аргументов.</BlockQuote>
+
+    Весьма странное замечание, но `as const` приходит к нам на помощь.
 
     <strong>Подведём итоги</strong> того что полезного от можно получить `as const`:
 
     1. Позволяет сделать `readonly` константу
-    2. Устраняет ошибку при передаче массыва в функцию при помощи спред оператора
+    2. Устраняет ошибку при передаче массива в функцию при помощи спред оператора
 
     <hr />
 

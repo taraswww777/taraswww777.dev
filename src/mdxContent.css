@@ -1,0 +1,57 @@
+
+.mdxContent {
+  h1, h2, h3, h4, h5, h6,
+  ul, ol, p, hr, pre {
+    margin-bottom: var(--m-3);
+  }
+
+  blockquote {
+    margin-bottom: var(--m-4);
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3, h4, h5, h6 {
+    font-size: 1rem;
+  }
+
+  h1 > code, h2 > code, h3 > code, h4 > code, h5 > code, h6 > code,
+  p > code {
+    background: var(--bgBodySecondary);
+    padding: var(--p-1) var(--p-2);
+    display: inline;
+  }
+
+  h1 > code, h2 > code, h3 > code, h4 > code, h5 > code, h6 > code {
+    display: inline-block;
+  }
+
+  pre > code {
+    width: 100%;
+    font-family: "Fira Code", monospace;
+    background: var(--bgBodySecondary);
+    display: inline-block;
+    padding: var(--p-3);
+    margin-bottom: var(--m-3);
+  }
+
+  blockquote {
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  ul, ol {
+    margin-left: var(--m-5);
+  }
+
+  ol {
+    list-style: -moz-ethiopic-numeric;
+  }
+}
