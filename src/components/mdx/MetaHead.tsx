@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { SITE_NAME } from 'src/constants/common';
+import { SITE_NAME, SITE_URL } from 'src/constants/common';
 import { titleWithSiteName } from 'src/utils/titleWithSiteName';
 
 export interface HeadTitleProps {
@@ -32,8 +32,8 @@ export const MetaHead = ({
       {ogImageUrl && <meta property="og:image" content={ogImageUrl} />}
       {ogCanonicalUrl && (
         <>
-          <meta property="og:url" content={ogCanonicalUrl} />
-          <link rel="canonical" href={ogCanonicalUrl} />
+          <meta property="og:url" content={`${SITE_URL}${ogCanonicalUrl}`} />
+          <link rel="canonical" href={`${SITE_URL}${ogCanonicalUrl}`} />
         </>
       )}
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" />
