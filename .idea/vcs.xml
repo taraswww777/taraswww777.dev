@@ -13,6 +13,10 @@
           <option name="issueRegexp" value="Issue: (\d+)" />
           <option name="linkRegexp" value="https://github.com/taraswww777/my-site-taraswww777/issues/$1" />
         </IssueNavigationLink>
+        <IssueNavigationLink>
+          <option name="issueRegexp" value="#(\d+)" />
+          <option name="linkRegexp" value="https://github.com/taraswww777/taraswww777.dev/issues/$1" />
+        </IssueNavigationLink>
       </list>
     </option>
   </component>
