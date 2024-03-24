@@ -16,7 +16,7 @@ export const PageHeader = () => {
       </div>
       <div className="
       w-full text-xl  text-center
-      lg:w-auto lg:pr-2.5 lg:grow-1
+      lg:pr-2.5
       ">
         <p>
           Ковалёв Тарас Викторович
@@ -28,8 +28,8 @@ export const PageHeader = () => {
       </div>
 
       <nav className="
-      grow-1 text-center p-0
-      md:grow-0 md:text-right md:pl-2.5
+      w-full text-center p-0
+      md:w-auto md:text-right md:pl-2.5
       ">
         <Menu />
       </nav>
