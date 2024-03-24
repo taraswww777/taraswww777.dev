@@ -9,13 +9,15 @@ export const AboutMe = () => {
   const age = Math.floor(timeDiff / (1000 * 3600 * 24 * 365))
 
   return (
-    <div className="flex flex-nowrap w-full">
-      <picture className="w-full">
+    <div className="
+    flex w-full flex-wrap
+    lg:flex-nowrap">
+      <picture className="w-full text-center">
         <Image
           src="/assets/my-photo-small.jpg"
           property={'blur'}
           loading="lazy"
-          className="img-fluid"
+          className="img-fluid mb-4 mx-auto lg:m-auto lg:mb-0"
           width="348"
           height="521"
           alt="Это я"

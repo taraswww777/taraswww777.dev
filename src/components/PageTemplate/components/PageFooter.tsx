@@ -11,8 +11,7 @@ interface Contact {
 
 export const PageFooter = () => {
   return (
-    <div
-      className="w-full py-2 flex gap-x-3 gap-y-2 flex-wrap justify-center">
+    <div className="w-full py-2.5 flex gap-x-3 gap-y-2 flex-wrap justify-center">
       {(dataContacts as Contact[]).map(({ href, code, text, icon }) => (
         <a
           key={code}

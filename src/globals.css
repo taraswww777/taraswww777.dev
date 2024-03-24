@@ -47,7 +47,11 @@
   --p-1: 0.25rem;
   --p-2: 0.5rem;
   --p-3: 0.75rem;
+
   --m-3: 0.75rem;
+  --m-4: 1rem;
+  --m-5: 1.25rem;
+  --m-6: 1.5rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -93,27 +97,5 @@ a {
 
   &:hover {
     color: var(--activeLinkHover);
-  }
-}
-
-
-.mdxContent {
-  p, hr, pre {
-    margin-bottom: var(--m-3);
-  }
-
-  p > code {
-    background: var(--bgBodySecondary);
-    padding: var(--p-1) var(--p-2);
-    display: inline;
-  }
-
-  pre > code {
-    width: 100%;
-    font-family: "Fira Code", monospace;
-    background: var(--bgBodySecondary);
-    display: inline-block;
-    padding: var(--p-3);
-    margin-bottom: var(--m-3);
   }
 }

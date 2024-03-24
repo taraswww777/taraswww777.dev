@@ -1,4 +1,5 @@
 import "src/globals.css";
+import "src/mdxContent.css";
 import "src/highlightjs.css";
 import { FC, PropsWithChildren } from 'react';
 import Script from 'next/script';

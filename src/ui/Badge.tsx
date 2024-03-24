@@ -1,6 +1,10 @@
 import { FC, PropsWithChildren } from 'react';
 import classNames from 'classnames';
 
+/**
+ * Use STATUSES
+ * @deprecated
+ */
 export enum BADGE_TYPE {
   secondary = 'secondary',
   success = 'success',
