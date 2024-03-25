@@ -1,0 +1,105 @@
+import { MdxTemplate, Answer, Question, BlockQuote } from 'src/components/mdx';
+import { LINKS } from '../../constants/links';
+import MdxLayout from '../../app/MdxLayout';
+import { STATUSES } from '../../types/statses';
+
+
+<MdxLayout>
+  <MdxTemplate
+    pubdate={'2024-01-18'}
+    ogCanonicalUrl={LINKS.articles.tsInterfaceVsType.link}
+    title={'Typescript. Когда использовать interface, а когда type?'}
+    description='Сегодня мой ученик задал вот такой хороший вопрос: "Когда использовать interface, а когда type?"'
+  >
+    Сегодня мой ученик задал вот такой хороший вопрос:
+
+    <Question>
+      Всем привет!
+      Возник вопрос по использованию Интерфейсов (interface), когда все-таки лучше их применять вместо Типов (type)?
+
+      Владилен в ролике по Интерфейсам (Модуль 3 - Блок 2 Работа с типами - 3 Интерфейсы)
+      говорит о преимуществе использования Интерфейсов перед
+      Типами, в пример приводится наследование от интерфейсов User и Address.
+      Но то же самое можно сделать без копирования полей, а с использованием
+      Intersection Type : Interfaces.
+
+      <BlockQuote status={STATUSES.info}>
+        Речь идёт об уроке в курсе мидла в
+        <a href="https://result.school/products/middle-js" target="_blank">result.school</a>
+      </BlockQuote>
+
+```tsx
+interface IPerson {
+  name: string;
+  age: number;
+  hobbies: string[];
+};
+
+interface IAddress {
+  city: string;
+  street: string;
+};
+
+interface IFullUser extends IPerson, IAddress {
+  date: Date;
+};
+```
+      vs Types
+```tsx
+type TPerson = {
+  name: string;
+  age: number;
+  hobbies: string[];
+};
+
+type TAddress = {
+  city: string;
+  street: string;
+};
+
+type TFullUser = TPerson & TAddress & {
+  date: Date;
+};
+```
+
+      Поправьте, пожалуйста, если что-то не так понял.
+      И еще не смотрел ролики дальше, мб там есть и другие примеры сравнений
+
+      И есть ли, вообще какая-то принципиальная разница?
+
+      В документации <a href="https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#differences-between-type-aliases-and-interfaces">такое</a> пишут.
+    </Question>
+
+    <Answer className='mt-3'>
+      Пожалуй ответ нужно начать с главного:
+
+      <BlockQuote>
+        В сообществе TS разработчиков принято все объекты описывать используя `interface`,
+        а `type` используют для семантического описания примитивов и различных комбинаций типов и интерфейсов.
+      </BlockQuote>
+
+      Пример:
+
+```tsx
+interface Pet {
+  name: string,
+}
+
+interface Cat extends Pet {
+  hasHair: boolean;
+}
+
+interface Dog extends Pet {
+  frendly: boolean;
+}
+
+type HomePet = Dog | Cat;
+
+function addHomePet(pet: HomePet) {
+  cosole.log('pet:', pet);
+}
+```
+    </Answer>
+  </MdxTemplate>
+</MdxLayout>
+

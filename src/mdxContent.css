@@ -38,7 +38,6 @@
     background: var(--bgBodySecondary);
     display: inline-block;
     padding: var(--p-3);
-    margin-bottom: var(--m-3);
   }
 
   blockquote {

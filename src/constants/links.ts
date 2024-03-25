@@ -6,6 +6,7 @@ export const LINKS = {
   articles: {
     howChangeCommitMessage: {link: '/articles/2024-05-24-how-change-commit-message', title: 'Как изменить git commit message?'},
     resultGitTask: {link: '/articles/2024-01-23-result-school-git-task', title: 'Комментарии авторов к заданию по GIT от ResultSchool'},
+    tsInterfaceVsType: {link: '/articles/2024-03-24-interface-vs-type', title: 'Typescript. Когда использовать interface, а когда type?'},
     tsValueNeedType: {link: '/articles/2024-01-18-ts-value-need-type', title: 'Typescript. Нужно ли явно указывать тип переменной?'},
     includeFontsInWebApp: {link: '/articles/2024-01-13-include-fonts-in-web-app', title: 'Подключение шрифтов в WEB приложении'},
     decompositionOfComponentsInUi: {link: '/articles/2023-12-13-decomposition-of-components-in-ui', title: 'Декомпозиция компонентов в UI'},
