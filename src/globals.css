@@ -30,6 +30,13 @@
   --green: #1F7F5C;
   --darkGreen: #468847;
 
+  /*  Highlighter */
+  --hl-yellow: #fdff00;
+  --hl-orange: #ff9a00;
+  --hl-green: #00ff04;
+  --hl-blue: #00c5ff;
+  --hl-purple: #ff00a7;
+
   /** Business colors */
   --colorTextPrimary: var(--white);
   --bgBodySecondary: var(--darkBg);
@@ -47,7 +54,9 @@
   --p-1: 0.25rem;
   --p-2: 0.5rem;
   --p-3: 0.75rem;
+  --p-4: 1rem;
 
+  --m-1: 0.25rem;
   --m-3: 0.75rem;
   --m-4: 1rem;
   --m-5: 1.25rem;
@@ -97,5 +106,43 @@ a {
 
   &:hover {
     color: var(--activeLinkHover);
+  }
+}
+
+
+.mdxContent {
+  p, hr, pre, ul, ol {
+    margin-bottom: var(--m-3);
+
+    &:last-child {
+      margin-bottom: var(--m-1);
+    }
+  }
+
+  p > code {
+    background: var(--bgBodySecondary);
+    padding: calc(var(--p-1) / 2) var(--p-1);
+    display: inline;
+    color: var(--danger);
+  }
+
+  pre > code {
+    width: 100%;
+    font-family: "Fira Code", monospace;
+    background: var(--bgBodySecondary);
+    display: inline-block;
+    padding: var(--p-3);
+    margin-bottom: var(--m-3);
+  }
+
+  ul, ol {
+    list-style: initial;
+    padding-left: var(--p-4);
+  }
+}
+
+.next-mt-3 {
+  & + div, & + section {
+    margin-top: var(--m-3);
   }
 }

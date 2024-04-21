@@ -13,6 +13,12 @@ const baseColors = {
   darkBlue: '#3a87ad',
   green: '#1F7F5C',
   darkGreen: '#468847',
+  /*  Highlighter */
+  hlYellow: '#fdff00',
+  hlOrange: '#ff9a00',
+  hlGreen: '#00ff04',
+  hlBlue: '#00c5ff',
+  hlPurple: '#ff00a7',
 }
 
 /** @type {import('tailwindcss').Config} */
@@ -46,7 +52,7 @@ module.exports = {
       success: baseColors.green,
       warning: baseColors.orange,
       info: baseColors.blue,
-      danger: baseColors.red,
+      danger: baseColors.darkRed,
     },
     extend: {},
   },
