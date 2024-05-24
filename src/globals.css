@@ -113,13 +113,14 @@ a {
 .mdxContent {
   p, hr, pre, ul, ol {
     margin-bottom: var(--m-3);
+    line-height: 1.5;
 
     &:last-child {
       margin-bottom: var(--m-1);
     }
   }
 
-  p > code {
+  p > code, code {
     background: var(--bgBodySecondary);
     padding: calc(var(--p-1) / 2) var(--p-1);
     display: inline;
