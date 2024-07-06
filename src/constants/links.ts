@@ -4,6 +4,7 @@ export const LINKS = {
   home: {link: '/', title: 'Главная'},
   articlesIndex: {link: '/articles', title: 'Статьи'},
   articles: {
+    iMentor: {link: '/articles/2024-07-06-i-mentor', title: 'Я ментор'},
     howChangeCommitMessage: {link: '/articles/2024-05-24-how-change-commit-message', title: 'Как изменить git commit message?'},
     resultGitTask: {link: '/articles/2024-01-23-result-school-git-task', title: 'Комментарии авторов к заданию по GIT от ResultSchool'},
     tsInterfaceVsType: {link: '/articles/2024-03-24-interface-vs-type', title: 'Typescript. Когда использовать interface, а когда type?'},
