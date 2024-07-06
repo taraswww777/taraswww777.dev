@@ -2,8 +2,9 @@ import { WorkExperienceDto } from 'src/types/dto';
 import { FC } from "react";
 import { WorkInterval } from "./WorkInterval";
 import { EMPTY_SPACE } from 'src/constants/common';
-import { Badge, BADGE_TYPE } from '../../ui/Badge';
-import { Card, CARD_TYPE } from '../../ui/Card';
+import { Badge } from '../../ui';
+import { Card } from '../../ui';
+import { STATUSES } from '../../types/statses';
 
 interface WorkExperienceProps {
   item: WorkExperienceDto
@@ -11,7 +12,7 @@ interface WorkExperienceProps {
 
 export const WorkExperienceCard: FC<WorkExperienceProps> = ({ item }) => (
   <Card
-    type={item.dateEnd ? CARD_TYPE.secondary : CARD_TYPE.success}
+    type={item.dateEnd ? STATUSES.secondary : STATUSES.success}
     title={
       <h5 className="text-center font-bold">
         {item.companySite ? (
@@ -30,13 +31,13 @@ export const WorkExperienceCard: FC<WorkExperienceProps> = ({ item }) => (
     footer={(item.technologiesTags.length > 0) ? (
       <div className="flex flex-wrap justify-between gap-1">
         {item.technologiesTags.map((tag) => (
-          <Badge type={BADGE_TYPE.info} key={tag}>{tag}</Badge>
+          <Badge type={STATUSES.info} key={tag}>{tag}</Badge>
         ))}
       </div>
     ) : null}
   >
     <div className="text-sm font-bold text-center">
-      <Badge type={BADGE_TYPE.info}>
+      <Badge type={STATUSES.info}>
         <WorkInterval dateBegin={item.dateBegin} dateEnd={item.dateEnd} />
       </Badge>
     </div>

@@ -1,7 +1,8 @@
 import { MdxTemplate } from 'src/components/mdx';
 import { LINKS } from 'src/constants/links';
 import MdxLayout from '../../app/MdxLayout';
-import { Card, CARD_TYPE, HL, HL_TYPE } from 'src/ui';
+import { Card, HL, HL_TYPE } from 'src/ui';
+import { STATUSES } from '../../types/statses';
 
 <MdxLayout>
   <MdxTemplate
@@ -20,7 +21,7 @@ import { Card, CARD_TYPE, HL, HL_TYPE } from 'src/ui';
 
     Надеюсь, что этот материал поможет вам лучше понять задание и справиться с его выполнением.
 
-    <Card title={'Почему так сложно?'} className='mt-3 next-mt-3' type={CARD_TYPE.info}>
+    <Card title={'Почему так сложно?'} className='mt-3 next-mt-3' type={STATUSES.info}>
       Задания были специально подобраны таким образом, чтобы в процессе обучения вы столкнулись с весьма сложными сценариями работы с GIT. Это сделано
       для того, чтобы вы могли получить более глубокое понимание тонкостей использования этого инструмента. Получив опыт работы с различными
       ситуациями, вы сможете более эффективно применять GIT в своей повседневной работе.
@@ -29,7 +30,7 @@ import { Card, CARD_TYPE, HL, HL_TYPE } from 'src/ui';
     <Card
       title="Можно как-то созвониться, что бы куратор рассказал, показал как задачку решить по гиту правильно?"
       className='next-mt-3'
-      type={CARD_TYPE.success}
+      type={STATUSES.success}
     >
       Вы всегда можете связаться с куратором, но есть определенные условия, при которых это будет наиболее эффективно.
 
@@ -45,7 +46,7 @@ import { Card, CARD_TYPE, HL, HL_TYPE } from 'src/ui';
     <Card
       title="Результатом выполнения всех задач будет ссылка на репозиторий?"
       className='next-mt-3'
-      type={CARD_TYPE.danger}
+      type={STATUSES.danger}
     >
       Да. В данном случае нужна ссылка на отдельный репозиторий.
     </Card>
@@ -53,7 +54,7 @@ import { Card, CARD_TYPE, HL, HL_TYPE } from 'src/ui';
     <Card
       title="В первом задании, именно установку nodejs нужно вытянуть, не затрагивая установку другого пакета, верно понимаю?"
       className='next-mt-3'
-      type={CARD_TYPE.warning}
+      type={STATUSES.warning}
     >
       Да, вы абсолютно правильно понимаете. В первом задании вам нужно выделить именно установку nodejs, не затрагивая установку другого пакета. Этот
       навык может оказаться полезным в реальной работе с GIT.
@@ -63,7 +64,7 @@ import { Card, CARD_TYPE, HL, HL_TYPE } from 'src/ui';
       эффективно сотрудничать с командой.
     </Card>
 
-    <Card title={'Как так получилось оторвать ветку develop от ветки main?'} className='next-mt-3' type={CARD_TYPE.info}>
+    <Card title={'Как так получилось оторвать ветку develop от ветки main?'} className='next-mt-3' type={STATUSES.info}>
       Это происходит из за бездумного использования `git rebase`.
 
       Такое бывает когда мы сделали в ветке `main` какое-то количество коммитов, например 3, и сделали ветку `develop`.

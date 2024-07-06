@@ -1,5 +1,6 @@
 import { FC, PropsWithChildren } from 'react';
-import { Card, CARD_TYPE, CardProps } from '../../ui/Card';
+import { Card, CardProps } from '../../ui';
+import { STATUSES } from '../../types/statses';
 
 
 export const Answer: FC<PropsWithChildren<CardProps>> = ({
@@ -7,6 +8,6 @@ export const Answer: FC<PropsWithChildren<CardProps>> = ({
   ...props
 }) => {
   return (
-    <Card {...props} title={title} type={CARD_TYPE.success} />
+    <Card {...props} title={title} type={STATUSES.success} />
   )
 }

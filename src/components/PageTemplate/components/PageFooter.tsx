@@ -1,6 +1,5 @@
 import { dataContacts } from "src/__data";
 import { FaIcon } from "src/ui/FaIcon";
-import { YaMetricInformer } from '../../metrics/YaMetricInformer';
 
 interface Contact {
   href: string,
@@ -24,7 +23,6 @@ export const PageFooter = () => {
           <FaIcon iconName={icon} />&nbsp;{text}
         </a>
       ))}
-      <YaMetricInformer />
     </div>
   );
 }

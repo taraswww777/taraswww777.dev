@@ -8,9 +8,25 @@
 
 Для локального запуска в режире разработчика следует использовать команду `npm run dev`.
 
-Локально приложение запускается по адресу <http://localhost:3000>.
+Локально приложение запускается по адресу [localhost:3000](http://localhost:3000).
 
 Приложение автоматически перезагрузится, если вы измените какой-либо исходный файл.
+
+## Дизайн
+
+Сайт сделан на подобии [brushed](https://demo.html5xcss3.com/tintin2/alessioatzeni/brushed/index.html)
+
+## Рекомендуемые инструменты
+- репозиторий - [github.com/taraswww777](https://github.com/taraswww777/taraswww777.dev)
+- Проверка орфографии - [text.ru](https://text.ru/spelling)
+- Оптимизация картинок - [tinypng.com](https://tinypng.com)
+- Анализ производительности - [pagespeed.web.dev](https://pagespeed.web.dev/analysis/https-taraswww777-dev/5v61by0dey?form_factor=mobile)
+- Проверка действительности SSL сертификата - []()
+- Яндекс метрика - [metrika.yandex.ru](https://metrika.yandex.ru/overview?id=90245180&period=month&group=day&isMinSamplingEnabled=false&accuracy=1&isSamplingEnabled=true)
+- [nextjs.org](https://nextjs.org/docs)
+- [mdxjs.com](https://mdxjs.com/docs/getting-started)
+- [tailwindcss.com](https://tailwindcss.com/docs)
+- [responsive design in tailwindcss](https://tailwindcss.com/docs/responsive-design)
 
 ## Build for deploy
 
@@ -20,10 +36,5 @@
 
 ## Issues
 
-Мы можем отправлять любые вопросы, касающиеся моего сайта, в [issue page][URL_TW7_ISSUES]
-
-## Docs
-
-- [nextjs](https://nextjs.org/docs)
-- [mdxjs](https://mdxjs.com/docs/getting-started)
-- [getbootstrap](https://getbootstrap.com/docs/5.1/components/accordion/)
+Вы можете отправлять любые вопросы, касающиеся моего сайта, в [issue page][URL_TW7_ISSUES].
+Также на [issue page][URL_TW7_ISSUES] можете оставить запрос на статью или разбор какого-то вопроса.

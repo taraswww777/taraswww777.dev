@@ -1,10 +1,9 @@
 import { HeadTitleProps, MetaHead } from './MetaHead';
 import { PageTemplate } from 'src/components/PageTemplate';
-import { titleWithSiteName } from 'src/utils/titleWithSiteName';
 import { FC, PropsWithChildren } from 'react';
 import { formatDate } from 'src/utils/formatDate';
-import { ContentContainer } from '../../ui/ContentContainer';
-import { Badge } from '../../ui/Badge';
+import { ContentContainer } from '../../ui';
+import { Badge } from '../../ui';
 
 interface ArticleTemplateProps extends HeadTitleProps {
   pubdate: string;
