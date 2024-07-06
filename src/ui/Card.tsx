@@ -1,27 +1,17 @@
 import { FC, PropsWithChildren, ReactNode } from 'react';
 import classNames from 'classnames';
+import { STATUSES } from '../types/statses';
 
-/**
- * Use STATUSES
- * @deprecated
- */
-export enum CARD_TYPE {
-  secondary = 'secondary',
-  success = 'success',
-  warning = 'warning',
-  info = 'info',
-  danger = 'danger',
-}
 
 export interface CardProps {
   title?: ReactNode;
-  type?: CARD_TYPE;
+  type?: STATUSES;
   footer?: ReactNode
   className?: HTMLDivElement['className']
 }
 
 export const Card: FC<PropsWithChildren<CardProps>> = ({
-  type = CARD_TYPE.secondary,
+  type = STATUSES.secondary,
   children,
   title,
   footer,
@@ -33,22 +23,22 @@ export const Card: FC<PropsWithChildren<CardProps>> = ({
         'w-full inline-block text-xs text-colorTextPrimary border-2',
         className,
         {
-          ['border-secondary']: type === CARD_TYPE.secondary,
-          ['border-success']: type === CARD_TYPE.success,
-          ['border-warning']: type === CARD_TYPE.warning,
-          ['border-info']: type === CARD_TYPE.info,
-          ['border-danger']: type === CARD_TYPE.danger,
+          ['border-secondary']: type === STATUSES.secondary,
+          ['border-success']: type === STATUSES.success,
+          ['border-warning']: type === STATUSES.warning,
+          ['border-info']: type === STATUSES.info,
+          ['border-danger']: type === STATUSES.danger,
         },
       )}>
       {title && (
         <header
           className={classNames(' py-1 px-2 font-bold text-colorTextPrimary',
             {
-              ['bg-secondary']: type === CARD_TYPE.secondary,
-              ['bg-success']: type === CARD_TYPE.success,
-              ['bg-warning']: type === CARD_TYPE.warning,
-              ['bg-info']: type === CARD_TYPE.info,
-              ['bg-danger']: type === CARD_TYPE.danger,
+              ['bg-secondary']: type === STATUSES.secondary,
+              ['bg-success']: type === STATUSES.success,
+              ['bg-warning']: type === STATUSES.warning,
+              ['bg-info']: type === STATUSES.info,
+              ['bg-danger']: type === STATUSES.danger,
             },
           )}>{title}</header>
       )}
@@ -57,11 +47,11 @@ export const Card: FC<PropsWithChildren<CardProps>> = ({
         <div className={classNames(
           'w-full p-2 pt-3 inline-block text-xs text-colorTextPrimary',
           {
-            ['bg-secondary']: type === CARD_TYPE.secondary,
-            ['bg-success']: type === CARD_TYPE.success,
-            ['bg-warning']: type === CARD_TYPE.warning,
-            ['bg-info']: type === CARD_TYPE.info,
-            ['bg-danger']: type === CARD_TYPE.danger,
+            ['bg-secondary']: type === STATUSES.secondary,
+            ['bg-success']: type === STATUSES.success,
+            ['bg-warning']: type === STATUSES.warning,
+            ['bg-info']: type === STATUSES.info,
+            ['bg-danger']: type === STATUSES.danger,
           },
         )}>{footer}</div>
       )}
