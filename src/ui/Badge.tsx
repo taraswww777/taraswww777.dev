@@ -14,9 +14,10 @@ export const Badge: FC<PropsWithChildren<BadgeProps>> = ({
   return (
     <span
       className={classNames(
-        'rounded-xl py-1 px-2 inline-block text-xs text-colorTextPrimary',
+        'rounded-xl py-1 px-2 inline-block text-xs font-bold',
         {
-          ['bg-secondary']: type === STATUSES.secondary,
+          ['text-colorTextPrimary']: type !== STATUSES.secondary,
+          ['bg-secondary text-black']: type === STATUSES.secondary,
           ['bg-success']: type === STATUSES.success,
           ['bg-warning']: type === STATUSES.warning,
           ['bg-info']: type === STATUSES.info,
