@@ -32,10 +32,7 @@ export const MdxTemplate: FC<PropsWithChildren<ArticleTemplateProps>> = ({
             <p>
               <span>Обновлено: </span>
               <Badge>
-                <time
-                  data-pubdate={'pubdate'}
-                  data-datetime={pubdate}
-                >
+                <time data-pubdate={pubdate} data-datetime={pubdate}>
                   {formatDate(new Date(pubdate))}
                 </time>
               </Badge>

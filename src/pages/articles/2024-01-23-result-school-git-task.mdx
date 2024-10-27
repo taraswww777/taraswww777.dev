@@ -1,5 +1,7 @@
 import { MdxTemplate } from 'src/components/mdx';
+import { CopyAnchor } from 'src/components/CopyAnchor';
 import { LINKS } from 'src/constants/links';
+import Image from 'next/image';
 import MdxLayout from '../../app/MdxLayout';
 import { Card, HL, HL_TYPE } from 'src/ui';
 import { STATUSES } from '../../types/statses';
@@ -85,6 +87,24 @@ import { STATUSES } from '../../types/statses';
 
       Следствие: после влития <HL type={HL_TYPE.green}>дочерней ветки</HL> в <HL type={HL_TYPE.orange}>родительскую</HL>, подобные операции над
       влитыми коммитами будут также причинять проблемы.
+    </Card>
+
+    <Card
+      title={<>Как должно выглядеть дерево коммитов? <CopyAnchor anchor="result-school-git-task-target-git-tree" /></>}
+      className='next-mt-3'
+      type={STATUSES.info}>
+
+      Дерево коммитов должно выглядеть приблизительно так:
+
+      <Image
+        src="/assets/result-school-git-task-target-git-tree.png"
+        property={'blur'}
+        loading="lazy"
+        className="img-fluid mb-4 mx-auto lg:m-auto lg:mb-0"
+        width="900"
+        height="1200"
+        alt="result-school-git-task-target-git-tree.png"
+      />
     </Card>
   </MdxTemplate>
 </MdxLayout>

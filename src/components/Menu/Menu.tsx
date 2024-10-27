@@ -17,13 +17,13 @@ export const Menu = memo(() => {
   return (
     <div>
       <Link
-        className={classNames(
-          'active:text-colorLinkActive hover:text-linkActive',
-          {
-            'text-link': !isActive(getPageUrl(PAGE_NAMES.ARTICLES)()),
-            'text-linkActive': isActive(getPageUrl(PAGE_NAMES.ARTICLES)()),
-          }
-        )}
+          className={classNames(
+            'active:text-colorLinkActive hover:text-linkActive',
+            {
+              'text-link': !isActive(getPageUrl(PAGE_NAMES.ARTICLES)()),
+              'text-linkActive': isActive(getPageUrl(PAGE_NAMES.ARTICLES)()),
+            }
+          )}
         href={getPageUrl(PAGE_NAMES.ARTICLES)() || linkWithTime(getPageUrl(PAGE_NAMES.ARTICLES)())}
       >
         {LINKS.articlesIndex.title}
