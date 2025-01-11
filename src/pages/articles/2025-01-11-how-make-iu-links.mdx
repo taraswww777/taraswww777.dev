@@ -1,0 +1,72 @@
+import { MdxTemplate } from '../../components/mdx';
+import { LINKS } from '../../constants/links';
+import MdxLayout from '../../app/MdxLayout';
+
+<MdxLayout>
+  <MdxTemplate
+    pubdate={'2025-01-11'}
+    metaTitle={LINKS.articles.howMakeIuLinks.title}
+    title={LINKS.articles.howMakeIuLinks.title}
+    ogCanonicalUrl={LINKS.articles.howMakeIuLinks.link}
+    description="Один из способов генерации ссылок для UI"
+  >
+    Для начала нужно начать разделять ссылки по назначению, на сегодня я выделил 2 таких вида:
+
+    - UI ссылки
+    - API ссылки
+
+    Из этого мы можем сделать вывод о том что ссылки могут иметь разное назначение и по хорошему их крайне плохо будети перепутать на практике.
+
+    Самый простой вариант указать ссылку это захардкодить ссылку по месту.
+
+    ```jsx
+    <a href="/news/1">Читать новость</a>
+    ```
+
+    ```tsx
+    const getNewsById = (newsID: number) {
+      return axios.get(`/api/news/${newsID}`);
+    }
+    ```
+
+    Хазардкодить вариант весьма хорош когда нужно написать маленький пет проект, который вы будете скрывать от остального мира.
+
+    Для обращения к API такой, вариант может быть удобным, если обращение к каждому эндпоинту будет происходить при помощи отдельной функции.
+
+    А вот из-за того, что мы на UI можем в разных местах использовать одинаковые ссылки, то тут нам по хорошему надо взять под контроль генерацию
+    ссылок.
+
+    В общем виде можно использовать подход, где мы все ссылки опишем заранее в объекте и будем использовать уже их.
+    Выглядеть это будет примерно так:
+
+    ```tsx
+    import React from 'react';
+
+    const UI_LINKS = {
+     home: this.newsList,
+     newsList: '/news',
+     newsDetail: (newsId: number | string) => `/news/${newsId}`
+    }
+
+    interface NewsDetailLinkProps {
+      newsId: number | string
+    }
+
+    const NewsPreview = ({newsId}:NewsDetailLinkProps) => {
+      return (<a href={UI_LINKS.newsDetail(newsId)}>Читать новость</a>);
+    }
+    ```
+
+    Как мы видим, теперь генерация ссылки от нас скрыта за вот таким интерфейсом:
+
+    ```ts
+    UI_LINKS.newsDetail(newsId);
+    ```
+
+    Это позволяет нам:
+
+    - снизить вероятность человеческой ошибки
+    - контроль за формированием ссылки в одном месте
+
+  </MdxTemplate>
+</MdxLayout>
