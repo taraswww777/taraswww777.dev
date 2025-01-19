@@ -1,7 +1,7 @@
 import { WorkExperienceDto } from 'src/types/dto';
 import { FC } from "react";
 import { WorkInterval } from "./WorkInterval";
-import { EMPTY_SPACE } from 'src/constants/common';
+import { NON_BREAK_SPACE } from 'src/constants/common';
 import { Badge } from '../../ui';
 import { Card } from '../../ui';
 import { STATUSES } from '../../types/statses';
@@ -22,7 +22,7 @@ export const WorkExperienceCard: FC<WorkExperienceProps> = ({ item }) => (
             title={item.companyName}
             href={item.companySite}
           >
-            {item.companyName}{EMPTY_SPACE}
+            {item.companyName}{NON_BREAK_SPACE}
             <i className="fa-solid fa-arrow-up-right-from-square"></i>
           </a>
         ) : item.companyName}
