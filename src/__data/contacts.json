@@ -2,12 +2,12 @@
   {
     "href": "https://t.me/taraswww777/",
     "code": "telegram",
-    "text": "@taraswww777",
+    "text": "Telegram @taraswww777",
     "icon": "fa-brands fa-telegram"
   },
   {
     "href": "tel:+79246736538",
-    "text": "+7-924-673-65-38",
+    "text": "+7 (924) 673 65 38",
     "code": "phone",
     "icon": "fa-solid fa-phone"
   },
@@ -19,7 +19,7 @@
   },
   {
     "href": "https://github.com/taraswww777",
-    "text": "taraswww777",
+    "text": "github@taraswww777",
     "code": "github",
     "icon": "fa-brands fa-github"
   },
@@ -28,5 +28,11 @@
     "text": "taraswww777",
     "code": "youtube",
     "icon": "fa-brands fa-youtube"
+  },
+  {
+    "href": "https://vk.com/taraswww777",
+    "text": "@taraswww777",
+    "code": "vk",
+    "icon": "fa-brands fa-vk"
   }
 ]

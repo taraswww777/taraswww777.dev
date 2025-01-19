@@ -1,5 +1,4 @@
-import dataContacts from './contacts.json';
+import dataContactsJson from './contacts.json';
+import {ContactDto} from '../types/dto';
 
-export {
-  dataContacts,
-}
+export const dataContacts = dataContactsJson as ContactDto[]
