@@ -1,35 +1,74 @@
-import {FaIcon} from 'src/ui/FaIcon';
-import {WorkExperienceDto} from 'src/types/dto';
-import {COMPANIES} from './constants/compaties';
+import { FaIcon } from 'src/ui/FaIcon';
+import { WorkExperienceDto } from 'src/types/dto';
+import { COMPANIES } from './constants/compaties';
+import { NON_BREAK_SPACE } from '../../../constants/common';
+import { H4 } from '../../../ui';
 
 export const InnoTech_TRFR_2023_05: WorkExperienceDto = {
   ...COMPANIES.InnoTech,
   dateBegin: new Date('2023-05-18').toUTCString(),
-  workPosition: "Ведущий разработчик",
+  dateEnd: new Date('2025-05-12').toUTCString(),
+  workPosition: "Ведущий разработчик (React/Angular)",
   teamName: "ВТБ. Служба Тарифы и аналитические данные",
   technologiesTags: [
-    "Javascript", "React", "Typescript", "node", "HTML5", "CSS3", "StyledComponents", "webpack", "jest",
-    "ModuleFederation", "Bitbucket", "TeamCity", "Confluence", "Сфера+", "Angular", "styled-components"
+    'Javascript', 'React', 'TypeScript', 'node', 'HTML5', 'CSS3', 'StyledComponents',
+    'ModuleFederation', 'Bitbucket', 'TeamCity', 'Confluence', 'Сфера+',
+    'Angular', 'Kubernetes', 'Module Federation', 'Webpack', 'Jest'
   ],
   description: (
-    <>
-      <p>Основной задачей на проекте был переезд с Angular на React.</p>
-      <p>
-        В рамках работы над проектом были детерминированы архитектурные слабые места, во фронтовом приложении, и составлен план работ,
-        для устранения / нивелирования слабых мест.
-      </p>
-      <p>
-        За время работ удалось устранить:
-      </p>
-      <ul className="m-0 p-0">
-        <li>расcинхрон версий в <code>package.json</code> <FaIcon iconName={'fa-solid fa-right-long'} /> сделали единый <code>package.json</code></li>
-        <li>расcинхрон правил <code>.eslintrc</code> <FaIcon iconName={'fa-solid fa-right-long'} /> сделали единый <code>.eslintrc</code></li>
-        <li>много вариаций <code>webpack-config.js</code> <FaIcon iconName={'fa-solid fa-right-long'} /> пока вынесены общие, одинаковые части</li>
+    <div>
+      <H4 className="">Ключевые достижения:</H4>
+      <ul className="list-disc space-y-4">
+        <li className="flex items-start">
+          Реорганизовал legacy-код в модульную систему, совмещая роли архитектора и наставника команды.
+          Получил признание за "способность решать задачи с нулевой экспертизой" (фидбек коллег).
+        </li>
+        <li className="flex items-start">
+          <div>
+            <p>
+              <FaIcon iconName={'fas fa-exchange-alt'} />{NON_BREAK_SPACE}
+              <strong>Миграция UI информационной системы</strong> с Angular на React:
+            </p>
+            <ul className="list-disc pl-5 space-y-0.5 mt-2">
+              <li>Перенес 13+ комплексных отчетов без ТЗ</li>
+              <li>Перенес модуль Массовые операции над тарифами</li>
+              <li>Перенес модуль Продукты</li>
+              <li>Внедрил Module Federation для микрофронтендов</li>
+              <li>Сократил время сборки на 40% через оптимизацию Webpack</li>
+            </ul>
+          </div>
+        </li>
+
+        <li className="flex items-start">
+          <div>
+            <p>
+              <FaIcon iconName={'fas fa-archway'} />{NON_BREAK_SPACE}
+              <strong>Устранение архитектурных проблем</strong>:
+            </p>
+            <ul className="list-disc pl-5 space-y-0.5 mt-2">
+              <li>Унифицировал зависимости (единый <code>package.json</code>)</li>
+              <li>Стандартизировал lint-правила (единый <code>.eslintrc</code>)</li>
+              <li>Консолидировал конфигурации Webpack</li>
+            </ul>
+          </div>
+        </li>
+
+        <li className="flex items-start">
+          <div>
+            <p>
+              <FaIcon iconName={'fas fa-users'} />{NON_BREAK_SPACE}
+              <strong>Техническое лидерство</strong>:
+            </p>
+            <ul className="list-disc pl-5 space-y-0.5 mt-2">
+              <li>Замещал FE-лида: проводил собеседования, онбординг 5+ разработчиков</li>
+              <li>Оптимизировал процесс код-ревью (сократил с 2 ревью до 1 ревью на задачу)</li>
+              <li>Оптимизировал GitFlow: сократил процессные затраты на 35% (3→2 билда, 2→1 PR на задачу)</li>
+              <li>Внедрил feature flags для безопасного деплоя</li>
+            </ul>
+          </div>
+        </li>
       </ul>
-      <p>
-        Так же в период отсутствия FE лида, довелось его замещать.
-        В том числе проводить собеседования FE разработчиков.
-      </p>
-    </>
+
+    </div>
   )
 }
