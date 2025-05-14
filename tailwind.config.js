@@ -54,7 +54,30 @@ module.exports = {
       info: baseColors.blue,
       danger: baseColors.darkRed,
     },
-    extend: {},
+    extend: {
+      spacing: {
+        '2.25': '0.5625rem', // 2.25 * 0.25rem = 0.5625rem
+        '2.75': '0.6875rem', // 2.75 * 0.25rem = 0.6875rem
+        '12': '3.25rem', // 12 * 0.25rem = 3.25rem
+        '12.25': '3.0625rem', // 12.25 * 0.25rem = 3.0625rem
+        '12.5': '3.125rem', // 12.5 * 0.25rem = 3.125rem
+        '13': '3.25rem', // 13 * 0.25rem = 3.25rem
+        '13.25': '3.3125rem', // 13.25 * 0.25rem = 3.3125rem
+        '13.5': '3.375rem', // 13.5 * 0.25rem = 3.375rem
+      },
+      fontSize: {
+        // Ваши кастомные размеры
+        h1: ['3.5rem', { lineHeight: '1.2', fontWeight: '700' }],
+        h2: ['2.5rem', { lineHeight: '1.3', fontWeight: '700' }],
+        h3: ['2rem', { lineHeight: '1.35', fontWeight: '600' }],
+        h4: ['1rem', { lineHeight: '1.5', fontWeight: '600' }],
+        h5: ['1rem', { lineHeight: '1.5', fontWeight: '500' }],
+        h6: ['1rem', { lineHeight: '1.6', fontWeight: '500' }],
+
+        // Можно сохранить дефолтные значения как fallback
+        ...require('tailwindcss/defaultTheme').fontSize
+      }
+    },
   },
   plugins: [],
 }

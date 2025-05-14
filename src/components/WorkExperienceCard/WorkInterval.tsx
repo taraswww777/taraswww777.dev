@@ -15,17 +15,19 @@ export const WorkInterval = ({
   const bDate = new Date(dateBegin);
   const eDate = new Date(dateEnd || currentDate);
 
-  const {y, m} = getDiffDate(bDate, eDate);
+  const { y, m } = getDiffDate(bDate, eDate);
+
+  const dateString = `${y ? y + 'г ' : ''}${m ? m + 'м ' : ''}`.trim();
 
   if (dateEnd) {
     return (
-      <>{`${formatDate(bDate)} - ${formatDate(eDate)} (${y ? y + 'г ' : ''}${m || 0}м)`}</>
+      <>{`${formatDate(bDate)} - ${formatDate(eDate)} (${dateString})`}</>
     );
   }
 
   return (
     <>
-      {`${formatDate(bDate)} - (по настоящее время > ${y ? y + 'г ' : ''}${m || 0}м)`}
+      {`${formatDate(bDate)} - (по настоящее время > ${dateString})`}
     </>
   )
 }
