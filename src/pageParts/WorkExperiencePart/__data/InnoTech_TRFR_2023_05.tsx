@@ -12,8 +12,8 @@ export const InnoTech_TRFR_2023_05: WorkExperienceDto = {
   teamName: "ВТБ. Служба Тарифы и аналитические данные",
   technologiesTags: [
     'Javascript', 'React', 'TypeScript', 'node', 'HTML5', 'CSS3', 'StyledComponents',
-    'ModuleFederation', 'Bitbucket', 'TeamCity', 'Confluence', 'Сфера+',
-    'Angular', 'Kubernetes', 'Module Federation', 'Webpack', 'Jest'
+    'Bitbucket', 'TeamCity', 'Confluence', 'Сфера+', 'OpenAPI',
+    'Angular', 'Kubernetes', 'ModuleFederation', 'Webpack', 'Jest'
   ],
   description: (
     <div>
@@ -21,6 +21,8 @@ export const InnoTech_TRFR_2023_05: WorkExperienceDto = {
       <ul className="list-disc space-y-4">
         <li className="flex items-start">
           Реорганизовал legacy-код в модульную систему, совмещая роли архитектора и наставника команды.
+        </li>
+        <li className="flex items-start">
           Получил признание за "способность решать задачи с нулевой экспертизой" (фидбек коллег).
         </li>
         <li className="flex items-start">
@@ -49,6 +51,7 @@ export const InnoTech_TRFR_2023_05: WorkExperienceDto = {
               <li>Унифицировал зависимости (единый <code>package.json</code>)</li>
               <li>Стандартизировал lint-правила (единый <code>.eslintrc</code>)</li>
               <li>Консолидировал конфигурации Webpack</li>
+              <li>Внедрил использования кодогенерации OpenAPI</li>
             </ul>
           </div>
         </li>
