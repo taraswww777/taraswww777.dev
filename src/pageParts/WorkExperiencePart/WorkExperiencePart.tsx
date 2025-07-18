@@ -1,11 +1,12 @@
 import { TECHNOLOGIES_TAGS, workExperienceList } from './__data';
 import { WorkExperienceCard } from 'src/components/WorkExperienceCard';
 import { MyTagCloud } from 'src/components/MyTagCloud';
+import { WorkExperience } from './workExperience';
 
 export const WorkExperiencePart = () => {
   return (
     <div className="w-full flex flex-wrap gap-x-2">
-      <h2 className="text-xl font-bold">Опыт работы</h2>
+      <h2 className="text-xl font-bold">Опыт работы <WorkExperience /></h2>
 
       <div className="w-full mt-4 flex-wrap flex gap-4 flex-row">
         {workExperienceList.map((item) => (
