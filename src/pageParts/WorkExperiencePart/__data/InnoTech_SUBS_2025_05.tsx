@@ -1,7 +1,7 @@
 import { FaIcon } from 'src/ui/FaIcon';
 import { WorkExperienceDto } from 'src/types/dto';
 import { COMPANIES } from './constants/compaties';
-import { NON_BREAK_SPACE } from '../../../constants/common';
+import { NON_BREAKING_SPACE } from '../../../constants/common';
 import { H4 } from '../../../ui';
 
 export const InnoTech_TRFR_2025_05: WorkExperienceDto = {
@@ -26,7 +26,7 @@ export const InnoTech_TRFR_2025_05: WorkExperienceDto = {
         <li className="flex items-start">
           <div>
             <p>
-              <FaIcon iconName={'fas fa-plus'} />{NON_BREAK_SPACE}
+              <FaIcon iconName={'fas fa-plus'} />{NON_BREAKING_SPACE}
               <strong>Разработка сервиса "Молодёжный сервис"</strong>:
             </p>
             <ul className="list-disc pl-5 space-y-0.5 mt-2">
@@ -39,7 +39,7 @@ export const InnoTech_TRFR_2025_05: WorkExperienceDto = {
         <li className="flex items-start">
           <div>
             <p>
-              <FaIcon iconName={'fas fa-users'} />{NON_BREAK_SPACE}
+              <FaIcon iconName={'fas fa-users'} />{NON_BREAKING_SPACE}
               <strong>Техническое лидерство</strong>:
             </p>
             <ul className="list-disc pl-5 space-y-0.5 mt-2">

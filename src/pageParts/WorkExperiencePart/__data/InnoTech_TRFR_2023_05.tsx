@@ -1,7 +1,7 @@
 import { FaIcon } from 'src/ui/FaIcon';
 import { WorkExperienceDto } from 'src/types/dto';
 import { COMPANIES } from './constants/compaties';
-import { NON_BREAK_SPACE } from '../../../constants/common';
+import { NON_BREAKING_SPACE } from '../../../constants/common';
 import { H4 } from '../../../ui';
 
 export const InnoTech_TRFR_2023_05: WorkExperienceDto = {
@@ -28,7 +28,7 @@ export const InnoTech_TRFR_2023_05: WorkExperienceDto = {
         <li className="flex items-start">
           <div>
             <p>
-              <FaIcon iconName={'fas fa-exchange-alt'} />{NON_BREAK_SPACE}
+              <FaIcon iconName={'fas fa-exchange-alt'} />{NON_BREAKING_SPACE}
               <strong>Миграция UI информационной системы</strong> с Angular на React:
             </p>
             <ul className="list-disc pl-5 space-y-0.5 mt-2">
@@ -44,7 +44,7 @@ export const InnoTech_TRFR_2023_05: WorkExperienceDto = {
         <li className="flex items-start">
           <div>
             <p>
-              <FaIcon iconName={'fas fa-archway'} />{NON_BREAK_SPACE}
+              <FaIcon iconName={'fas fa-archway'} />{NON_BREAKING_SPACE}
               <strong>Устранение архитектурных проблем</strong>:
             </p>
             <ul className="list-disc pl-5 space-y-0.5 mt-2">
@@ -59,7 +59,7 @@ export const InnoTech_TRFR_2023_05: WorkExperienceDto = {
         <li className="flex items-start">
           <div>
             <p>
-              <FaIcon iconName={'fas fa-users'} />{NON_BREAK_SPACE}
+              <FaIcon iconName={'fas fa-users'} />{NON_BREAKING_SPACE}
               <strong>Техническое лидерство</strong>:
             </p>
             <ul className="list-disc pl-5 space-y-0.5 mt-2">
