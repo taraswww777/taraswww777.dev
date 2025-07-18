@@ -1,5 +1,5 @@
-import { getDiffDate } from '../../utils/getDiffDate';
 import { formatDate } from '../../utils/formatDate';
+import { calculateWorkInterval } from '../../utils/calculateWorkInterval';
 
 interface WorkIntervalProps {
   dateBegin: string;
@@ -15,9 +15,7 @@ export const WorkInterval = ({
   const bDate = new Date(dateBegin);
   const eDate = new Date(dateEnd || currentDate);
 
-  const { y, m } = getDiffDate(bDate, eDate);
-
-  const dateString = `${y ? y + 'г ' : ''}${m ? m + 'м ' : ''}`.trim();
+  const dateString = calculateWorkInterval(bDate, eDate);
 
   if (dateEnd) {
     return (

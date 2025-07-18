@@ -8,6 +8,13 @@ const nextConfig = {
   images: { unoptimized: true },
   // Support MDX files as pages:
   pageExtensions: ['md', 'mdx', 'tsx', 'ts', 'jsx', 'js'],
+  compiler: {
+    styledComponents: true,
+  },
+  experimental: {
+    forceSwcTransforms: true,
+    serverComponentsExternalPackages: ['next/font'],
+  },
 }
 /** @type {import('next').NextConfig} */
 const withMdx = nextMdx({
