@@ -26,6 +26,8 @@ export const calculateWorkInterval = (bDate: Date, eDate: Date): string => {
     } else {
       result.push(`${m}м`)
     }
+  } else if (d) {
+    result.push(`${d}д`)
   }
 
   /** Длительность работы */

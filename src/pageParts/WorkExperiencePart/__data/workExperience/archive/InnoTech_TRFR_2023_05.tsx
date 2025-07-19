@@ -1,8 +1,8 @@
 import { FaIcon } from 'src/ui/FaIcon';
 import { WorkExperienceDto } from 'src/types/dto';
-import { COMPANIES } from './constants/compaties';
-import { NON_BREAKING_SPACE } from '../../../constants/common';
-import { H4 } from '../../../ui';
+import { COMPANIES } from '../../constants/compaties';
+import { NON_BREAKING_SPACE } from '../../../../../constants/common';
+import { H4 } from '../../../../../ui';
 
 export const InnoTech_TRFR_2023_05: WorkExperienceDto = {
   ...COMPANIES.InnoTech,

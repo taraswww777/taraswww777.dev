@@ -1,5 +1,5 @@
 import { WorkExperienceDto } from 'src/types/dto';
-import { FaIcon } from '../../../ui/FaIcon';
+import { FaIcon } from '../../../../ui/FaIcon';
 
 export const Taraswww777_2022_02: WorkExperienceDto = {
   "dateBegin": "2022-02-24T01:00:00.000Z",
