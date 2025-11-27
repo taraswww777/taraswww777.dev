@@ -77,6 +77,7 @@ async function main() {
     if (step === 'delete') {
         // Прямой переход к шагу 4: Удаление веток
       await deleteOriginBranches();
+      await deleteLocalBranches();
         return;
     }
 
