@@ -32,11 +32,51 @@ args.forEach(arg => {
 const targetBranch = params.targetBranch || 'develop'; // Можно изменить на 'master' или 'main'
 const protectedBranches = ['develop', 'main', 'master'];
 const step = params.step || 'full'; // По умолчанию полный процесс
+const FILE_NAMES = {
+  REMOTE_BRANCHES_BEFORE: 'remote-branches-before.txt',
+  REMOTE_BRANCHES_AFTER: 'remote-branches-after.txt',
+  REMOTE_BRANCHES_FOR_DELETE: 'remote-branches-for-delete.txt',
+  LOCAL_BRANCHES_BEFORE: 'local-branches-before.txt',
+  LOCAL_BRANCHES_AFTER: 'local-branches-after.txt',
+  LOCAL_BRANCHES_FOR_DELETE: 'local-branches-for-delete.txt',
+};
+
+const isProtectedBranch = (branch) => (
+  branch.includes('/release/') ||
+  protectedBranches.some(protectedBranch => branch.includes(protectedBranch))
+)
+
+/**  Подготавливаем список веток для удаления */
+const prepareBranchesForDelete = () => {
+  // Готовим список кандидатов на удаление
+  const remoteBranches = runCommand('git branch -r --merged')
+    .split('\n')
+    .map(branch => branch.trim())
+    .filter(branch => !isProtectedBranch(branch));
+
+  // Готовим список кандидатов на удаление
+  const localBranches = runCommand('git branch --merged')
+    .split('\n')
+    .map(branch => branch.trim())
+    .filter(branch => !isProtectedBranch(branch));
+
+  // Подготавливаем список веток для удаления
+  const remoteBranchesForDelete = remoteBranches.map(branch => branch.replace('origin/', ''));
+  fs.writeFileSync(FILE_NAMES.REMOTE_BRANCHES_FOR_DELETE, remoteBranchesForDelete.join('\n'));
+
+  const localBranchesForDelete = localBranches.map(branch => branch.replace('origin/', ''));
+  fs.writeFileSync(FILE_NAMES.LOCAL_BRANCHES_FOR_DELETE, localBranchesForDelete.join('\n'));
+
+  return {
+    remoteBranchesForDelete,
+    localBranchesForDelete
+  }
+}
 
 async function main() {
     if (step === 'delete') {
         // Прямой переход к шагу 4: Удаление веток
-        await deleteBranches();
+      await deleteOriginBranches();
         return;
     }
 
@@ -45,21 +85,17 @@ async function main() {
 
     // Шаг 1: Собираем все ветки
     runCommand('git fetch --all');
-    runCommand('git branch -r > branches-before.txt');
+    runCommand(`git branch -r > ${FILE_NAMES.REMOTE_BRANCHES_BEFORE}`);
+    runCommand(`git branch > ${FILE_NAMES.LOCAL_BRANCHES_BEFORE}`);
+
 
     // Шаг 2: Готовим список кандидатов на удаление
-    const branches = runCommand('git branch -r --merged').split('\n')
-        .map(branch => branch.trim())
-        .filter(branch => !protectedBranches.some(protectedBranch => branch.includes(protectedBranch)))
-        .filter(branch => !branch.includes('/release/'));
-
-    // Шаг 3: Подготавливаем список веток для удаления
-    const branchesForDelete = branches.map(branch => branch.replace('origin/', ''));
-    fs.writeFileSync('branches-for-delete.txt', branchesForDelete.join('\n'));
+    const {localBranchesForDelete,remoteBranchesForDelete} = prepareBranchesForDelete();
 
     // Выводим список удаляемых веток
     console.log('Список веток для удаления:');
-    branchesForDelete.forEach(branch => console.log(branch));
+    localBranchesForDelete.forEach(branch => console.log(branch));
+    remoteBranchesForDelete.forEach(branch => console.log(branch));
 
     // Запрашиваем подтверждение у пользователя
     const answer = await askQuestion('Вы уверены, что хотите удалить эти ветки? (y/n): ');
@@ -70,26 +106,39 @@ async function main() {
     }
 
     // Переходим к шагу 4: Удаление веток
-    await deleteBranches();
+  await deleteOriginBranches();
+  await deleteLocalBranches();
 
     // Шаг 5: Собираем все оставшиеся ветки
-    runCommand('git branch -r > branches-after.txt');
+  runCommand(`git branch -r > ${FILE_NAMES.REMOTE_BRANCHES_AFTER}`);
+  runCommand(`git branch  > ${FILE_NAMES.LOCAL_BRANCHES_AFTER}`);
 
     console.log('Процесс удаления завершен.');
 }
 
-async function deleteBranches() {
+async function deleteOriginBranches() {
     // Читаем список веток для удаления из файла
-    const branchesForDelete = fs.readFileSync('branches-for-delete.txt', 'utf-8').split('\n')
+  const remoteBranchesForDelete = fs.readFileSync(FILE_NAMES.REMOTE_BRANCHES_FOR_DELETE, 'utf-8').split('\n')
         .map(branch => branch.trim())
         .filter(branch => branch);
 
     // Удаляем лишние ветки
-    branchesForDelete.forEach(branch => {
-        if (!protectedBranches.includes(branch) && !branch.includes('/release/')) {
-            runCommand(`git push origin --delete ${branch}`);
-        }
+    remoteBranchesForDelete.forEach(branch => {
+       runCommand(`git push origin --delete ${branch}`);
     });
 }
+
+async function deleteLocalBranches() {
+  // Читаем список веток для удаления из файла
+  const remoteBranchesForDelete = fs.readFileSync(FILE_NAMES.LOCAL_BRANCHES_FOR_DELETE, 'utf-8').split('\n')
+    .map(branch => branch.trim())
+    .filter(branch => branch);
+
+  // Удаляем лишние ветки
+  remoteBranchesForDelete.forEach(branch => {
+    runCommand(`git branch --delete ${branch}`);
+  });
+}
+
 
 main().catch(err => console.error('Произошла ошибка:', err));
