@@ -1,4 +1,5 @@
 import nextMdx from '@next/mdx';
+import remarkGfm from 'remark-gfm';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -20,7 +21,10 @@ const nextConfig = {
 const withMdx = nextMdx({
   // By default only the .mdx extension is supported.
   extension: /\.mdx?$/,
-  options: { providerImportSource: '@mdx-js/react',  /* otherOptions… */ }
+  options: {
+    providerImportSource: '@mdx-js/react',
+    remarkPlugins: [remarkGfm],
+  },
 })
 
 /** @type {import('next').NextConfig} */

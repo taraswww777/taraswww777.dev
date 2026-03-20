@@ -53,4 +53,25 @@
   ol {
     list-style: -moz-ethiopic-numeric;
   }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: var(--m-3);
+  }
+
+  th, td {
+    padding: var(--p-2) var(--p-3);
+    border: 1px solid var(--gray);
+    text-align: left;
+  }
+
+  th {
+    background: var(--bgBodySecondary);
+    font-weight: 600;
+  }
+
+  tbody tr:hover td {
+    background: var(--lightBg);
+  }
 }
