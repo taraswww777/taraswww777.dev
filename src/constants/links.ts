@@ -8,6 +8,7 @@ export const LINKS = {
     packageJsonContributors: {link: '/articles/2025-03-18-package-json-contributors', title: 'Поле contributors в package.json — что это и зачем'},
     tsNoIPrefixes: {link: '/articles/2025-03-19-ts-no-i-t-prefixes', title: 'Почему префиксы I и T — это антипаттерн в TypeScript'},
     rhfResetVsSetValue: {link: '/articles/2025-03-20-rhf-reset-vs-setvalue', title: 'React Hook Form: reset vs setValue — в чём разница'},
+    chromePluginGitClone: {link: '/articles/2025-01-11-chrome-plugin-git-clone', title: 'Chrome-плагин для удобного git clone'},
     howMakeIuLinks: {link: '/articles/2025-01-11-how-make-iu-links', title: 'Как генерировать UI ссылки'},
     iMentor: {link: '/articles/2024-07-06-i-mentor', title: 'Я ментор'},
     howChangeCommitMessage: {link: '/articles/2024-05-24-how-change-commit-message', title: 'Как изменить git commit message?'},
