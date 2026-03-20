@@ -5,6 +5,7 @@ export const LINKS = {
   articlesIndex: {link: '/articles', title: 'Статьи'},
   articles: {
     jsSymbolKeysIteration: {link: '/articles/2025-03-14-js-symbol-keys-iteration', title: 'Итерация объектов с Symbol-ключами в JavaScript'},
+    packageJsonContributors: {link: '/articles/2025-03-18-package-json-contributors', title: 'Поле contributors в package.json — что это и зачем'},
     howMakeIuLinks: {link: '/articles/2025-01-11-how-make-iu-links', title: 'Как генерировать UI ссылки'},
     iMentor: {link: '/articles/2024-07-06-i-mentor', title: 'Я ментор'},
     howChangeCommitMessage: {link: '/articles/2024-05-24-how-change-commit-message', title: 'Как изменить git commit message?'},
