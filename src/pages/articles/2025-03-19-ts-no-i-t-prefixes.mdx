@@ -1,0 +1,99 @@
+import { MdxTemplate } from 'src/components/mdx';
+import { LINKS } from 'src/constants/links';
+import MdxLayout from '../../app/MdxLayout';
+
+<MdxLayout>
+  <MdxTemplate
+    pubdate={'2025-03-19'}
+    title={'Почему префиксы I и T — это антипаттерн в TypeScript'}
+    ogCanonicalUrl={LINKS.articles.tsNoIPrefixes.link}
+    description={'Почему использование префиксов I (для интерфейсов) и T (для типов) в TypeScript — плохая практика. 5 аргументов и примеры.'}
+  >
+    Использование префиксов <code>I</code> (для интерфейсов) и <code>T</code> (для типов) в TypeScript — это антипаттерн. Если вы до сих пор пишете <code>IUser</code> или <code>TUserProfile</code>, этот пост для вас.
+
+    <em>Это отдельная тема от выбора между <code>interface</code> и <code>type</code> — о том, когда что использовать, читайте в статье <a href={LINKS.articles.tsInterfaceVsType.link}>«Typescript. Когда использовать interface, а когда type?»</a>.</em>
+
+    ## Что не так с префиксами?
+
+    ### 1. TypeScript не требует префиксов
+
+    TypeScript не делает различий между <code>type</code> и <code>interface</code> на уровне использования. Оба могут описывать формы данных, расширяться и реализовываться. Префиксы <code>I</code> и <code>T</code> не добавляют никакой пользы, только шум.
+
+    ```ts
+    // Плохо
+    interface IUser {
+      name: string;
+    }
+
+    type TUser = {
+      name: string;
+    };
+
+    // Хорошо
+    interface User {
+      name: string;
+    }
+
+    type User = {
+      name: string;
+    };
+    ```
+
+    ### 2. Префиксы усложняют чтение кода
+
+    Префиксы добавляют визуальный шум и увеличивают длину имён. Вместо того чтобы писать <code>IUser</code>, лучше просто <code>User</code>. Это проще и понятнее.
+
+    ```ts
+    // Плохо
+    function renderUserProfile(user: IUser): TUserProfile {
+      // ...
+    }
+
+    // Хорошо
+    function renderUserProfile(user: User): UserProfile {
+      // ...
+    }
+    ```
+
+    ### 3. Префиксы нарушают конвенции именования
+
+    В TypeScript принято использовать имена, которые отражают сущность, а не её тип. Например, если у вас есть компонент <code>DetailPage</code>, его пропсы логично назвать <code>DetailPageProps</code>. Префиксы <code>I</code> и <code>T</code> нарушают эту конвенцию.
+
+    ```ts
+    // Плохо
+    interface IDetailPageProps {
+      title: string;
+    }
+
+    // Хорошо
+    interface DetailPageProps {
+      title: string;
+    }
+    ```
+
+    ### 4. Префиксы не помогают в понимании кода
+
+    Современные IDE (например, WebStorm, VSCode) предоставляют мощные инструменты для анализа типов. Вы можете легко узнать, является ли сущность типом или интерфейсом, наведя курсор на неё. Префиксы <code>I</code> и <code>T</code> не добавляют полезной информации.
+
+    ### 5. Префиксы противоречат принципам TypeScript
+
+    TypeScript разработан с учётом минимализма и простоты. Префиксы <code>I</code> и <code>T</code> добавляют ненужную сложность, которая не соответствует философии языка.
+
+    ## Почему это важно?
+
+    - **Чистый код**: Избегание префиксов делает код более читаемым и понятным.
+    - **Совместимость**: Большинство современных библиотек и фреймворков (React, Angular, Vue) не используют префиксы. Следование этим стандартам делает ваш код более согласованным.
+    - **Простота**: TypeScript и так предоставляет всё необходимое для работы с типами и интерфейсами. Префиксы только мешают.
+
+    ## Что использовать вместо префиксов?
+
+    Просто называйте типы и интерфейсы так, чтобы их имена отражали их сущность. Например:
+
+    - <code>User</code> вместо <code>IUser</code>
+    - <code>DetailPageProps</code> вместо <code>IDetailPageProps</code>
+
+    ## Итог
+
+    Префиксы <code>I</code> и <code>T</code> — это пережиток прошлого, который не имеет места в современной разработке на TypeScript. Избегайте их, чтобы писать чистый, читаемый и поддерживаемый код.
+  </MdxTemplate>
+</MdxLayout>
