@@ -4,7 +4,7 @@
   "description": "Site Taras Kovalev (taraswww777). U can see taraswww777.dev",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && node scripts/postbuild-exclude-admin.js",
     "start": "next start",
     "lint": "next lint",
     "sitemap": "node scripts/sitemap-generator.js",
