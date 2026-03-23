@@ -5,7 +5,8 @@ import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import 'src/globals.css';
 import { PageTemplate } from 'src/components/PageTemplate';
-import type { ArticleManifestEntry, ArticleStatus, PagesManifest } from 'src/lib/pagesManifest';
+import type { ArticleStatus, PagesManifest } from 'src/lib/pagesManifest';
+import { slugFromTitle } from 'src/utils/slugFromTitle';
 
 const STATUSES: ArticleStatus[] = ['published', 'unpublished', 'in_progress', 'draft'];
 
@@ -91,10 +92,10 @@ function AdminPage() {
   };
 
   const handleCreate = async () => {
-    const slug = createSlug.trim();
     const title = createTitle.trim();
-    if (!slug || !title) {
-      setMessage('Укажите slug и title');
+    const slug = createSlug.trim() || slugFromTitle(title);
+    if (!title) {
+      setMessage('Укажите название статьи');
       return;
     }
     setCreating(true);
@@ -160,7 +161,7 @@ function AdminPage() {
       </Head>
       <Script src="https://kit.fontawesome.com/45f9b38c9b.js" crossOrigin="anonymous" />
       <PageTemplate>
-        <main className="w-full max-w-4xl mx-auto p-4 md:p-6">
+        <main className="w-full mx-auto p-4 md:p-6">
           <div className="flex items-center justify-between mb-6">
             <h1 className="text-xl font-semibold">Управление манифестом</h1>
             <Link href="/" className="text-sm text-blue-600 hover:underline">
@@ -169,23 +170,27 @@ function AdminPage() {
           </div>
           <div className="mb-6 p-4 rounded border border-colorTextPrimary/20">
             <h2 className="text-sm font-medium mb-2">Создать статью</h2>
-            <div className="flex gap-2 flex-wrap">
+            <div className="flex flex-col gap-2">
               <input
-                placeholder="slug (например 2025-03-23-my-article)"
-                value={createSlug}
-                onChange={(e) => setCreateSlug(e.target.value)}
-                className={`flex-1 min-w-[180px] ${fieldBase}`}
+                placeholder="Название статьи"
+                value={createTitle}
+                onChange={(e) => {
+                  const t = e.target.value;
+                  setCreateTitle(t);
+                  setCreateSlug(slugFromTitle(t));
+                }}
+                className={`w-full ${fieldBase}`}
               />
               <input
-                placeholder="title"
-                value={createTitle}
-                onChange={(e) => setCreateTitle(e.target.value)}
-                className={`flex-1 min-w-[180px] ${fieldBase}`}
+                placeholder="slug (генерируется из названия)"
+                value={createSlug}
+                onChange={(e) => setCreateSlug(e.target.value)}
+                className={`w-full ${fieldBase} font-mono text-sm`}
               />
               <button
                 onClick={handleCreate}
-                disabled={creating || !createSlug.trim() || !createTitle.trim()}
-                className="px-4 py-2 rounded bg-green-600 text-white disabled:opacity-50 hover:bg-green-700"
+                disabled={creating || !createTitle.trim()}
+                className="self-start px-4 py-2 rounded bg-green-600 text-white disabled:opacity-50 hover:bg-green-700"
               >
                 {creating ? '…' : 'Создать'}
               </button>

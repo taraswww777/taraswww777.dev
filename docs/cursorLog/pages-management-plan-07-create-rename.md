@@ -61,4 +61,5 @@ pubdate: {YYYY-MM-DD}
 - **POST /api/pages-manifest/create** — body: `{ slug, title }`. Создаёт `content/articles/{slug}.mdx` по шаблону MdxTemplate и добавляет запись в манифест (status: draft).
 - **POST /api/pages-manifest/rename** — body: `{ oldSlug, newSlug }`. Переименовывает файл, манифест, обновляет `links.ts` и все MDX (замена `/articles/{oldSlug}` → `/articles/{newSlug}`).
 - **src/lib/articleOperations.ts** — `createArticle()`, `renameArticle()`.
-- **Админка** — форма «Создать статью» (slug, title), кнопка переименования (иконка pen) в каждой строке; `prompt()` для ввода нового slug.
+- **Админка** — форма «Создать статью» (название + slug под ним), кнопка переименования (иконка pen) в каждой строке; `prompt()` для ввода нового slug.
+- **Автогенерация slug** — `src/utils/slugFromTitle.ts`: транслитерация кириллицы, kebab-case, префикс `YYYY-MM-DD-`. Slug обновляется при вводе названия, можно править вручную.
