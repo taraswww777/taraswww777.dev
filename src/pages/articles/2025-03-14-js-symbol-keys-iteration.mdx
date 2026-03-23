@@ -1,0 +1,76 @@
+import { MdxTemplate } from 'src/components/mdx';
+import { LINKS } from 'src/constants/links';
+import MdxLayout from '../../app/MdxLayout';
+
+<MdxLayout>
+  <MdxTemplate
+    pubdate={'2025-03-14'}
+    title={'Итерация объектов с Symbol-ключами в JavaScript'}
+    ogCanonicalUrl={LINKS.articles.jsSymbolKeysIteration.link}
+    description={'Как итерировать объекты, где в качестве ключей используются Symbol. Object.keys() и Object.entries() не видят символьные ключи — что использовать вместо.'}
+  >
+    Я уже более 10 лет работаю с JS и сегодня открыл для себя кое-что новое.
+
+    В объекты, где в качестве ключа используются <code>Symbol</code>, <strong>нельзя</strong> итерировать с использованием <code>Object.keys()</code>. Вот более полный ответ на вопрос, как итерировать такие объекты.
+
+    Symbol-ключи встречаются в реальных проектах не так часто, но когда встречаются — например, при работе с метаданными, внутренними флагами библиотек (React, Redux), или при создании «приватных» свойств — важно знать, как с ними работать.
+
+    ## Как итерировать объект с Symbol-ключами
+
+    Стандартные методы <code>Object.keys()</code> и <code>Object.entries()</code> не возвращают символьные ключи. Для работы с символами можно использовать:
+
+    1. **<code>Object.getOwnPropertySymbols()</code>** — возвращает массив всех символьных ключей объекта.
+    2. **<code>Reflect.ownKeys()</code>** — возвращает массив всех ключей объекта, включая строки и символы.
+
+    ## Пример итерации по объекту с символьными ключами
+
+    ```ts
+    const symbolKey = Symbol('uniqueKey');
+    const a = { [symbolKey]: 123, regularKey: 'value' };
+
+    // 1. Использование Object.getOwnPropertySymbols()
+    const symbolKeys = Object.getOwnPropertySymbols(a);
+    symbolKeys.forEach((key) => {
+      console.log('Symbol key:', key, 'Value:', a[key]);
+    });
+
+    // 2. Использование Reflect.ownKeys()
+    const allKeys = Reflect.ownKeys(a);
+    allKeys.forEach((key) => {
+      if (typeof key === 'symbol') {
+        console.log('Symbol key:', key, 'Value:', a[key]);
+      } else {
+        console.log('Regular key:', key, 'Value:', a[key]);
+      }
+    });
+    ```
+
+    ## Вывод
+
+    1. **<code>Object.getOwnPropertySymbols()</code>**:
+       ```
+       Symbol key: Symbol(uniqueKey) Value: 123
+       ```
+
+    2. **<code>Reflect.ownKeys()</code>**:
+       ```
+       Regular key: regularKey Value: value
+       Symbol key: Symbol(uniqueKey) Value: 123
+       ```
+
+    ## Почему <code>for...in</code> не подходит
+
+    Метод <code>for...in</code> не работает с символьными ключами, поэтому он не подходит для итерации по объектам с символами.
+
+    ## Почему <code>Object.entries()</code> не подходит
+
+    <code>Object.entries()</code> также не возвращает символьные ключи, поэтому он не подходит для таких объектов.
+
+    ## Итог
+
+    Для итерации по объекту с символьными ключами используйте:
+
+    - **<code>Object.getOwnPropertySymbols()</code>**, если нужны только символьные ключи.
+    - **<code>Reflect.ownKeys()</code>**, если нужны все ключи (строки и символы).
+  </MdxTemplate>
+</MdxLayout>

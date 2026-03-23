@@ -1,0 +1,44 @@
+import { MdxTemplate } from 'src/components/mdx';
+import { LINKS } from 'src/constants/links';
+import Image from 'next/image';
+import MdxLayout from '../../app/MdxLayout';
+
+<MdxLayout>
+  <MdxTemplate
+    pubdate={'2025-01-11'}
+    title={'Chrome-плагин для удобного git clone'}
+    ogCanonicalUrl={LINKS.articles.chromePluginGitClone.link}
+    description={'Как я написал мини-плагин для браузера, который помогает избавиться от рутины копирования URL при git clone.'}
+  >
+    При работе с GitHub и другими хостингами репозиториев часто приходится копировать URL для <code>git clone</code> — открыть страницу, найти кнопку, скопировать ссылку, переключиться в терминал. Рутина, от которой хотелось избавиться. План на день был не совсем выполнен (8 из 10 пунктов), но зато удалось написать мини-плагин.
+
+    ## Идея плагина
+
+    Мини-плагин для Chrome, который добавляет кнопку для быстрого копирования URL репозитория прямо со страницы. Один клик — и команда <code>git clone</code> с нужным адресом в буфере обмена.
+
+    ## Что сделал
+
+    Первая версия появилась в ноябре 2024 года. Потом были доработки — в <a href="https://github.com/taraswww777/pet-chrome-plugin-git-clone/pull/2" target="_blank">PR #2</a> плагин привели в порядок. Осталось причесать код и опубликовать в Chrome Web Store.
+
+    ## Как это выглядит
+
+    Плагин добавляет кнопку на страницы репозиториев. По клику копируется URL для <code>git clone</code>.
+
+    <Image
+      src="/assets/chrome-plugin-git-clone-screenshot.jpg"
+      alt="Скриншот Chrome-плагина для git clone"
+      width={537}
+      height={431}
+      className="img-fluid mb-4"
+    />
+
+    ## Ссылки
+
+    - <a href="https://github.com/taraswww777/pet-chrome-plugin-git-clone" target="_blank">Репозиторий на GitHub</a>
+    - <a href="https://github.com/taraswww777/pet-chrome-plugin-git-clone/pull/2" target="_blank">PR #2 с доработками</a>
+
+    ## Планы
+
+    Осталось причесать плагин и опубликовать в Chrome Web Store. В дальнейшем планирую доработать его и сделать ещё полезнее — например, поддержку разных форматов URL (HTTPS, SSH) и других хостингов.
+  </MdxTemplate>
+</MdxLayout>

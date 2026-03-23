@@ -1,0 +1,135 @@
+import { MdxTemplate } from 'src/components/mdx';
+import { LINKS } from 'src/constants/links';
+import MdxLayout from '../../app/MdxLayout';
+
+<MdxLayout>
+  <MdxTemplate
+    pubdate={'2025-03-20'}
+    title={'React Hook Form: reset vs setValue — в чём разница'}
+    ogCanonicalUrl={LINKS.articles.rhfResetVsSetValue.link}
+    description={'formHook.reset и formHook.setValue работают по-разному. Даже если в reset передать только одно поле, это может повлиять на всю форму.'}
+  >
+    На днях обнаружил, что <code>formHook.reset</code> и <code>formHook.setValue</code> работают по-разному, и даже если в <code>formHook.reset</code> передать только одно поле, это может повлиять на всю форму. Разберёмся, в чём разница и когда что использовать.
+
+    ## 1. formHook.reset
+
+    ### Как это работает
+
+    - <code>reset</code> полностью сбрасывает состояние формы, заменяя его новыми значениями.
+    - Если передать только одно поле, все остальные поля формы сбросятся в <code>undefined</code> или в значения по умолчанию.
+
+    ### Пример
+
+    ```tsx
+    onSubmit={(fv) => formHook.reset({ [name]: fv })}
+    ```
+
+    ### Что происходит
+
+    - Форма полностью сбрасывается.
+    - Поле <code>name</code> (например, <code>suspensiveConditions</code>) получает новое значение <code>fv</code>.
+    - Все остальные поля теряют свои текущие значения.
+
+    ### Когда использовать
+
+    - Если нужно полностью сбросить форму и обновить только одно поле.
+    - Подходит для простых случаев, когда форма содержит мало полей или их сброс не вызывает проблем.
+
+    ## 2. formHook.setValue
+
+    ### Как это работает
+
+    - <code>setValue</code> обновляет только указанные поля формы, не затрагивая остальные.
+    - Можно обновлять вложенные поля (например, <code>suspensiveConditions.startDate</code>).
+
+    ### Пример
+
+    ```tsx
+    onSubmit={(fv) => {
+      objectForEach(fv, (value, key) => {
+        formHook.setValue(`${name}.${key}`, value);
+      });
+    }}
+    ```
+
+    ### Что происходит
+
+    - Каждое поле внутри <code>fv</code> обновляется отдельно.
+    - Только указанные поля изменяются, остальные поля формы остаются без изменений.
+
+    ### Когда использовать
+
+    - Если нужно обновить только определённые поля, не затрагивая остальные.
+    - Подходит для сложных форм, где важно сохранить состояние других полей.
+
+    ## Разница в поведении
+
+
+    | Критерий | formHook.reset | formHook.setValue с итерацией |
+    |----------|----------------|-------------------------------|
+    | **Сброс формы** | Полностью сбрасывает форму | Не сбрасывает форму |
+    | **Обновление полей** | Обновляет только поле `name` | Обновляет только указанные поля |
+    | **Влияние на другие поля** | Все остальные поля сбрасываются | Остальные поля остаются без изменений |
+    | **Гибкость** | Низкая (обновляет только одно поле) | Высокая (можно обновлять вложенные поля) |
+    | **Простота** | Простой и короткий код | Более сложный код |
+
+
+    ## Пример
+
+    ### Исходные данные
+
+    Форма содержит поля:
+
+    - <code>suspensiveConditions.startDate</code>
+    - <code>suspensiveConditions.endDate</code>
+    - <code>otherField</code>
+
+    ### С formHook.reset
+
+    ```tsx
+    onSubmit={(fv) => formHook.reset({ suspensiveConditions: fv })}
+    ```
+
+    После выполнения:
+
+    - <code>suspensiveConditions.startDate</code> и <code>suspensiveConditions.endDate</code> обновляются.
+    - <code>otherField</code> сбрасывается в <code>undefined</code>.
+
+    ### С formHook.setValue
+
+    ```tsx
+    onSubmit={(fv) => {
+      objectForEach(fv, (value, key) => {
+        formHook.setValue(`suspensiveConditions.${key}`, value);
+      });
+    }}
+    ```
+
+    После выполнения:
+
+    - <code>suspensiveConditions.startDate</code> и <code>suspensiveConditions.endDate</code> обновляются.
+    - <code>otherField</code> остаётся без изменений.
+
+    ## Сохранение состояния перед reset
+
+    Если всё же нужно использовать <code>reset</code>, но сохранить текущие значения других полей, можно объединить их с помощью <code>getValues</code>:
+
+    ```tsx
+    onSubmit={(fv) => {
+      const currentValues = formHook.getValues();
+      formHook.reset({ ...currentValues, [name]: fv });
+    }}
+    ```
+
+    Так вы обновляете нужное поле, не теряя остальные.
+
+    ## Итог
+
+    - **<code>formHook.reset</code>** полностью сбрасывает форму, обновляя только указанное поле.
+    - **<code>formHook.setValue</code>** обновляет только указанные поля, не затрагивая остальные.
+
+    Выбор подхода зависит от ваших требований: если нужно сохранить состояние других полей, используйте <code>setValue</code>; если сброс формы допустим, используйте <code>reset</code>.
+
+    А вы сталкивались с подобными ситуациями?
+  </MdxTemplate>
+</MdxLayout>

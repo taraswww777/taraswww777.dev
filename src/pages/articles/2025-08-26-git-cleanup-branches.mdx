@@ -1,0 +1,81 @@
+import { MdxTemplate } from 'src/components/mdx';
+import { LINKS } from 'src/constants/links';
+import MdxLayout from '../../app/MdxLayout';
+
+<MdxLayout>
+  <MdxTemplate
+    pubdate={'2025-08-26'}
+    title={'Автоматизировал чистку Git-веток: был 1 час — стало 5 минут'}
+    ogCanonicalUrl={LINKS.articles.gitCleanupBranches.link}
+    description={'Скрипт для безопасного удаления слитых git-веток: находит влитые в develop, защищает main/master/release, запрашивает подтверждение, ведёт логи.'}
+  >
+    Каждую неделю вручную убирать слитые ветки — занятие скучное и отнимающее время. Переключиться на develop, подтянуть изменения, перебрать список веток, проверить, что уже влито, удалить по одной… На это уходил час. Решил автоматизировать.
+
+    ## Что умеет скрипт
+
+    - Находит все удалённые ветки, которые уже влиты в <code>develop</code>
+    - Защищает критические ветки (<code>main</code>, <code>master</code>, <code>release/*</code>)
+    - Спрашивает подтверждение перед удалением
+    - Сохраняет логи до и после очистки
+
+    ## Запуск
+
+    Одна команда:
+
+    ```bash
+    node git_cleanup_branches.js
+    ```
+
+    Скрипт лежит в репозитории: <a href="https://github.com/taraswww777/taraswww777.dev/blob/main/cli/git_cleanup_branches/git_cleanup_branches.js" target="_blank">cli/git_cleanup_branches/git_cleanup_branches.js</a>
+
+    ## Параметры
+
+    Параметры передаются в формате <code>ключ=значение</code>:
+
+    - **<code>targetBranch</code>** — целевая ветка (по умолчанию <code>develop</code>)
+    - **<code>step</code>** — этап: <code>full</code> (полный цикл) или <code>delete</code> (только удаление из файла)
+
+    ### Примеры
+
+    Полный процесс для ветки <code>develop</code>:
+    ```bash
+    node git_cleanup_branches.js
+    ```
+
+    Проверка веток, влитых в <code>master</code>:
+    ```bash
+    node git_cleanup_branches.js targetBranch=master
+    ```
+
+    Только удаление (если процесс прервался после подтверждения):
+    ```bash
+    node git_cleanup_branches.js step=delete
+    ```
+
+    ## Как это работает
+
+    1. Скрипт переключается на целевую ветку и выполняет <code>git fetch --all</code>
+    2. Собирает список удалённых веток и тех, что уже влиты в целевую
+    3. Отфильтровывает защищённые ветки
+    4. Сохраняет кандидатов в <code>branches-for-delete.txt</code> и запрашивает подтверждение (y/n)
+    5. После подтверждения удаляет ветки через <code>git push origin --delete</code>
+    6. Сохраняет финальный список в <code>branches-after.txt</code>
+
+    ## Генерируемые файлы
+
+    - <code>branches-before.txt</code> — снимок веток до удаления
+    - <code>branches-for-delete.txt</code> — кандидаты на удаление
+    - <code>branches-after.txt</code> — снимок после удаления
+
+    ## Планы по доработке
+
+    - Прогресс-бар при массовом удалении
+    - Режим «сухой запуск» (<code>dryRun=true</code>) для тестирования
+    - Проверка существования целевой ветки
+    - Поддержка регулярок для защиты веток (например, <code>feature/*</code>)
+
+    <a href="https://github.com/taraswww777/taraswww777.dev/issues/94" target="_blank">Roadmap на GitHub</a>
+
+    А вы как чистите ветки — вручную, через IDE или своим скриптом?
+  </MdxTemplate>
+</MdxLayout>

@@ -1,0 +1,100 @@
+import { MdxTemplate } from 'src/components/mdx';
+import { LINKS } from 'src/constants/links';
+import MdxLayout from '../../app/MdxLayout';
+
+<MdxLayout>
+  <MdxTemplate
+    pubdate={'2025-11-18'}
+    title={'Как почистить репозиторий: удаляем лишние git-теги с подстраховкой'}
+    ogCanonicalUrl={LINKS.articles.gitCleanupTags.link}
+    description={'Пошаговое руководство по удалению лишних git-тегов: бэкапы, скрипт для поиска кандидатов, удаление локально и на remote, восстановление при ошибке.'}
+  >
+    Со временем в репозитории накапливаются теги: старые feature-ветки, неудачные эксперименты, дубликаты. Они мешают ориентироваться, забивают вывод <code>git tag -l</code> и могут путать в CI/CD. Покажу, как аккуратно удалить теги, которые не относятся к ветке <code>origin/develop</code>, — с бэкапами и возможностью отката.
+
+    ## Шаг 1. Создаём «страховку»
+
+    Сохраняем исходный список тегов:
+
+    ```bash
+    git tag -l > tags-before.txt
+    ```
+
+    Теперь у вас есть точка восстановления.
+
+    ## Шаг 2. Находим кандидатов на удаление
+
+    Выполняем скрипт, который отберёт теги вне истории <code>origin/develop</code>:
+
+    ```bash
+    git tag -l | while read tag; do
+      commit=$(git rev-parse "$tag^{commit}" 2>/dev/null)
+      if [ -n "$commit" ]; then
+        if ! git merge-base --is-ancestor "$commit" origin/develop 2>/dev/null; then
+          echo "$tag"
+        fi
+      fi
+    done > tags-to-delete.txt
+    ```
+
+    Можно заменить <code>origin/develop</code> на любую другую ветку (например, <code>main</code>).
+
+    ## Шаг 3. Проверяем список
+
+    Выводим теги, которые система хочет удалить:
+
+    ```bash
+    cat tags-to-delete.txt
+    ```
+
+    **Обязательно проверьте:** нет ли среди них важных (например, тегов релизов).
+
+    ## Шаг 4. Удаляем теги
+
+    **Вариант А (аккуратно, по одному):**
+
+    ```bash
+    git tag -d имя_тега
+    git push origin --delete имя_тега
+    ```
+
+    **Вариант Б (массово, если уверены):**
+
+    ```bash
+    xargs -L1 git tag -d < tags-to-delete.txt
+    xargs -L1 git push origin --delete < tags-to-delete.txt
+    ```
+
+    Удаление на удалённом репозитории — необратимо. Убедитесь, что теги не используются в CI/CD или документации.
+
+    ## Шаг 5. Проверяем результат
+
+    Синхронизируем данные и сохраняем финальный список:
+
+    ```bash
+    git fetch --prune --prune-tags
+    git tag -l > tags-after.txt
+    ```
+
+    Сравните <code>tags-before.txt</code> и <code>tags-after.txt</code> — всё должно сойтись.
+
+    ## Что делать, если ошибся?
+
+    Если случайно удалили нужный тег:
+
+    1. Найдите хеш коммита (из <code>tags-before.txt</code> или через <code>git log</code>).
+    2. Восстановите тег:
+
+    ```bash
+    git tag имя_тега хеш_коммита
+    git push origin имя_тега
+    ```
+
+    ## Итоговые файлы
+
+    - <code>tags-before.txt</code> — исходный список.
+    - <code>tags-to-delete.txt</code> — кандидаты на удаление.
+    - <code>tags-after.txt</code> — финальный список.
+
+    А вы часто чистите теги в своих репозиториях?
+  </MdxTemplate>
+</MdxLayout>
