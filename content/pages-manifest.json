@@ -6,6 +6,18 @@
       "status": "published",
       "publishedAt": "2023-10-01"
     },
+    "2023-10-01-frontend-conf-day-1": {
+      "slug": "2023-10-01-frontend-conf-day-1",
+      "title": "FrontendConf 2023 день 1",
+      "status": "draft",
+      "publishedAt": ""
+    },
+    "2023-10-01-frontend-conf-day-2": {
+      "slug": "2023-10-01-frontend-conf-day-2",
+      "title": "FrontendConf 2023 день 2",
+      "status": "draft",
+      "publishedAt": ""
+    },
     "2023-11-03-ts-as-const": {
       "slug": "2023-11-03-ts-as-const",
       "title": "TS. Какая польза от as const",

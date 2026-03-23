@@ -41,3 +41,15 @@ content/
     ...
   pages-manifest.json
 ```
+
+---
+
+## Выполнено (2026-03-23)
+
+**Уточнения по реализации:**
+
+1. **Orphan MDX** — файлы `2023-frontend-conf-1.mdx` и `2023-frontend-conf-2.mdx` переименованы в `2023-10-01-frontend-conf-day-1.mdx` и `2023-10-01-frontend-conf-day-2.mdx` и добавлены в манифест как `draft` (по закомментированным ссылкам в links.ts).
+
+2. **Пути импорта** — все относительные импорты `../../app/`, `../../components/`, `../../constants/` заменены на `src/...` (baseUrl), т.к. из `content/articles/` старые пути ломаются.
+
+3. **index.mdx** — оставлен в `src/pages/articles/`; заменится на `index.tsx` в части 04.
