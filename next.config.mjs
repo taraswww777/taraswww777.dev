@@ -1,8 +1,13 @@
 import nextMdx from '@next/mdx';
 
 /** @type {import('next').NextConfig} */
+// BASE_PATH для GitHub Pages project site (username.github.io/repo-name)
+// Оставить пустым для user/org page (username.github.io)
+const basePath = process.env.BASE_PATH || '';
+
 const nextConfig = {
   output: 'export',
+  ...(basePath && { basePath, assetPrefix: basePath }),
   reactStrictMode: true,
   swcMinify: true,
   images: { unoptimized: true },
