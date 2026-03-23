@@ -4,7 +4,7 @@
   "description": "Site Taras Kovalev (taraswww777). U can see taraswww777.dev",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && node scripts/postbuild-exclude-admin.js",
     "start": "next start",
     "lint": "next lint",
     "sitemap": "node scripts/sitemap-generator.js",
@@ -46,12 +46,14 @@
     "jest": "30.0.4",
     "lodash": "4.17.21",
     "next": "14.2.30",
+    "next-mdx-remote": "6.0.0",
     "nextjs-sitemap-generator": "1.3.1",
     "postcss": "8.4.35",
     "postcss-nesting": "12.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-tagcloud": "2.3.3",
+    "rehype-highlight": "7.0.2",
     "remark-gfm": "4.0.1",
     "sass": "1.56.1",
     "sharp": "0.32.6",
@@ -72,7 +74,10 @@
     "url": "https://github.com/taraswww777/taraswww777.dev-fe/issues"
   },
   "engines": {
-    "node": "20.17.0"
+    "node": "24.14.0"
   },
-  "homepage": "https://github.com/taraswww777/taraswww777.dev-fe#readme"
+  "homepage": "https://github.com/taraswww777/taraswww777.dev-fe#readme",
+  "dependencies": {
+    "react-hook-form": "^7.48.2"
+  }
 }

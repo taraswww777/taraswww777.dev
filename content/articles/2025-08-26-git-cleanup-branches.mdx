@@ -1,12 +1,12 @@
 import { MdxTemplate } from 'src/components/mdx';
 import { LINKS } from 'src/constants/links';
-import MdxLayout from '../../app/MdxLayout';
+import MdxLayout from 'src/app/MdxLayout';
 
 <MdxLayout>
   <MdxTemplate
     pubdate={'2025-08-26'}
     title={'Автоматизировал чистку Git-веток: был 1 час — стало 5 минут'}
-    ogCanonicalUrl={LINKS.articles.gitCleanupBranches.link}
+    ogCanonicalUrl={ARTICLE.link}
     description={'Скрипт для безопасного удаления слитых git-веток: находит влитые в develop, защищает main/master/release, запрашивает подтверждение, ведёт логи.'}
   >
     Каждую неделю вручную убирать слитые ветки — занятие скучное и отнимающее время. Переключиться на develop, подтянуть изменения, перебрать список веток, проверить, что уже влито, удалить по одной… На это уходил час. Решил автоматизировать.

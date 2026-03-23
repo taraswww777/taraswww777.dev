@@ -1,13 +1,13 @@
-import { MdxTemplate, BlockQuote } from '../../components/mdx';
-import { LINKS } from '../../constants/links';
-import MdxLayout from '../../app/MdxLayout';
+import { MdxTemplate, BlockQuote } from 'src/components/mdx';
+import { LINKS } from 'src/constants/links';
+import MdxLayout from 'src/app/MdxLayout';
 
 <MdxLayout>
   <MdxTemplate
     pubdate={'2023-11-03'}
     metaTitle={'TS. Какая польза от записи `const a = [1, 2] as const`?'}
     title={<>TS. Какая польза от записи <code>const a = [1, 2] as const</code>?</>}
-    ogCanonicalUrl={LINKS.articles.tsAsConst.link}
+    ogCanonicalUrl={ARTICLE.link}
     description={'Ответ на вопрос: Что такое конструкция `const args = [8, 5] as const;`. Зачем она нужна?'}
   >
     Сегодня в PR от коллеги столкнулся с подобной записью `const args = [8, 5] as const;` и меня удивило наличие `as const`.

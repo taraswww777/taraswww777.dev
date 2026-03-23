@@ -1,0 +1,18 @@
+---
+description: Флаги npm install по умолчанию
+alwaysApply: true
+---
+
+# npm install — флаги по умолчанию
+
+При установке зависимостей используй:
+
+```bash
+npm i <package> -ED
+```
+
+| Флаг | Значение |
+|------|----------|
+| `-E` | `--save-exact` — сохранять точную версию (без ^ или ~) |
+| `-D` | `--save-dev` — ставить в devDependencies |
+

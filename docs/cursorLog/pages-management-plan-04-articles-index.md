@@ -28,3 +28,13 @@
    - Рендер с `VerticalNav` или аналогичным компонентом, items = `{ [link]: title }`.
 2. Удалить `src/pages/articles/index.mdx`.
 3. Убедиться, что `/articles` ведёт на новую страницу и отображает только published.
+
+---
+
+## Выполнено
+
+- Создан `src/pages/articles/index.tsx` с `getStaticProps` → `getPublishedArticles()`
+- items для VerticalNav формируются как `Record<'/articles/${slug}', title>`
+- Удалён `src/pages/articles/index.mdx`
+- Сохранена структура: MdxLayout, MetaHead, PageTemplate, ContentContainer, VerticalNav
+- Draft-статьи не отображаются (только published из манифеста)

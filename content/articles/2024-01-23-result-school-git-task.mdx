@@ -2,15 +2,15 @@ import { MdxTemplate } from 'src/components/mdx';
 import { CopyAnchor } from 'src/components/CopyAnchor';
 import { LINKS } from 'src/constants/links';
 import Image from 'next/image';
-import MdxLayout from '../../app/MdxLayout';
+import MdxLayout from 'src/app/MdxLayout';
 import { Card, HL, HL_TYPE } from 'src/ui';
-import { STATUSES } from '../../types/statses';
+import { STATUSES } from 'src/types/statses';
 
 <MdxLayout>
   <MdxTemplate
     pubdate={'2024-04-21'}
-    ogCanonicalUrl={LINKS.articles.resultGitTask.link}
-    title={LINKS.articles.resultGitTask.title}
+    ogCanonicalUrl={ARTICLE.link}
+    title={ARTICLE.title}
   >
     На нашем курсе Frontend developer в школе ResultSchool есть урок по GIT.
     Мы с особым вниманием подошли к созданию практического задания.

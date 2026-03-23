@@ -33,3 +33,13 @@
 ## Fallback: Вариант A
 
 Если динамический роут окажется слишком сложным: все MDX по-прежнему билдятся, sitemap фильтрует по манифесту — в скрипт sitemap передать только published пути.
+
+---
+
+## Выполнено
+
+- **Sitemap** — добавлен `ignoredPaths: ['admin', 'admin.html']` (postbuild уже удаляет, но на случай ручного запуска sitemap).
+- **Scope MDX** — в `compileMdxFile(slug, article)` добавлены `ARTICLE` (link, title текущей страницы) и `ARTICLES` (map slug→{link, title} для кросс-ссылок).
+- **MDX** — все `ogCanonicalUrl={LINKS.articles.xxx.link}` заменены на `ogCanonicalUrl={ARTICLE.link}`; `title`/`metaTitle` из LINKS — на `ARTICLE.title`; внутренняя ссылка — на `ARTICLES['slug'].link`.
+- **links.ts** — оставлены только `home` и `articlesIndex`; секция `articles` удалена.
+- **renameArticle** — убрано обновление links.ts; добавлена замена `ARTICLES['oldSlug']` → `ARTICLES['newSlug']` в MDX.

@@ -1,13 +1,13 @@
 import { MdxTemplate } from 'src/components/mdx';
 import { LINKS } from 'src/constants/links';
 import Image from 'next/image';
-import MdxLayout from '../../app/MdxLayout';
+import MdxLayout from 'src/app/MdxLayout';
 
 <MdxLayout>
   <MdxTemplate
     pubdate={'2025-01-11'}
     title={'Chrome-плагин для удобного git clone'}
-    ogCanonicalUrl={LINKS.articles.chromePluginGitClone.link}
+    ogCanonicalUrl={ARTICLE.link}
     description={'Как я написал мини-плагин для браузера, который помогает избавиться от рутины копирования URL при git clone.'}
   >
     При работе с GitHub и другими хостингами репозиториев часто приходится копировать URL для <code>git clone</code> — открыть страницу, найти кнопку, скопировать ссылку, переключиться в терминал. Рутина, от которой хотелось избавиться. План на день был не совсем выполнен (8 из 10 пунктов), но зато удалось написать мини-плагин.
