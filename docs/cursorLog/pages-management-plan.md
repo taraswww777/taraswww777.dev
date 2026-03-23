@@ -88,6 +88,9 @@
 | `src/pages/articles/2025-03-14-js-symbol-keys-iteration.mdx` | `content/articles/2025-03-14-js-symbol-keys-iteration.mdx` |
 | MDX-файл = страница Next.js | Dynamic route: `src/pages/articles/[slug].tsx` |
 | Все MDX попадают в билд | Только published из манифеста — в `getStaticPaths` |
+| `pages/index.mdx` для `/` | `app/page.tsx` для `/` (конфликт при наличии app/layout) |
+
+**next-mdx-remote:** `blockJS: false` в serialize, иначе удаляются JS-выражения в атрибутах (pubdate, LINKS и т.д.). Страница [slug] должна импортировать CSS (globals, mdxContent, highlightjs), т.к. MdxLayout используется только в getStaticProps.
 
 ### 5.3. Dev vs Prod
 
@@ -150,6 +153,10 @@ content/
   pages-manifest.json
 
 src/
+  app/
+    layout.tsx
+    page.tsx                 # главная / (при наличии app/layout нужен app/page)
+    MdxLayout.tsx
   pages/
     admin/
       index.tsx
@@ -157,7 +164,7 @@ src/
       pages-manifest/
         route.ts             # GET, PATCH (только в dev)
     articles/
-      [slug].tsx             # dynamic route
+      [slug].tsx             # dynamic route, импорт globals/mdxContent/highlightjs.css
       index.tsx
   lib/
     pagesManifest.ts
@@ -166,6 +173,10 @@ src/
 scripts/
   postbuild-exclude-admin.js
 ```
+
+### Уточнения (по результатам внедрения)
+
+- **app/page.tsx и pages/index.mdx** — при наличии `app/layout.tsx` Next.js ожидает `app/page.tsx` для маршрута `/`. Файл `pages/index.mdx` конфликтует (ошибка "Conflicting app and page file"). Решение: удалить `pages/index.mdx`, перенести главную в `app/page.tsx`.
 
 ---
 
