@@ -37,6 +37,10 @@ function AdminPage() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
+  const [createSlug, setCreateSlug] = useState('');
+  const [createTitle, setCreateTitle] = useState('');
+  const [creating, setCreating] = useState(false);
+  const [renaming, setRenaming] = useState<string | null>(null);
   const isLocalhost = typeof window !== 'undefined' && window.location.hostname === 'localhost';
 
   const { register, watch, setValue, reset, formState: { isDirty } } = useForm<FormValues>({
@@ -86,6 +90,58 @@ function AdminPage() {
     }
   };
 
+  const handleCreate = async () => {
+    const slug = createSlug.trim();
+    const title = createTitle.trim();
+    if (!slug || !title) {
+      setMessage('Укажите slug и title');
+      return;
+    }
+    setCreating(true);
+    setMessage(null);
+    try {
+      const res = await fetch('/api/pages-manifest/create', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ slug, title }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || res.statusText);
+      setManifest(data);
+      reset(data.articles);
+      setCreateSlug('');
+      setCreateTitle('');
+      setMessage('Статья создана');
+    } catch (err) {
+      setMessage(`Ошибка: ${err instanceof Error ? err.message : String(err)}`);
+    } finally {
+      setCreating(false);
+    }
+  };
+
+  const handleRename = async (oldSlug: string) => {
+    const newSlug = window.prompt('Новый slug:', oldSlug);
+    if (!newSlug || newSlug === oldSlug) return;
+    setRenaming(oldSlug);
+    setMessage(null);
+    try {
+      const res = await fetch('/api/pages-manifest/rename', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ oldSlug, newSlug: newSlug.trim() }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || res.statusText);
+      setManifest(data);
+      reset(data.articles);
+      setMessage('Статья переименована');
+    } catch (err) {
+      setMessage(`Ошибка: ${err instanceof Error ? err.message : String(err)}`);
+    } finally {
+      setRenaming(null);
+    }
+  };
+
   if (typeof window !== 'undefined' && !isLocalhost) {
     return (
       <PageTemplate>
@@ -104,7 +160,37 @@ function AdminPage() {
       </Head>
       <Script src="https://kit.fontawesome.com/45f9b38c9b.js" crossOrigin="anonymous" />
       <PageTemplate>
-        <main className="w-full mx-auto p-4 md:p-6">
+        <main className="w-full max-w-4xl mx-auto p-4 md:p-6">
+          <div className="flex items-center justify-between mb-6">
+            <h1 className="text-xl font-semibold">Управление манифестом</h1>
+            <Link href="/" className="text-sm text-blue-600 hover:underline">
+              На главную
+            </Link>
+          </div>
+          <div className="mb-6 p-4 rounded border border-colorTextPrimary/20">
+            <h2 className="text-sm font-medium mb-2">Создать статью</h2>
+            <div className="flex gap-2 flex-wrap">
+              <input
+                placeholder="slug (например 2025-03-23-my-article)"
+                value={createSlug}
+                onChange={(e) => setCreateSlug(e.target.value)}
+                className={`flex-1 min-w-[180px] ${fieldBase}`}
+              />
+              <input
+                placeholder="title"
+                value={createTitle}
+                onChange={(e) => setCreateTitle(e.target.value)}
+                className={`flex-1 min-w-[180px] ${fieldBase}`}
+              />
+              <button
+                onClick={handleCreate}
+                disabled={creating || !createSlug.trim() || !createTitle.trim()}
+                className="px-4 py-2 rounded bg-green-600 text-white disabled:opacity-50 hover:bg-green-700"
+              >
+                {creating ? '…' : 'Создать'}
+              </button>
+            </div>
+          </div>
           {message && (
             <div className="mb-4 p-3 rounded bg-bgBodySecondary text-colorTextPrimary">
               {message}
@@ -125,6 +211,7 @@ function AdminPage() {
                       <th className="text-left p-2 py-3">title</th>
                       <th className="text-left p-2 py-3">status</th>
                       <th className="text-left p-2 py-3">publishedAt</th>
+                      <th className="p-2 py-3 w-20"></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -175,6 +262,17 @@ function AdminPage() {
                                 title="Сбросить до исходного значения"
                               />
                             </div>
+                          </td>
+                          <td className="p-2">
+                            <button
+                              type="button"
+                              onClick={() => handleRename(slug)}
+                              disabled={renaming === slug}
+                              title="Переименовать"
+                              className="p-1.5 rounded hover:bg-bgBodySecondary/80 text-colorTextPrimary/70 hover:text-colorTextPrimary disabled:opacity-50"
+                            >
+                              <i className="fa-solid fa-pen-to-square" />
+                            </button>
                           </td>
                         </tr>
                       ))}
