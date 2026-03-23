@@ -11,6 +11,8 @@ import {
   MetaHead,
 } from 'src/components/mdx';
 import { LINKS } from 'src/constants/links';
+import { getPagesManifest } from 'src/lib/pagesManifest';
+import type { ArticleManifestEntry } from 'src/lib/pagesManifest';
 import { HL, HL_TYPE } from 'src/ui';
 import { STATUSES } from 'src/types/statses';
 import { Card, ContentContainer } from 'src/ui';
@@ -78,14 +80,27 @@ export function getMdxComponents() {
 
 /**
  * Читает MDX-файл по slug и компилирует его.
+ * ARTICLE и ARTICLES — данные из манифеста для ogCanonicalUrl и кросс-ссылок.
  */
-export async function compileMdxFile(slug: string) {
+export async function compileMdxFile(slug: string, article: ArticleManifestEntry) {
   const filePath = path.join(CONTENT_DIR, `${slug}.mdx`);
   const raw = await fs.readFile(filePath, 'utf-8');
   const content = stripImportsFromMdx(raw);
 
+  const manifest = await getPagesManifest();
+  const articlesMap: Record<string, { link: string; title: string }> = {};
+  for (const [s, e] of Object.entries(manifest.articles)) {
+    articlesMap[s] = { link: `/articles/${s}`, title: e.title };
+  }
+
+  const scope = {
+    ...getMdxScope(),
+    ARTICLE: { link: `/articles/${slug}`, title: article.title },
+    ARTICLES: articlesMap,
+  };
+
   const mdxSource = await serialize(content, {
-    scope: getMdxScope(),
+    scope,
     blockJS: false, // иначе removeJavaScriptExpressions удаляет prop={value}, и pubdate становится undefined
     mdxOptions: {
       remarkPlugins: [remarkGfm],

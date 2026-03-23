@@ -7,7 +7,6 @@ import {
 } from './pagesManifest';
 
 const ARTICLES_DIR = path.join(process.cwd(), 'content', 'articles');
-const LINKS_PATH = path.join(process.cwd(), 'src', 'constants', 'links.ts');
 
 const MDX_TEMPLATE = `import MdxLayout from 'src/app/MdxLayout';
 import { MdxTemplate } from 'src/components/mdx';
@@ -75,24 +74,29 @@ export async function renameArticle(
 
   const oldUrl = `/articles/${oldSlug}`;
   const newUrl = `/articles/${newSlug}`;
+  const articlesOld = `ARTICLES['${oldSlug}']`;
+  const articlesNew = `ARTICLES['${newSlug}']`;
 
-  // Обновить links.ts
-  const linksContent = await fs.readFile(LINKS_PATH, 'utf-8');
-  const updatedLinks = linksContent.replace(
-    new RegExp(oldUrl.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'),
-    newUrl
-  );
-  await fs.writeFile(LINKS_PATH, updatedLinks, 'utf-8');
-
-  // Обновить ссылки во всех MDX
   const files = await fs.readdir(ARTICLES_DIR);
   for (const file of files) {
     if (!file.endsWith('.mdx')) continue;
     const filePath = path.join(ARTICLES_DIR, file);
     let content = await fs.readFile(filePath, 'utf-8');
+    let updated = false;
     if (content.includes(oldUrl)) {
-      content = content.replace(new RegExp(oldUrl.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'), newUrl);
-      await fs.writeFile(filePath, content, 'utf-8');
+      content = content.replace(
+        new RegExp(oldUrl.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'),
+        newUrl
+      );
+      updated = true;
     }
+    if (content.includes(articlesOld)) {
+      content = content.replace(
+        new RegExp(articlesOld.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'),
+        articlesNew
+      );
+      updated = true;
+    }
+    if (updated) await fs.writeFile(filePath, content, 'utf-8');
   }
 }

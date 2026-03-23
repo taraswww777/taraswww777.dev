@@ -26,7 +26,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
 
   try {
-    const mdxSource = await compileMdxFile(slug);
+    const mdxSource = await compileMdxFile(slug, article);
     const { getMdxComponents } = await import('src/lib/mdxUtils');
     const element = React.createElement(MDXRemote, {
       ...mdxSource,
