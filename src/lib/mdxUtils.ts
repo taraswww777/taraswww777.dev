@@ -2,6 +2,7 @@ import path from 'path';
 import fs from 'fs/promises';
 import { serialize } from 'next-mdx-remote/serialize';
 import remarkGfm from 'remark-gfm';
+import rehypeHighlight from 'rehype-highlight';
 import MdxLayout from 'src/app/MdxLayout';
 import {
   MdxTemplate,
@@ -104,6 +105,7 @@ export async function compileMdxFile(slug: string, article: ArticleManifestEntry
     blockJS: false, // иначе removeJavaScriptExpressions удаляет prop={value}, и pubdate становится undefined
     mdxOptions: {
       remarkPlugins: [remarkGfm],
+      rehypePlugins: [rehypeHighlight],
       development: process.env.NODE_ENV === 'development',
     },
   });
