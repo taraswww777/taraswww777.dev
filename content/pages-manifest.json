@@ -1,0 +1,118 @@
+{
+  "articles": {
+    "2023-10-01-frontend-conf-day-0": {
+      "slug": "2023-10-01-frontend-conf-day-0",
+      "title": "FrontendConf 2023 день 0",
+      "status": "published",
+      "publishedAt": "2023-10-01"
+    },
+    "2023-11-03-ts-as-const": {
+      "slug": "2023-11-03-ts-as-const",
+      "title": "TS. Какая польза от as const",
+      "status": "published",
+      "publishedAt": "2023-11-03"
+    },
+    "2023-12-13-decomposition-of-components-in-ui": {
+      "slug": "2023-12-13-decomposition-of-components-in-ui",
+      "title": "Декомпозиция компонентов в UI",
+      "status": "published",
+      "publishedAt": "2023-12-13"
+    },
+    "2024-01-13-include-fonts-in-web-app": {
+      "slug": "2024-01-13-include-fonts-in-web-app",
+      "title": "Подключение шрифтов в WEB приложении",
+      "status": "published",
+      "publishedAt": "2024-01-13"
+    },
+    "2024-01-18-ts-value-need-type": {
+      "slug": "2024-01-18-ts-value-need-type",
+      "title": "Typescript. Нужно ли явно указывать тип переменной?",
+      "status": "published",
+      "publishedAt": "2024-01-18"
+    },
+    "2024-01-23-result-school-git-task": {
+      "slug": "2024-01-23-result-school-git-task",
+      "title": "Комментарии авторов к заданию по GIT от ResultSchool",
+      "status": "published",
+      "publishedAt": "2024-01-23"
+    },
+    "2024-03-24-interface-vs-type": {
+      "slug": "2024-03-24-interface-vs-type",
+      "title": "Typescript. Когда использовать interface, а когда type?",
+      "status": "published",
+      "publishedAt": "2024-03-24"
+    },
+    "2024-05-24-how-change-commit-message": {
+      "slug": "2024-05-24-how-change-commit-message",
+      "title": "Как изменить git commit message?",
+      "status": "published",
+      "publishedAt": "2024-05-24"
+    },
+    "2024-07-06-i-mentor": {
+      "slug": "2024-07-06-i-mentor",
+      "title": "Я ментор",
+      "status": "published",
+      "publishedAt": "2024-07-06"
+    },
+    "2024-11-23-softweekend-2024": {
+      "slug": "2024-11-23-softweekend-2024",
+      "title": "Отчёт с SoftWeekend 2024",
+      "status": "published",
+      "publishedAt": "2024-11-23"
+    },
+    "2024-11-27-teamlead-conf-2024": {
+      "slug": "2024-11-27-teamlead-conf-2024",
+      "title": "Отчёт с TeamLead Conference 2024",
+      "status": "published",
+      "publishedAt": "2024-11-27"
+    },
+    "2025-01-11-chrome-plugin-git-clone": {
+      "slug": "2025-01-11-chrome-plugin-git-clone",
+      "title": "Chrome-плагин для удобного git clone",
+      "status": "published",
+      "publishedAt": "2025-01-11"
+    },
+    "2025-01-11-how-make-iu-links": {
+      "slug": "2025-01-11-how-make-iu-links",
+      "title": "Как генерировать UI ссылки",
+      "status": "published",
+      "publishedAt": "2025-01-11"
+    },
+    "2025-03-14-js-symbol-keys-iteration": {
+      "slug": "2025-03-14-js-symbol-keys-iteration",
+      "title": "Итерация объектов с Symbol-ключами в JavaScript",
+      "status": "published",
+      "publishedAt": "2025-03-14"
+    },
+    "2025-03-18-package-json-contributors": {
+      "slug": "2025-03-18-package-json-contributors",
+      "title": "Поле contributors в package.json — что это и зачем",
+      "status": "published",
+      "publishedAt": "2025-03-18"
+    },
+    "2025-03-19-ts-no-i-t-prefixes": {
+      "slug": "2025-03-19-ts-no-i-t-prefixes",
+      "title": "Почему префиксы I и T — это антипаттерн в TypeScript",
+      "status": "published",
+      "publishedAt": "2025-03-19"
+    },
+    "2025-03-20-rhf-reset-vs-setvalue": {
+      "slug": "2025-03-20-rhf-reset-vs-setvalue",
+      "title": "React Hook Form: reset vs setValue — в чём разница",
+      "status": "published",
+      "publishedAt": "2025-03-20"
+    },
+    "2025-08-26-git-cleanup-branches": {
+      "slug": "2025-08-26-git-cleanup-branches",
+      "title": "Автоматизировал чистку Git-веток: был 1 час — стало 5 минут",
+      "status": "published",
+      "publishedAt": "2025-08-26"
+    },
+    "2025-11-18-git-cleanup-tags": {
+      "slug": "2025-11-18-git-cleanup-tags",
+      "title": "Как почистить репозиторий: удаляем лишние git-теги",
+      "status": "published",
+      "publishedAt": "2025-11-18"
+    }
+  }
+}
