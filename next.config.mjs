@@ -6,8 +6,10 @@ import remarkGfm from 'remark-gfm';
 // Оставить пустым для user/org page (username.github.io)
 const basePath = process.env.BASE_PATH || '';
 
+// В dev (next dev) API routes работают; в build (next build) — static export
+const isProdBuild = process.env.NODE_ENV === 'production';
 const nextConfig = {
-  output: 'export',
+  ...(isProdBuild && { output: 'export' }),
   ...(basePath && { basePath, assetPrefix: basePath }),
   reactStrictMode: true,
   swcMinify: true,

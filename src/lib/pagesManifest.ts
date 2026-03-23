@@ -51,3 +51,13 @@ export async function getArticleBySlug(
   const manifest = await getPagesManifest();
   return manifest.articles[slug];
 }
+
+/**
+ * Записывает манифест в файл.
+ */
+export async function writePagesManifest(
+  manifest: PagesManifest
+): Promise<void> {
+  const json = JSON.stringify(manifest, null, 2);
+  await fs.writeFile(MANIFEST_PATH, json, 'utf-8');
+}
