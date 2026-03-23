@@ -9,7 +9,7 @@ const sitemapConfig = {
   /** Вы можете добавить альтернативные домены, соответствующие доступному языку. (OPTIONAL) */
   // alternateUrls?: object;
   /** URL-адрес, который будет использоваться в начале каждой страницы. */
-  baseUrl: "https://taraswww777.dev",
+  baseUrl: process.env.SITEMAP_BASE_URL || "https://taraswww777.dev",
   /** Файл или каталог, которые не следует сопоставлять (например, маршруты администратора). (OPTIONAL)*/
   // ignoredPaths?: Array<string | RegExp>;
   /** Массив дополнительных путей для включения в карту сайта (даже если они отсутствуют в PageDirectory). (OPTIONAL) */
