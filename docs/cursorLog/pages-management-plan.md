@@ -90,7 +90,7 @@
 | Все MDX попадают в билд | Только published из манифеста — в `getStaticPaths` |
 | `pages/index.mdx` для `/` | `app/page.tsx` для `/` (конфликт при наличии app/layout) |
 
-**next-mdx-remote:** `blockJS: false` в serialize, иначе удаляются JS-выражения в атрибутах (pubdate, LINKS и т.д.). Страница [slug] должна импортировать CSS (globals, mdxContent, highlightjs), т.к. MdxLayout используется только в getStaticProps.
+**next-mdx-remote:** `blockJS: false` в serialize, иначе удаляются JS-выражения в атрибутах (pubdate, LINKS и т.д.). Страница [slug] должна импортировать CSS (globals, mdxContent, highlightjs), т.к. MdxLayout используется только в getStaticProps. **Подсветка кода:** из-за `dangerouslySetInnerHTML` клиентский `hljs.highlightAll()` не работает; используется `rehype-highlight` (подсветка при сборке).
 
 ### 5.3. Dev vs Prod
 

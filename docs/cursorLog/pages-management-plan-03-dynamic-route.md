@@ -56,3 +56,5 @@
 6. **Стили на [slug]** — MdxLayout (импортирует globals.css, mdxContent.css, highlightjs.css) используется только в `getStaticProps`, не в клиентском дереве. Поэтому CSS не попадал в бандл страницы. Решение: явно импортировать эти CSS в `[slug].tsx`.
 
 7. **Удаление MDX** — статьи удалены в части 02. В `src/pages/articles/` остались `index.mdx` (список) и `[slug].tsx`.
+
+8. **Подсветка кода** — контент вставляется через `dangerouslySetInnerHTML`; скрипты из MetaHead (`hljs.highlightAll()`) не выполняются (браузер не выполняет script при вставке через innerHTML). Решение: `rehype-highlight` в `rehypePlugins` — подсветка на этапе сборки. Стили из `highlightjs.css`.
