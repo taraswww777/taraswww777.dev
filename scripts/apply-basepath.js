@@ -1,11 +1,17 @@
 #!/usr/bin/env node
 /**
  * Добавляет basePath к ссылкам в статическом экспорте Next.js.
- * Используется для GitHub Pages project site (username.github.io/repo-name),
- * т.к. basePath в next.config вызывает ошибку сборки в Next.js 14.
+ * Работает ТОЛЬКО при сборке для GitHub Pages (username.github.io/repo-name).
+ * Вызывать только из workflow deploy-github-pages — не для taraswww777.dev / localhost.
  */
 const fs = require('fs');
 const path = require('path');
+
+// Патч только для GH Pages — проверка через env (задаётся в workflow)
+if (process.env.DEPLOY_TARGET !== 'github-pages') {
+  console.log('apply-basepath: пропуск (DEPLOY_TARGET !== github-pages)');
+  process.exit(0);
+}
 
 // argv[2] для обхода Git Bash на Windows (BASE_PATH=/x превращается в путь)
 let basePath = process.argv[2] || process.env.BASE_PATH || '';
@@ -22,20 +28,35 @@ if (basePath.includes('Git') && path.sep === '\\') {
 const basePathNorm = basePath.replace(/\/$/, ''); // убираем trailing slash
 const outDir = path.resolve(__dirname, '../out');
 
-function processFile(filePath) {
+function processFile(filePath, isJsFile = false) {
   let content = fs.readFileSync(filePath, 'utf8');
   let modified = false;
 
-  // href="/... и src="/... — добавляем basePath (избегаем // и уже обработанных)
+  // Экранируем basePath для regex
   const prefix = basePathNorm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const patterns = [
+
+  // href="/... src="/... content="/... — в HTML и JS
+  const attrPatterns = [
     [new RegExp(`(\\bhref=")(?!${prefix})(\\/)(?!\\/)`, 'g'), `$1${basePathNorm}$2`],
     [new RegExp(`(\\bsrc=")(?!${prefix})(\\/)(?!\\/)`, 'g'), `$1${basePathNorm}$2`],
     [new RegExp(`(\\bcontent=")(?!${prefix})(\\/)(?!\\/)`, 'g'), `$1${basePathNorm}$2`],
   ];
 
-  for (const [regex, replacement] of patterns) {
+  for (const [regex, replacement] of attrPatterns) {
     const newContent = content.replace(regex, replacement);
+    if (newContent !== content) {
+      content = newContent;
+      modified = true;
+    }
+  }
+
+  // JS: path-строки вида "/path" — для router, Link, prefetch (но не "https://")
+  if (isJsFile) {
+    const pathPattern = new RegExp(
+      `"(?=\\/)(?!${prefix}\\/)(?!\\/\\/)`,
+      'g'
+    );
+    const newContent = content.replace(pathPattern, () => `"${basePathNorm}`);
     if (newContent !== content) {
       content = newContent;
       modified = true;
@@ -53,10 +74,9 @@ function walkDir(dir) {
     if (entry.isDirectory()) {
       walkDir(fullPath);
     } else if (entry.name.endsWith('.html') || entry.name.endsWith('.xml')) {
-      processFile(fullPath);
+      processFile(fullPath, false);
     } else if (entry.name.endsWith('.js')) {
-      // _next/static содержит ссылки на ассеты
-      processFile(fullPath);
+      processFile(fullPath, true); // JS: path-строки для router, Link
     }
   }
 }
