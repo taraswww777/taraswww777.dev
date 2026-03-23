@@ -1,66 +1,75 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
+import Script from 'next/script';
 import Link from 'next/link';
+import { useForm } from 'react-hook-form';
 import 'src/globals.css';
 import { PageTemplate } from 'src/components/PageTemplate';
 import type { ArticleManifestEntry, ArticleStatus, PagesManifest } from 'src/lib/pagesManifest';
 
 const STATUSES: ArticleStatus[] = ['published', 'unpublished', 'in_progress', 'draft'];
 
+type FormValues = PagesManifest['articles'];
+
+const fieldBase = 'bg-bgBodySecondary border border-colorTextPrimary/20 rounded px-2 py-1 text-colorTextPrimary';
+
+function ResetButton({
+  onClick,
+  title,
+}: {
+  onClick: () => void;
+  title: string;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      title={title}
+      className="ml-1 h-9 w-9 shrink-0 flex items-center justify-center rounded hover:bg-bgBodySecondary/80 text-colorTextPrimary/70 hover:text-colorTextPrimary border border-colorTextPrimary/20"
+    >
+      <i className="fa-solid fa-rotate-left" />
+    </button>
+  );
+}
+
 function AdminPage() {
   const [manifest, setManifest] = useState<PagesManifest | null>(null);
-  const [edits, setEdits] = useState<Record<string, Partial<ArticleManifestEntry>>>({});
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
   const isLocalhost = typeof window !== 'undefined' && window.location.hostname === 'localhost';
 
-  const fetchManifest = useCallback(async () => {
-    try {
-      const res = await fetch('/api/pages-manifest');
-      if (!res.ok) throw new Error(res.statusText);
-      const data = await res.json();
-      setManifest(data);
-      setEdits({});
-    } catch (err) {
-      setMessage(`Ошибка загрузки: ${err instanceof Error ? err.message : String(err)}`);
-    } finally {
-      setLoading(false);
-    }
-  }, []);
+  const { register, watch, setValue, reset, formState: { isDirty } } = useForm<FormValues>({
+    defaultValues: {},
+  });
 
   useEffect(() => {
+    const fetchManifest = async () => {
+      try {
+        const res = await fetch('/api/pages-manifest');
+        if (!res.ok) throw new Error(res.statusText);
+        const data = await res.json();
+        setManifest(data);
+        reset(data.articles);
+      } catch (err) {
+        setMessage(`Ошибка загрузки: ${err instanceof Error ? err.message : String(err)}`);
+      } finally {
+        setLoading(false);
+      }
+    };
     fetchManifest();
-  }, [fetchManifest]);
-
-  const handleEdit = (slug: string, field: keyof ArticleManifestEntry, value: string) => {
-    setEdits((prev) => ({
-      ...prev,
-      [slug]: { ...prev[slug], [field]: value },
-    }));
-  };
-
-  const getDisplayEntry = (slug: string, entry: ArticleManifestEntry): ArticleManifestEntry => {
-    const patch = edits[slug];
-    return patch ? { ...entry, ...patch } : entry;
-  };
+  }, [reset]);
 
   const saveChanges = async () => {
     if (!manifest) return;
+    const values = watch();
     setSaving(true);
     setMessage(null);
     try {
-      const merged: PagesManifest = {
-        articles: {},
-      };
-      for (const [slug, entry] of Object.entries(manifest.articles)) {
-        const patch = edits[slug];
-        merged.articles[slug] = patch ? { ...entry, ...patch } : { ...entry };
-      }
       const res = await fetch('/api/pages-manifest', {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ updates: merged }),
+        body: JSON.stringify({ updates: { articles: values } }),
       });
       if (!res.ok) {
         const err = await res.json().catch(() => ({}));
@@ -68,7 +77,7 @@ function AdminPage() {
       }
       const data = await res.json();
       setManifest(data);
-      setEdits({});
+      reset(data.articles);
       setMessage('Сохранено');
     } catch (err) {
       setMessage(`Ошибка: ${err instanceof Error ? err.message : String(err)}`);
@@ -76,8 +85,6 @@ function AdminPage() {
       setSaving(false);
     }
   };
-
-  const hasChanges = Object.keys(edits).length > 0;
 
   if (typeof window !== 'undefined' && !isLocalhost) {
     return (
@@ -95,15 +102,9 @@ function AdminPage() {
       <Head>
         <title>Админка — Управление манифестом</title>
       </Head>
+      <Script src="https://kit.fontawesome.com/45f9b38c9b.js" crossOrigin="anonymous" />
       <PageTemplate>
-        <main className="w-full max-w-4xl mx-auto p-4 md:p-6">
-          <div className="flex items-center justify-between mb-6">
-            <h1 className="text-xl font-semibold">Управление манифестом</h1>
-            <Link href="/" className="text-sm text-blue-600 hover:underline">
-              На главную
-            </Link>
-          </div>
-
+        <main className="w-full mx-auto p-4 md:p-6">
           {message && (
             <div className="mb-4 p-3 rounded bg-bgBodySecondary text-colorTextPrimary">
               {message}
@@ -129,24 +130,26 @@ function AdminPage() {
                   <tbody>
                     {Object.entries(manifest.articles)
                       .sort(([a], [b]) => a.localeCompare(b))
-                      .map(([slug, entry]) => {
-                        const display = getDisplayEntry(slug, entry);
-                        return (
-                          <tr key={slug} className="border-b border-colorTextPrimary/10 hover:bg-bgBodySecondary/50">
-                            <td className="p-2 font-mono text-xs">{slug}</td>
-                            <td className="p-2">
+                      .map(([slug, entry]) => (
+                        <tr key={slug} className="border-b border-colorTextPrimary/10 hover:bg-bgBodySecondary/50">
+                          <td className="p-2 font-mono text-xs">{slug}</td>
+                          <td className="p-2">
+                            <div className="flex items-center">
                               <input
-                                type="text"
-                                value={display.title}
-                                onChange={(e) => handleEdit(slug, 'title', e.target.value)}
-                                className="w-full bg-bgBodySecondary border border-colorTextPrimary/20 rounded px-2 py-1 text-colorTextPrimary"
+                                {...register(`${slug}.title`)}
+                                className={`w-full ${fieldBase}`}
                               />
-                            </td>
-                            <td className="p-2">
+                              <ResetButton
+                                onClick={() => setValue(`${slug}.title`, entry.title)}
+                                title="Сбросить до исходного значения"
+                              />
+                            </div>
+                          </td>
+                          <td className="p-2">
+                            <div className="flex items-center">
                               <select
-                                value={display.status}
-                                onChange={(e) => handleEdit(slug, 'status', e.target.value as ArticleStatus)}
-                                className="bg-bgBodySecondary border border-colorTextPrimary/20 rounded px-2 py-1 text-colorTextPrimary"
+                                {...register(`${slug}.status`)}
+                                className={fieldBase}
                               >
                                 {STATUSES.map((s) => (
                                   <option key={s} value={s}>
@@ -154,31 +157,40 @@ function AdminPage() {
                                   </option>
                                 ))}
                               </select>
-                            </td>
-                            <td className="p-2">
-                              <input
-                                type="text"
-                                value={display.publishedAt}
-                                onChange={(e) => handleEdit(slug, 'publishedAt', e.target.value)}
-                                placeholder="YYYY-MM-DD"
-                                className="w-28 bg-bgBodySecondary border border-colorTextPrimary/20 rounded px-2 py-1 text-colorTextPrimary"
+                              <ResetButton
+                                onClick={() => setValue(`${slug}.status`, entry.status)}
+                                title="Сбросить до исходного значения"
                               />
-                            </td>
-                          </tr>
-                        );
-                      })}
+                            </div>
+                          </td>
+                          <td className="p-2">
+                            <div className="flex items-center">
+                              <input
+                                type="date"
+                                {...register(`${slug}.publishedAt`)}
+                                className={`w-36 ${fieldBase} [color-scheme:dark]`}
+                              />
+                              <ResetButton
+                                onClick={() => setValue(`${slug}.publishedAt`, entry.publishedAt || '')}
+                                title="Сбросить до исходного значения"
+                              />
+                            </div>
+                          </td>
+                        </tr>
+                      ))}
                   </tbody>
                 </table>
               </div>
-              <div className="mt-6">
+              <div className="fixed bottom-9 left-0 right-0 z-10 p-3 bg-bgBodyPrimary/95 backdrop-blur-sm border-t border-colorTextPrimary/20 flex justify-center">
                 <button
                   onClick={saveChanges}
-                  disabled={!hasChanges || saving}
+                  disabled={!isDirty || saving}
                   className="px-4 py-2 rounded bg-blue-600 text-white disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-700"
                 >
                   {saving ? 'Сохранение…' : 'Сохранить'}
                 </button>
               </div>
+              <div className="h-14" />
             </>
           )}
         </main>

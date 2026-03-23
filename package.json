@@ -75,5 +75,8 @@
   "engines": {
     "node": "24.14.0"
   },
-  "homepage": "https://github.com/taraswww777/taraswww777.dev-fe#readme"
+  "homepage": "https://github.com/taraswww777/taraswww777.dev-fe#readme",
+  "dependencies": {
+    "react-hook-form": "^7.48.2"
+  }
 }
