@@ -5,7 +5,7 @@ import { FluidContentContainer } from './FluidContentContainer';
 /** Контейнер с отступами и ограничениями по ширине */
 export const ContentContainer: FC<PropsWithChildren> = ({ children }) => {
   return (
-    <div className="w-full max-w-4xl mx-auto">
+    <div className="mx-auto w-full min-w-0 max-w-4xl">
       <FluidContentContainer>
         {children}
       </FluidContentContainer>

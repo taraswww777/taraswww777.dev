@@ -1,14 +1,16 @@
 "use client"
 import { getPageUrl, PAGE_NAMES } from 'src/constants/pages';
 import { memo } from 'react';
-import Link from 'next/link';
 import { LINKS } from 'src/constants/links';
-import { linkWithTime } from 'src/utils/linkWithTime';
 import { usePathname } from 'next/navigation';
 import classNames from 'classnames';
+import { useArticlesNavPanel } from 'src/components/ArticlesPanel/ArticlesNavContext';
 
 export const Menu = memo(() => {
   const pathname = usePathname();
+  const { toggle } = useArticlesNavPanel();
+
+  const articlesBase = getPageUrl(PAGE_NAMES.ARTICLES)();
 
   const isActive = (link: string): boolean => {
     return (pathname || '').includes(link)
@@ -16,18 +18,20 @@ export const Menu = memo(() => {
 
   return (
     <div>
-      <Link
-          className={classNames(
-            'active:text-colorLinkActive hover:text-linkActive',
-            {
-              'text-link': !isActive(getPageUrl(PAGE_NAMES.ARTICLES)()),
-              'text-linkActive': isActive(getPageUrl(PAGE_NAMES.ARTICLES)()),
-            }
-          )}
-        href={getPageUrl(PAGE_NAMES.ARTICLES)() || linkWithTime(getPageUrl(PAGE_NAMES.ARTICLES)())}
+      <button
+        type="button"
+        className={classNames(
+          'cursor-pointer border-0 bg-transparent p-0 font-inherit text-left',
+          'active:text-colorLinkActive hover:text-linkActive',
+          {
+            'text-link': !isActive(articlesBase),
+            'text-linkActive': isActive(articlesBase),
+          }
+        )}
+        onClick={toggle}
       >
         {LINKS.articlesIndex.title}
-      </Link>
+      </button>
     </div>
   );
 });

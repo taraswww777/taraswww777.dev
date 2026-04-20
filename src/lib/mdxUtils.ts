@@ -3,24 +3,11 @@ import fs from 'fs/promises';
 import { serialize } from 'next-mdx-remote/serialize';
 import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
-import MdxLayout from 'src/app/MdxLayout';
-import {
-  MdxTemplate,
-  Question,
-  Answer,
-  BlockQuote,
-  MetaHead,
-} from 'src/components/mdx';
-import { LINKS } from 'src/constants/links';
-import { getPagesManifest } from 'src/lib/pagesManifest';
 import type { ArticleManifestEntry } from 'src/lib/pagesManifest';
-import { HL, HL_TYPE } from 'src/ui';
-import { STATUSES } from 'src/types/statses';
-import { Card, ContentContainer } from 'src/ui';
-import { CopyAnchor } from 'src/components/CopyAnchor';
-import { IconRuble } from 'src/components/icons';
-import { PageTemplate } from 'src/components/PageTemplate';
-import Image from 'next/image';
+import { getPagesManifest } from 'src/lib/pagesManifest';
+import { getMdxDataScope } from './mdxScopeData';
+
+export { getMdxComponents } from './mdxComponentMap';
 
 const CONTENT_DIR = path.join(process.cwd(), 'content', 'articles');
 
@@ -35,52 +22,8 @@ export function stripImportsFromMdx(content: string): string {
 }
 
 /**
- * Scope для MDX: компоненты и данные, доступные в контенте (передаётся в serialize).
- */
-export function getMdxScope() {
-  return {
-    MdxLayout,
-    MdxTemplate,
-    MetaHead,
-    PageTemplate,
-    Question,
-    Answer,
-    BlockQuote,
-    LINKS,
-    STATUSES,
-    HL,
-    HL_TYPE,
-    Card,
-    ContentContainer,
-    CopyAnchor,
-    IconRuble,
-    Image,
-  };
-}
-
-/**
- * Только React-компоненты для пропа components в MDXRemote (без LINKS, STATUSES и т.д.).
- */
-export function getMdxComponents() {
-  return {
-    MdxLayout,
-    MdxTemplate,
-    MetaHead,
-    PageTemplate,
-    Question,
-    Answer,
-    BlockQuote,
-    HL,
-    Card,
-    ContentContainer,
-    CopyAnchor,
-    IconRuble,
-    Image,
-  };
-}
-
-/**
  * Читает MDX-файл по slug и компилирует его.
+ * В scope только сериализуемые данные; компоненты передаются в MDXRemote через getMdxComponents().
  * ARTICLE и ARTICLES — данные из манифеста для ogCanonicalUrl и кросс-ссылок.
  */
 export async function compileMdxFile(slug: string, article: ArticleManifestEntry) {
@@ -95,7 +38,7 @@ export async function compileMdxFile(slug: string, article: ArticleManifestEntry
   }
 
   const scope = {
-    ...getMdxScope(),
+    ...getMdxDataScope(),
     ARTICLE: { link: `/articles/${slug}`, title: article.title },
     ARTICLES: articlesMap,
   };

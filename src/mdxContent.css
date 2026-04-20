@@ -1,3 +1,30 @@
+/* Читаемость на узких экранах: без горизонтального «вылезания» контента */
+.mdxContent {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+.mdxContent img,
+.mdxContent video,
+.mdxContent iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+.mdxContent pre {
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mdxContent article {
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
 
 .mdxContent {
   h1, h2, h3, h4, h5, h6,
@@ -33,11 +60,12 @@
   }
 
   pre > code {
-    width: 100%;
+    display: block;
     font-family: "Fira Code", monospace;
     background: var(--bgBodySecondary);
-    display: inline-block;
     padding: var(--p-3);
+    white-space: pre;
+    word-break: normal;
   }
 
   blockquote {
@@ -58,12 +86,15 @@
     width: 100%;
     border-collapse: collapse;
     margin-bottom: var(--m-3);
+    table-layout: fixed;
   }
 
   th, td {
     padding: var(--p-2) var(--p-3);
     border: 1px solid var(--gray);
     text-align: left;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
   th {
