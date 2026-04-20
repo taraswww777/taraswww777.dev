@@ -61,6 +61,12 @@
   --m-4: 1rem;
   --m-5: 1.25rem;
   --m-6: 1.5rem;
+
+  /* Скроллбары (Safari — ::-webkit-scrollbar; Firefox — scrollbar-*) */
+  --scrollbar-track: var(--lightBg);
+  --scrollbar-thumb: #5c5f66;
+  --scrollbar-thumb-hover: var(--orange);
+  --scrollbar-corner: var(--lightBg);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -89,6 +95,39 @@ html, body {
   /*@media ${BREAKPOINT.laptop} {*/
   font-size: 24px;
   /*}*/
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+/* Safari, Chrome, Edge (Chromium) — единый вид с Firefox */
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 999px;
+  border: 2px solid var(--scrollbar-track);
+  background-clip: padding-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+  border-color: var(--scrollbar-track);
+}
+
+*::-webkit-scrollbar-corner {
+  background: var(--scrollbar-corner);
 }
 
 @layer utilities {
@@ -128,12 +167,12 @@ a {
   }
 
   pre > code {
-    width: 100%;
     font-family: "Fira Code", monospace;
     background: var(--bgBodySecondary);
-    display: inline-block;
+    display: block;
     padding: var(--p-3);
     margin-bottom: var(--m-3);
+    white-space: pre;
   }
 
   ul, ol {
