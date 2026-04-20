@@ -1,0 +1,191 @@
+import { MdxTemplate } from 'src/components/mdx';
+import MdxLayout from 'src/app/MdxLayout';
+
+<MdxLayout>
+  <MdxTemplate
+    pubdate={'2026-04-20'}
+    title={'Два репозитория: GitHub и Bitbucket без MR между площадками'}
+    ogCanonicalUrl={ARTICLE.link}
+    description={'Два remote, без pull request между GitHub и Bitbucket: черновики и эксперименты на GitHub, слияния в main/develop — в Bitbucket; как доставлять коммиты в обе стороны обычным git push и pull.'}
+  >
+    Иногда у команды два мира: публичный или удобный GitHub для повседневной работы и корпоративный Bitbucket, к которому привязаны CI, Jira и «боевые» политики. Тянуть всё через merge request из одного хостинга в другой — лишняя бюрократия. Ниже — схема, в которой **между GitHub и Bitbucket нет MR/PR**: только коммиты и обычные `git push` / `git pull` на два `remote`.
+
+    При этом направление потока **разное для разных веток**. Ответственные ветки (`main`, `develop` и т.п.) часто живут по правилам Bitbucket: merge request’ы вливают **только там**, и именно там зафиксирована «официальная» история. В GitHub те же ветки тогда держат как **зеркало**: после каждого влития на Bitbucket их подтягивают и пушат на `github`, чтобы песочница не отставала от контура компании. Черновые ветки по-прежнему можно крутить преимущественно на GitHub и переносить в Bitbucket отдельным шагом — об этом ниже.
+
+    ## Идея в двух предложениях
+
+    **Bitbucket** — место, где проходят ревью и в `main` / `develop` попадают только влитые MR. **GitHub** — удобная площадка для экспериментов, личных веток и переписывания истории без риска для корпоративных правил. Между хостингами мы не открываем второй вид ревью: только доставка уже готовых коммитов выбранным `remote`.
+
+    ## Подготовка: два remote на одном клоне
+
+    Предположим, локально уже есть репозиторий, и `origin` указывает на Bitbucket:
+
+    ```bash
+    git remote -v
+    # origin  https://bitbucket.org/user/repo.git
+    ```
+
+    Добавляем GitHub вторым remote (имя `github` — условное):
+
+    ```bash
+    git remote add github https://github.com/user/repo.git
+    ```
+
+    Дальше вы явно решаете, **куда** пушите черновик (`github`) и **куда** — эталон для компании (`origin`).
+
+    ## Автор коммитов и подпись
+
+    В Bitbucket часто важны корректный автор, e-mail домена компании и иногда <a href="https://ru.wikipedia.org/wiki/GnuPG" target="_blank">GPG</a> (GNU Privacy Guard — подпись коммитов криптографическим ключом). Лучше зафиксировать это **локально для репозитория**, чтобы не уехать в прод с личным `user@gmail.com`:
+
+    ```bash
+    git config user.name
+    git config user.email
+
+    git config user.name "Ваше Имя"
+    git config user.email "email@bitbucket-account.com"
+
+    # если требуется подпись коммитов
+    git config commit.gpgsign true
+    git config user.signingkey <KEY-ID>
+    ```
+
+    Перед первым `git push origin main` имеет смысл пробежаться по логу и убедиться, что авторы везде ожидаемые (ниже — как поправить).
+
+    ## Синхронизация Bitbucket → GitHub для `main` и `develop`
+
+    Если **норма** — вливать MR в Bitbucket в `main` или `develop`, то после каждого такого слияния (или по расписанию, если MR много) нужно обновить те же ветки на GitHub, иначе два remote разъедутся.
+
+    ```bash
+    git fetch origin
+
+    git checkout main
+    git pull origin main
+    git push github main
+
+    git checkout develop
+    git pull origin develop
+    git push github develop
+    ```
+
+    Смысл простой: **источник истины для ответственных веток — Bitbucket**; на GitHub вы отражаете ту же линию коммитов. Отдельный merge request на GitHub для этого не нужен — только `pull` с `origin` и `push` на `github`.
+
+    **На что обратить внимание**
+
+    - Если на GitHub в `main` / `develop` кто-то успел закоммитить то, чего нет в Bitbucket, при `push` получите отказ или нелинейную историю. Договоритесь в команде: в эти ветки на `github` не коммитят напрямую (или только через тот же цикл «сначала MR в Bitbucket, потом синхронизация»).
+    - Если расхождение уже есть, чините осознанно: например, сбросить локальную копию под `origin` и сделать `git push github main --force-with-lease` — **только** если все согласны перезаписать зеркало на GitHub (и это не ломает чужие ветки).
+    - Тот же паттерн подходит для любой «эталонной» ветки, не только `main` / `develop`.
+
+    ## Сценарий: фича дозревает в GitHub, в Bitbucket уходит готовая линия
+
+    Рабочие feature ветки и «извращения» живут в GitHub и **не обязаны** появляться в Bitbucket до финала:
+
+    ```bash
+    git checkout -b feature/experiment
+    git add .
+    git commit -m "WIP: эксперимент с X"
+    git push github feature/experiment
+
+    # … много итераций, rebase, force-push — только на github …
+
+    git checkout main
+    git pull origin main
+    git merge feature/experiment
+    git push origin main
+    git push github main
+    ```
+
+    Здесь вы вливаете готовое в **Bitbucket** и сразу поднимаете то же `main` на **GitHub**. Если же по процессу в `main` попадают **только** через MR в Bitbucket, этот merge на машине заменяется вашим обычным циклом: ветка уходит в Bitbucket отдельным push, MR там, после merge — блок «Синхронизация Bitbucket → GitHub» выше.
+
+    ## Сценарий: фича только через MR в Bitbucket
+
+    Типичный корпоративный вариант: разработчик пушит ветку в `origin`, открывает MR в `develop` / `main`, ревью и вливание происходят в интерфейсе Bitbucket. Тогда GitHub обновляете **после** вливания:
+
+    ```bash
+    git fetch origin
+    git checkout develop
+    git pull origin develop
+    git push github develop
+    ```
+
+    Ветку фичи на GitHub можно не отражать или пушить туда для личного удобства — на «эталон» ответственной ветки это не влияет, пока вы не смешиваете уникальные коммиты в `github/develop` без прохода через Bitbucket.
+
+    ## Когда отладка возможна только «на стороне Bitbucket»
+
+    Бывает, что собрать и прогнать проект можно только в закрытом контуре: особая ОС, лицензионный софт, внутренние API, дорогие GPU, жёсткие требования ИБ. Если **эталонная** линия уже в Bitbucket (MR влит), на машине с доступом к `origin` достаточно:
+
+    ```bash
+    git pull origin main
+    ./run_tests.sh
+    ```
+
+    Если же вы доводили фичу только в GitHub и ещё не обновляли Bitbucket, сначала доставьте коммиты на `origin` (через MR или прямой `push` в разрешённую ветку — как у вас принято), и уже затем на машине отладки выполняйте `git pull origin`.
+
+    Нашли баг — исправление должно попасть в ту же цепочку, что и остальной код: либо через привычный контур с GitHub и затем `push` в Bitbucket, либо (если все MR только в Bitbucket) новая ветка, MR в `origin`, после вливания — снова `pull origin` и `push github` для зеркала. Так песочница и «чистая зона» не расходятся из‑за коммитов только в одном `remote`.
+
+    ## Проверка авторов перед `git push origin`
+
+    ```bash
+    git log --oneline --format="%h %an <%ae> %s" -10
+    ```
+
+    Один коммит с не тем автором:
+
+    ```bash
+    git commit --amend --author="Имя <email@bitbucket.com>"
+    ```
+
+    Несколько коммитов:
+
+    ```bash
+    git rebase -i HEAD~5
+    # для нужных коммитов: pick → edit, затем:
+    git commit --amend --author="Имя <email@bitbucket.com>"
+    git rebase --continue
+    ```
+
+    ## Шпаргалка на каждый день
+
+    **После MR в Bitbucket в `main` / `develop` — обновить GitHub**
+
+    ```bash
+    git fetch origin
+    git checkout main && git pull origin main && git push github main
+    git checkout develop && git pull origin develop && git push github develop
+    ```
+
+    **Эксперимент на GitHub и перенос в Bitbucket (если не используете MR на Bitbucket для этой фичи)**
+
+    ```bash
+    git checkout -b exp/new-thing
+    git commit -am "эксперимент"
+    git push github exp/new-thing
+
+    git checkout main
+    git pull origin main
+    git merge exp/new-thing
+    git push origin main
+    git push github main
+    ```
+
+    **Проверка на стороне Bitbucket**
+
+    ```bash
+    git pull origin main
+    make test
+    ```
+
+    ## Когда такой расклад оправдан
+
+    | Ситуация | Зачем |
+    |----------|--------|
+    | Bitbucket — зона только для проверенного кода | В GitHub можно оставить мусорные ветки и историю, не трогая эталон |
+    | Разные политики доступа | Все могут работать в GitHub, а в Bitbucket — узкий круг или только автоматика |
+    | Частые `rebase` и force-push | Ломать историю удобнее на GitHub, Bitbucket остаётся предсказуемым |
+    | Онбординг | Новички учатся на GitHub без риска для корпоративного репозитория |
+    | Интеграции только с Bitbucket | Не нужно дублировать вебхуки и плагины на второй хостинг |
+    | Аудит | В Bitbucket попадают коммиты с нужным автором и подписью |
+    | MR только в Bitbucket в `main` / `develop` | После вливания — `pull origin` и `push github`, GitHub остаётся копией без второго ревью |
+
+    **Итог:** для **ответственных веток** договоритесь, где лежит каноническая история (в вашем случае — после MR в Bitbucket), и регулярно **зеркалируйте её на GitHub** простым `pull origin` + `push github`. Для **черновиков** удобен GitHub. Между площадками по-прежнему не нужен MR: только осознанные `push`/`pull` на два remote и общие правила «кто главный для какой ветки».
+  </MdxTemplate>
+</MdxLayout>

@@ -125,6 +125,12 @@
       "title": "Как почистить репозиторий: удаляем лишние git-теги",
       "status": "published",
       "publishedAt": "2025-11-18"
+    },
+    "2026-04-20-git-github-bitbucket-one-way-mirror": {
+      "slug": "2026-04-20-git-github-bitbucket-one-way-mirror",
+      "title": "Два репозитория: GitHub и Bitbucket без MR между площадками",
+      "status": "published",
+      "publishedAt": "2026-04-20"
     }
   }
 }
