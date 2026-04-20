@@ -1,21 +1,15 @@
 import path from 'path';
 import fs from 'fs/promises';
+import type { ArticleManifestEntry, PagesManifest } from './pagesManifestShared';
+import { selectPublishedArticlesSorted } from './pagesManifestShared';
 
-/** Статус страницы в манифесте */
-export type ArticleStatus = 'published' | 'unpublished' | 'in_progress' | 'draft';
+export type {
+  ArticleStatus,
+  ArticleManifestEntry,
+  PagesManifest,
+} from './pagesManifestShared';
 
-/** Запись статьи в манифесте */
-export interface ArticleManifestEntry {
-  slug: string;
-  title: string;
-  status: ArticleStatus;
-  publishedAt: string;
-}
-
-/** Манифест страниц — единый источник истины */
-export interface PagesManifest {
-  articles: Record<string, ArticleManifestEntry>;
-}
+export { selectPublishedArticlesSorted } from './pagesManifestShared';
 
 const MANIFEST_PATH = path.join(process.cwd(), 'content', 'pages-manifest.json');
 
@@ -32,14 +26,7 @@ export async function getPagesManifest(): Promise<PagesManifest> {
  */
 export async function getPublishedArticles(): Promise<ArticleManifestEntry[]> {
   const manifest = await getPagesManifest();
-  const entries = Object.values(manifest.articles).filter(
-    (entry) => entry.status === 'published'
-  );
-  return entries.sort((a, b) => {
-    const dateA = a.publishedAt || '';
-    const dateB = b.publishedAt || '';
-    return dateB.localeCompare(dateA);
-  });
+  return selectPublishedArticlesSorted(manifest);
 }
 
 /**

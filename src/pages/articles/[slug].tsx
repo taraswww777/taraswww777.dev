@@ -1,10 +1,6 @@
-import React from 'react';
-import { renderToStaticMarkup } from 'react-dom/server';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import 'src/globals.css';
-import 'src/mdxContent.css';
-import 'src/highlightjs.css';
 import { MDXRemote } from 'next-mdx-remote';
+import { getMdxComponents } from 'src/lib/mdxComponentMap';
 import { getPublishedArticles, getArticleBySlug } from 'src/lib/pagesManifest';
 import { compileMdxFile } from 'src/lib/mdxUtils';
 
@@ -27,15 +23,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   try {
     const mdxSource = await compileMdxFile(slug, article);
-    const { getMdxComponents } = await import('src/lib/mdxUtils');
-    const element = React.createElement(MDXRemote, {
-      ...mdxSource,
-      components: getMdxComponents(),
-    });
-    const html = renderToStaticMarkup(element);
     return {
       props: {
-        html,
+        mdxSource,
         article,
       },
     };
@@ -46,11 +36,21 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 interface ArticlePageProps {
-  html: string;
-  article: Awaited<ReturnType<typeof getArticleBySlug>>;
+  mdxSource: Awaited<ReturnType<typeof compileMdxFile>>;
+  article: NonNullable<Awaited<ReturnType<typeof getArticleBySlug>>>;
 }
 
-export default function ArticlePage({ html, article }: ArticlePageProps) {
+export default function ArticlePage({ mdxSource, article }: ArticlePageProps) {
   if (!article) return null;
-  return <div dangerouslySetInnerHTML={{ __html: html }} />;
+  const components = getMdxComponents();
+  /** Скомпилированный MDX ожидает идентификаторы компонентов в scope при eval, не только в MDXProvider. */
+  const scope = { ...components, ...mdxSource.scope };
+  return (
+    <MDXRemote
+      compiledSource={mdxSource.compiledSource}
+      frontmatter={mdxSource.frontmatter}
+      scope={scope}
+      components={components}
+    />
+  );
 }

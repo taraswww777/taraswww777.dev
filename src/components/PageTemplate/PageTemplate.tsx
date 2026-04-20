@@ -1,9 +1,11 @@
 import { FC, PropsWithChildren } from 'react';
+import { ArticlesNavShell } from '../ArticlesPanel/ArticlesNavShell';
 import { PageHeader } from './components/PageHeader';
 import { PageFooter } from './components/PageFooter';
 
 export const PageTemplate: FC<PropsWithChildren> = ({ children }) => {
   return (
+    <ArticlesNavShell>
     <div className="w-full min-h-svh flex flex-wrap flex-col bg-bgBodyPrimary text-colorTextPrimary">
       <header className="w-full bg-bgBodySecondary sticky top-0 left-0 h-fit overflow-hidden">
         <PageHeader />
@@ -18,5 +20,6 @@ export const PageTemplate: FC<PropsWithChildren> = ({ children }) => {
         <PageFooter />
       </footer>
     </div>
+    </ArticlesNavShell>
   )
 }
