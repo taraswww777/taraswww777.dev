@@ -1,8 +1,8 @@
-[URL_TW7]:<https://taraswww777.dev>
+[URL_TW7]:<https://taraswww777.github.io>
 
-[URL_TW7_ISSUES]:<https://github.com/taraswww777/taraswww777.dev/issues>
+[URL_TW7_ISSUES]:<https://github.com/taraswww777/taraswww777.github.io/issues>
 
-# Исходный код сайта [taraswww777.dev][URL_TW7]
+# Исходный код сайта [taraswww777.github.io][URL_TW7]
 
 ## Режим разработки
 
@@ -17,7 +17,7 @@
 Сайт сделан на подобии [brushed](https://demo.html5xcss3.com/tintin2/alessioatzeni/brushed/index.html)
 
 ## Рекомендуемые инструменты
-- репозиторий - [github.com/taraswww777](https://github.com/taraswww777/taraswww777.dev)
+- репозиторий - [github.com/taraswww777](https://github.com/taraswww777/taraswww777.github.io)
 - Проверка орфографии - [text.ru](https://text.ru/spelling)
 - Оптимизация картинок - [tinypng.com](https://tinypng.com)
 - Анализ производительности - [pagespeed.web.dev](https://pagespeed.web.dev/analysis/https-taraswww777-dev/5v61by0dey?form_factor=mobile)
