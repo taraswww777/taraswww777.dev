@@ -97,6 +97,11 @@ html, body {
   /*}*/
 }
 
+/* Вертикальный скролл страницы только в main (PageTemplate) — без сдвига шапки/подвала */
+main.page-main-scroll {
+  scrollbar-gutter: stable;
+}
+
 /* Firefox */
 * {
   scrollbar-width: thin;

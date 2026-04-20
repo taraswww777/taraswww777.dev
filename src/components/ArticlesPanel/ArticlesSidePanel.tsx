@@ -16,11 +16,21 @@ export function ArticlesSidePanel() {
 
   useEffect(() => {
     if (!open) return;
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
+    const main = document.querySelector<HTMLElement>('main[data-page-main-scroll]');
+    const target = main ?? document.body;
+    const prevOverflow = target.style.overflow;
+    const prevPaddingRight = target.style.paddingRight;
+    const gutter = target === document.body
+      ? window.innerWidth - document.documentElement.clientWidth
+      : target.offsetWidth - target.clientWidth;
+    target.style.overflow = 'hidden';
+    if (gutter > 0) {
+      target.style.paddingRight = `${gutter}px`;
+    }
     closeBtnRef.current?.focus();
     return () => {
-      document.body.style.overflow = prev;
+      target.style.overflow = prevOverflow;
+      target.style.paddingRight = prevPaddingRight;
     };
   }, [open]);
 
